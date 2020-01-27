@@ -17,7 +17,7 @@ class App extends Component {
         },
         name: "",
         artists: [{ name: "" }],
-        duration_ms:0,
+        duration_ms: 0
       },
       is_playing: "Paused",
       progress_ms: 0
@@ -42,22 +42,20 @@ class App extends Component {
     $.ajax({
       url: "https://api.spotify.com/v1/me/player",
       type: "GET",
-      beforeSend: (xhr) => {
+      beforeSend: xhr => {
         xhr.setRequestHeader("Authorization", "Bearer " + token);
       },
-      success: (data) => {
-        console.log("data", data);
+      success: data => {
         this.setState({
           item: data.item,
           is_playing: data.is_playing,
-          progress_ms: data.progress_ms,
+          progress_ms: data.progress_ms
         });
       }
     });
   }
 
   render() {
-
     return (
       <div className="App">
         <header className="App-header">

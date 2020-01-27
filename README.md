@@ -1,32 +1,46 @@
-# React Spotify Player Demo
+# React Spotify Player
 
 ![How to Build A Spotify Player with React in 15 Minutes](https://user-images.githubusercontent.com/4650739/54856371-36ea3680-4cc8-11e9-9aeb-1be2a4d95f39.png)
 
 Have you ever wanted to add Spotify integration into your app or website? Adding personalized music to any application is super easy with the Spotify Developer API.
 
-The Spotify API is easy to use and can be added to any application. 
+The Spotify API is easy to use and can be added to any application.
 
 In this post, I am going to walk through how to access the Spotify Developer API in the browser using React. The goal is to be a starting point for frontend devs who want to get set up with Spotify API as quickly as possible. Together, we will be creating a Spotify Web player that displays information about your currently played music from Spotify. We will also demonstrate how to:
 
-* Register an application with Spotify
-* Authenticate a user and get authorization to access user data
-* Retrieve the data from a Web API endpoint
+- Register an application with Spotify
+- Authenticate a user and get authorization to access user data
+- Retrieve the data from a Web API endpoint
 
-You can read the blog post that accompanies this code, here: [https://medium.com/@joekarlsson/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6](https://medium.com/@joekarlsson/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6)
+You can read my in depth blog post that accompanies this code, here: [https://medium.com/@joekarlsson/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6](https://medium.com/@joekarlsson/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6)
 
 ![Spotify player](https://user-images.githubusercontent.com/4650739/54856251-8aa85000-4cc7-11e9-9bb1-e27812ac2e00.gif)
 
 ## Quickstart
 
-### 1. Clone example repository
+### 1. Register an application with Spotify
+
+Go to the [Dashboard](https://developer.spotify.com/dashboard) page at the Spotify Developer website, and click on ‘My New App.” Be sure to write down the Client ID from your application.
+
+You can read my in depth blog post that accompanies this code, here: [https://medium.com/@joekarlsson/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6](https://medium.com/@joekarlsson/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6)
+
+### 2. Clone example repository
 
 ```sh
 git clone https://github.com/JoeKarlsson/react-spotify-player.git
 cd react-spotify-player
 ```
 
-### 1. Register an application with Spotify
+### 3. Update React Spotify Player Config
 
+Change `src/congig_example.js` to `src/config.js` and paste your Spotify Clioent ID from step 1 in the `clientId` feild.
+
+### 4. Install dependencies & run locally
+
+```sh
+npm install
+npm start # open http://localhost:3000 in your browser
+```
 
 ## Available Scripts
 
@@ -69,7 +83,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 Don't hesitate to create a pull request. Every contribution is appreciated. In development you can start the tests by calling `npm test`. Checkout our [contribution README](https://github.com/JoeKarlsson/movie-script-scraper/blob/master/CONTRIBUTING.md) for more info.
 
-TLDR;
+### Contributing TLDR;
 
 1. Fork it!
 1. Create your feature branch: `git checkout -b my-new-feature`
@@ -95,3 +109,10 @@ TLDR;
 ### License
 
 #### [MIT](./LICENSE)
+
+### Follow Joe Karlsson on Social
+
+- Twitter - [@JoeKarlsson1](https://twitter.com/JoeKarlsson1)
+- GitHub - [@JoeKarlsson](https://github.com/joekarlsson/)
+- LinkedIn - [/in/joekarlsson](https://www.linkedin.com/in/joekarlsson/)
+- Website - [joekarlsson.com](https://www.joekarlsson.com/)
