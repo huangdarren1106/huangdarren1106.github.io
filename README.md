@@ -5,6 +5,7 @@
 Have you ever wanted to add Spotify integration into your app or website? Adding personalized music to any application is super easy with the Spotify Developer API.
 
 The Spotify API is easy to use and can be added to any application. 
+
 In this post, I am going to walk through how to access the Spotify Developer API in the browser using React. The goal is to be a starting point for frontend devs who want to get set up with Spotify API as quickly as possible. Together, we will be creating a Spotify Web player that displays information about your currently played music from Spotify. We will also demonstrate how to:
 
 * Register an application with Spotify
@@ -15,8 +16,17 @@ You can read the blog post that accompanies this code, here: [https://medium.com
 
 ![Spotify player](https://user-images.githubusercontent.com/4650739/54856251-8aa85000-4cc7-11e9-9bb1-e27812ac2e00.gif)
 
+## Quickstart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 1. Clone example repository
+
+```sh
+git clone https://github.com/JoeKarlsson/react-spotify-player.git
+cd react-spotify-player
+```
+
+### 1. Register an application with Spotify
+
 
 ## Available Scripts
 
