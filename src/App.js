@@ -22,8 +22,13 @@ class App extends Component {
       is_playing: "Paused",
       progress_ms: 0
     };
+
     this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
+    this.tick = this.tick.bind(this);
   }
+
+
+
   componentDidMount() {
     // Set token
     let _token = hash.access_token;
@@ -35,7 +40,22 @@ class App extends Component {
       });
       this.getCurrentlyPlaying(_token);
     }
+
+    // set interval for polling every 5 seconds
+    this.interval = setInterval(() => this.tick(), 5000);
   }
+
+  componentWillUnmount() {
+    // clear the interval to save resources
+    clearInterval(this.interval);
+  }
+
+  tick() {
+    if(this.state.token) {
+      this.getCurrentlyPlaying(this.state.token);
+    }
+  }
+
 
   getCurrentlyPlaying(token) {
     // Make a call using the token
@@ -74,7 +94,7 @@ class App extends Component {
             <Player
               item={this.state.item}
               is_playing={this.state.is_playing}
-              progress_ms={this.progress_ms}
+              progress_ms={this.state.progress_ms}
             />
           )}
         </header>
