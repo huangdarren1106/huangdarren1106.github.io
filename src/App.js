@@ -20,7 +20,8 @@ class App extends Component {
         duration_ms: 0
       },
       is_playing: "Paused",
-      progress_ms: 0
+      progress_ms: 0,
+      no_data: false,
     };
 
     this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
@@ -66,10 +67,20 @@ class App extends Component {
         xhr.setRequestHeader("Authorization", "Bearer " + token);
       },
       success: data => {
+        // Checks if the data is not empty
+        if(!data) {
+          this.setState({
+            no_data: true,
+          });
+          return;
+        }
+
         this.setState({
           item: data.item,
           is_playing: data.is_playing,
-          progress_ms: data.progress_ms
+          progress_ms: data.progress_ms,
+          no_data: false /* We need to "reset" the boolean, in case the
+                            user does not give F5 and has opened his Spotify. */
         });
       }
     });
@@ -90,12 +101,17 @@ class App extends Component {
               Login to Spotify
             </a>
           )}
-          {this.state.token && (
+          {this.state.token && !this.state.no_data && (
             <Player
               item={this.state.item}
               is_playing={this.state.is_playing}
               progress_ms={this.state.progress_ms}
             />
+          )}
+          {this.state.no_data && (
+            <p>
+              You need to be playing a song on Spotify, for something to appear here.
+            </p>
           )}
         </header>
       </div>
