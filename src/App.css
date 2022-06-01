@@ -14,7 +14,7 @@
 }
 
 .App-body {
-  background-color: black;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@ body {
 
 
 .btn {
-  background-color: black;
+  background-color: white;
   border-radius: 2em;
   border: 0.2em solid #1ecd97;
   color: #1ecd97;
