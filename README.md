@@ -1,4 +1,4 @@
 ---
-permalink: /src/index.js
+permalink: /public/index.html
 ---
 spotigraph
