@@ -2,6 +2,7 @@
   "name": "react-instafeed",
   "description": "Realtime Spotify Player built with React.",
   "version": "0.1.0",
+  "homepage": "https://huangdarren1106.github.io",
   "author": "Joe Karlsson<joekarlsson1@gmail.com>",
   "license": "MIT",
   "private": true,
@@ -11,7 +12,6 @@
     "axios": "^0.27.2",
     "chart.js": "^3.8.0",
     "cheerio": "^1.0.0-rc.11",
-    "gh-pages": "^4.0.0",
     "graphbrainz": "^9.0.0",
     "graphql": "^16.5.0",
     "jquery": "^3.4.1",
@@ -25,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,6 +39,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/plugin-proposal-export-namespace-from": "^7.17.12"
+    "@babel/plugin-proposal-export-namespace-from": "^7.17.12",
+    "gh-pages": "^4.0.0"
   }
 }
