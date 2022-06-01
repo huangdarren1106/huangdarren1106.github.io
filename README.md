@@ -1,1 +1,1 @@
-spotigraph
+spotigrap
