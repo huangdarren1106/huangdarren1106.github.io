@@ -1,11 +1,25 @@
 .App {
   text-align: center;
+  background-color: black;
+  height: 100%;
+  flex: 1;
+  min-height: 100vh;
+
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
+}
+
+.App-body {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-header {
@@ -23,22 +37,14 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -55,8 +61,9 @@ body {
 
 /** Buttons **/
 
+
 .btn {
-  background-color: transparent;
+  background-color: black;
   border-radius: 2em;
   border: 0.2em solid #1ecd97;
   color: #1ecd97;
@@ -73,7 +80,7 @@ body {
 }
 
 .btn--login {
-  margin: 0 auto;
+  margin-top: 2%;
 }
 
 /** Background **/
