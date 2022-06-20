@@ -16,10 +16,7 @@ export default function App() {
 	const [topArtists, setTopArtists] = useState([]);
 	const getTopTracks = (token) => setTopTracksActivated(true);
 	
-	useEffect(() => {
-		let mToken = hash_access_token;
-		mToken ? setToken(mToken) : void 0;
-	});
+	useEffect(() => hash_access_token ? setToken(hash_access_token) : void 0);
 	
 	return (
 		<div>
