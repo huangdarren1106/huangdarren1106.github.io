@@ -21,10 +21,7 @@ To use Spotify Pie, you need the following:
 - A web browser with JavaScript enabled.
 
 ## Future Updates
-The project creator has plans to release an Apple Music version of Spotify Pie in the near future. Stay tuned for updates on this feature!
-
-## Contributing
-Contributions to Spotify Pie are welcome. If you encounter any issues or have suggestions for improvements, please open an issue on the project's GitHub repository at [github.com/huangdarren1106/spotify-pie](https://github.com/huangdarren1106/spotify-pie/issues).
+I indeed have plans to release an Apple Music version of Spotify Pie in the near future. Stay tuned for updates on this feature!
 
 ## License
 This project is licensed under the [MIT License](LICENSE.txt). Feel free to use, modify, and distribute the code as per the terms of the license.
