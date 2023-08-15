@@ -1,4 +1,4 @@
-# Pie <abandoned>
+# (deprecated) Pie
 
 ## Overview
 The Spotify Pie project aims to provide users with a visually appealing graph representation of their Spotify data. By accessing the project website at [huangdarren1106.github.io](https://huangdarren1106.github.io), users can authenticate using their Spotify account to generate the graph.
