@@ -1,4 +1,4 @@
-# Spotify Pie
+# Pie <abandoned>
 
 ## Overview
 The Spotify Pie project aims to provide users with a visually appealing graph representation of their Spotify data. By accessing the project website at [huangdarren1106.github.io](https://huangdarren1106.github.io), users can authenticate using their Spotify account to generate the graph.
@@ -21,8 +21,7 @@ To use Spotify Pie, you need the following:
 - A web browser with JavaScript enabled.
 
 ## Future Updates
-I am currently working on an Apple Music version of Spotify Pie in the near future. Stay tuned :^)
-
+Currently, I am not maintaining this codebase! I will return to this project in the future :D
 ## License
 This project is licensed under the [MIT License](LICENSE.txt). Feel free to use, modify, and distribute the code as per the terms of the license.
 
