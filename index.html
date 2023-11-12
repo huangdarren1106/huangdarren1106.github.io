@@ -71,7 +71,7 @@
                     if (piChart) {
                         // remove privacy-wrapper
                         const el = document.getElementById('privacy-link');
-                        newElement.parentNode.removeChild(el);
+                        el.parentNode.removeChild(el);
                         clearInterval(timer);
                     }
                 }, 100);
