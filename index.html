@@ -28,12 +28,14 @@
             background-color: white;
             text-align: center;
             margin-bottom: 20px;
+            margin-top: 40px;
             padding-bottom: 20px;
         }
         .privacy-link{
             font-size: 16px;
             color: black;
             margin-top: 20px;
+            margin-bottom: 40px;
         }
     </style>
 </head>
@@ -58,9 +60,22 @@
                 const loginButton = document.getElementsByClassName('btn--loginApp-link')[0];
                 // add a new element after the login button
                 const newElement = document.createElement('div');
-                const content = `<p class="privacy-link">By logging in, you agree to our <a href="/privacy.html">Privacy Notice</a></p>`;
+                newElement.className = 'privacy-wrapper';
+                const content = `<p id="privacy-link">By logging in, you agree to our <a href="/privacy.html">Privacy Notice</a></p>`;
                 newElement.innerHTML = content;
                 loginButton.parentNode.insertBefore(newElement, loginButton.nextSibling);
+
+                // monitor if the new element with class "PiChart" is rendered
+                let timer = setInterval(() => {
+                    const piChart = document.getElementsByClassName('PiChart')[0];
+                    if (piChart) {
+                        // remove privacy-wrapper
+                        const el = document.getElementById('privacy-link');
+                        newElement.parentNode.removeChild(el);
+                        clearInterval(timer);
+                    }
+                }, 100);
+
             }
         });
 
