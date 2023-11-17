@@ -38,9 +38,10 @@
             margin-top: 20px;
             margin-bottom: 40px;
         }
-        .how-to-link{
+        #how-to-link{
             font-size: 24px;
             margin-top: 20px;
+            font-weight: bolder;
             margin-bottom: 40px;
             display: block;
             text-align: center;
@@ -69,6 +70,17 @@
                 newElement.innerHTML = content;
                 loginButton.parentNode.insertBefore(newElement, loginButton.nextSibling);
 
+                // create a new a element
+                const aElement = document.createElement('a');
+                aElement.href = 'https://schoolholidays.com.au/blog/how-to-get-spotify-pie';
+                aElement.target = '_blank';
+                aElement.rel = 'noopener noreferrer';
+                aElement.className = 'how-to-link';
+                aElement.id = 'how-to-link';
+                aElement.innerHTML = 'How To Get Your Spotify Pie Chart?';
+                // insert the new a element after newElement
+                newElement.parentNode.insertBefore(aElement, newElement.nextSibling);
+
                 // monitor if the new element with class "PiChart" is rendered
                 let timer = setInterval(() => {
                     const piChart = document.getElementsByClassName('PiChart')[0];
@@ -76,6 +88,8 @@
                         // remove privacy-wrapper
                         const el = document.getElementById('privacy-link');
                         el.parentNode.removeChild(el);
+                        const el2 = document.getElementById('how-to-link');
+                        el2.parentNode.removeChild(el2);
                         clearInterval(timer);
                     }
                 }, 100);
