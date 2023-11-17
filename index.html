@@ -37,6 +37,13 @@
             margin-top: 20px;
             margin-bottom: 40px;
         }
+        .how-to-link{
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            display: block;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -52,11 +59,7 @@
         const observer = new MutationObserver((mutations, obs) => {
             const element = document.getElementById('root');
             if (element && element.childElementCount > 0) {
-                // React app is likely fully rendered
                 obs.disconnect(); // Stop observing
-                // Your code here
-                console.log('React app is fully rendered');
-                // find element with class name "btn--loginApp-link"
                 const loginButton = document.getElementsByClassName('btn--loginApp-link')[0];
                 // add a new element after the login button
                 const newElement = document.createElement('div');
