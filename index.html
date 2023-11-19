@@ -38,7 +38,7 @@
             margin-top: 20px;
             margin-bottom: 40px;
         }
-        #how-to-link{
+        .links{
             font-size: 24px;
             margin-top: 20px;
             font-weight: bolder;
@@ -71,14 +71,26 @@
                 loginButton.parentNode.insertBefore(newElement, loginButton.nextSibling);
 
                 // create a new a element
+                const subElement = document.createElement('a');
+                subElement.href = '/subscribe.html';
+                subElement.target = '_blank';
+                subElement.className = 'links';
+                subElement.id = 'subscribe-link';
+                subElement.innerHTML = '🎶🥧 New Spotify Pie Chart Is Launching soon';
+                // insert the new a element after newElement
+                newElement.parentNode.insertBefore(subElement, newElement.nextSibling);
+
+                // create a new a element
                 const aElement = document.createElement('a');
                 aElement.href = 'https://schoolholidays.com.au/blog/how-to-get-spotify-pie';
                 aElement.target = '_blank';
-                aElement.className = 'how-to-link';
+                aElement.className = 'links';
                 aElement.id = 'how-to-link';
                 aElement.innerHTML = 'How To Get Your Spotify Pie Chart?';
                 // insert the new a element after newElement
                 newElement.parentNode.insertBefore(aElement, newElement.nextSibling);
+
+
 
                 // monitor if the new element with class "PiChart" is rendered
                 let timer = setInterval(() => {
@@ -89,6 +101,8 @@
                         el.parentNode.removeChild(el);
                         const el2 = document.getElementById('how-to-link');
                         el2.parentNode.removeChild(el2);
+                        const el3 = document.getElementById('subscribe-link');
+                        el3.parentNode.removeChild(el3);
                         clearInterval(timer);
                     }
                 }, 100);
