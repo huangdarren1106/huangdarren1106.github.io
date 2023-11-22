@@ -46,6 +46,8 @@
             margin-bottom: 40px;
             display: block;
             text-align: center;
+            margin-left: 10px;
+            margin-right: 10px;
         }
     </style>
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
@@ -101,6 +103,15 @@
                 newElement.innerHTML = content;
                 loginButton.parentNode.insertBefore(newElement, loginButton.nextSibling);
 
+                const newsElement = document.createElement('a');
+                newsElement.href = '/news/spotify-google-secret-deal';
+                newsElement.target = '_blank';
+                newsElement.className = 'links';
+                newsElement.id = 'spotify-google-secret-deal';
+                newsElement.innerHTML = '🚀Spotify\'s Secret Handshake with Google Skips Pesky Android Fees';
+                // insert the new a element after newElement
+                newElement.parentNode.insertBefore(newsElement, newElement.nextSibling);
+
                 // create a new a element
                 const subElement = document.createElement('a');
                 subElement.href = '/subscribe';
@@ -122,6 +133,8 @@
 
 
 
+
+
                 // monitor if the new element with class "PiChart" is rendered
                 let timer = setInterval(() => {
                     const piChart = document.getElementsByClassName('PiChart')[0];
@@ -133,6 +146,8 @@
                         el2.parentNode.removeChild(el2);
                         const el3 = document.getElementById('subscribe-link');
                         el3.parentNode.removeChild(el3);
+                        const el4 = document.getElementById('how-to-link');
+                        el4.parentNode.removeChild(el4);
                         clearInterval(timer);
                     }
                 }, 100);
