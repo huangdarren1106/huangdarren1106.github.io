@@ -40,7 +40,7 @@
             margin-bottom: 40px;
         }
         .links{
-            font-size: 24px;
+            font-size: 22px;
             margin-top: 20px;
             font-weight: bolder;
             margin-bottom: 40px;
@@ -104,10 +104,11 @@
                 loginButton.parentNode.insertBefore(newElement, loginButton.nextSibling);
 
                 const newsElement = document.createElement('a');
-                newsElement.href = '/news/spotify-google-secret-deal';
+                newsElement.href = 'https://schoolholidays.com.au/blog/christmas-gift-ideas-for-music-lovers';
+                newsElement.target = '_blank';
                 newsElement.className = 'links';
-                newsElement.id = 'spotify-google-secret-deal';
-                newsElement.innerHTML = '🔥Spotify\'s Secret Handshake with Google';
+                newsElement.id = 'christmas-gift-ideas-for-music-lovers';
+                newsElement.innerHTML = '🎁 10 Amazing Christmas Gift Ideas For Music Lovers In 2023';
                 // insert the new a element after newElement
                 newElement.parentNode.insertBefore(newsElement, newElement.nextSibling);
 
@@ -145,7 +146,7 @@
                         el2.parentNode.removeChild(el2);
                         const el3 = document.getElementById('subscribe-link');
                         el3.parentNode.removeChild(el3);
-                        const el4 = document.getElementById('spotify-google-secret-deal');
+                        const el4 = document.getElementById('christmas-gift-ideas-for-music-lovers');
                         el4.parentNode.removeChild(el4);
                         clearInterval(timer);
                     }
