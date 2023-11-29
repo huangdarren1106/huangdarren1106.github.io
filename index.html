@@ -114,14 +114,14 @@
                 newElement.innerHTML = content;
                 loginButton.parentNode.insertBefore(newElement, loginButton.nextSibling);
 
-                const newsElement = document.createElement('a');
-                newsElement.href = 'https://schoolholidays.com.au/blog/christmas-gift-ideas-for-music-lovers';
-                newsElement.target = '_blank';
-                newsElement.className = 'links';
-                newsElement.id = 'christmas-gift-ideas-for-music-lovers';
-                newsElement.innerHTML = 'Sound Of Savings: Best Gifts For Music Lovers Under $35! 🎁🎄';
-                // insert the new a element after newElement
-                newElement.parentNode.insertBefore(newsElement, newElement.nextSibling);
+                // const newsElement = document.createElement('a');
+                // newsElement.href = 'https://schoolholidays.com.au/blog/christmas-gift-ideas-for-music-lovers';
+                // newsElement.target = '_blank';
+                // newsElement.className = 'links';
+                // newsElement.id = 'christmas-gift-ideas-for-music-lovers';
+                // newsElement.innerHTML = 'Sound Of Savings: Best Gifts For Music Lovers Under $35! 🎁🎄';
+                // // insert the new a element after newElement
+                // newElement.parentNode.insertBefore(newsElement, newElement.nextSibling);
 
                 // create a new a element
                 const subElement = document.createElement('a');
@@ -133,14 +133,14 @@
                 newElement.parentNode.insertBefore(subElement, newElement.nextSibling);
 
                 // create a new a element
-                const aElement = document.createElement('a');
-                aElement.href = 'https://schoolholidays.com.au/blog/how-to-get-spotify-pie';
-                aElement.target = '_blank';
-                aElement.className = 'links';
-                aElement.id = 'how-to-link';
-                aElement.innerHTML = 'How To Get Your Spotify Pie Chart?';
-                // insert the new a element after newElement
-                newElement.parentNode.insertBefore(aElement, newElement.nextSibling);
+                // const aElement = document.createElement('a');
+                // aElement.href = 'https://schoolholidays.com.au/blog/how-to-get-spotify-pie';
+                // aElement.target = '_blank';
+                // aElement.className = 'links';
+                // aElement.id = 'how-to-link';
+                // aElement.innerHTML = 'How To Get Your Spotify Pie Chart?';
+                // // insert the new a element after newElement
+                // newElement.parentNode.insertBefore(aElement, newElement.nextSibling);
 
 
 
@@ -152,13 +152,13 @@
                     if (piChart) {
                         // remove privacy-wrapper
                         const el = document.getElementById('privacy-link');
-                        el.parentNode.removeChild(el);
-                        const el2 = document.getElementById('how-to-link');
+                        // el.parentNode.removeChild(el);
+                        // const el2 = document.getElementById('how-to-link');
                         el2.parentNode.removeChild(el2);
                         const el3 = document.getElementById('subscribe-link');
                         el3.parentNode.removeChild(el3);
-                        const el4 = document.getElementById('christmas-gift-ideas-for-music-lovers');
-                        el4.parentNode.removeChild(el4);
+                        // const el4 = document.getElementById('christmas-gift-ideas-for-music-lovers');
+                        // el4.parentNode.removeChild(el4);
                         clearInterval(timer);
                     }
                 }, 100);
