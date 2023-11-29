@@ -133,14 +133,14 @@
                 newElement.parentNode.insertBefore(subElement, newElement.nextSibling);
 
                 // create a new a element
-                // const aElement = document.createElement('a');
-                // aElement.href = 'https://schoolholidays.com.au/blog/how-to-get-spotify-pie';
-                // aElement.target = '_blank';
-                // aElement.className = 'links';
-                // aElement.id = 'how-to-link';
-                // aElement.innerHTML = 'How To Get Your Spotify Pie Chart?';
-                // // insert the new a element after newElement
-                // newElement.parentNode.insertBefore(aElement, newElement.nextSibling);
+                const aElement = document.createElement('a');
+                aElement.href = 'https://schoolholidays.com.au/blog/how-to-get-spotify-pie';
+                aElement.target = '_blank';
+                aElement.className = 'links';
+                aElement.id = 'how-to-link';
+                aElement.innerHTML = 'How To Get Your Spotify Pie Chart?';
+                // insert the new a element after newElement
+                newElement.parentNode.insertBefore(aElement, newElement.nextSibling);
 
 
 
@@ -152,8 +152,8 @@
                     if (piChart) {
                         // remove privacy-wrapper
                         const el = document.getElementById('privacy-link');
-                        // el.parentNode.removeChild(el);
-                        // const el2 = document.getElementById('how-to-link');
+                        el.parentNode.removeChild(el);
+                        const el2 = document.getElementById('how-to-link');
                         el2.parentNode.removeChild(el2);
                         const el3 = document.getElementById('subscribe-link');
                         el3.parentNode.removeChild(el3);
