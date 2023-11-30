@@ -32,6 +32,9 @@
             margin-top: 40px;
             padding-bottom: 20px;
             font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         #privacy-link{
             font-size: 16px;
@@ -114,23 +117,6 @@
                 newElement.innerHTML = content;
                 loginButton.parentNode.insertBefore(newElement, loginButton.nextSibling);
 
-                // const newsElement = document.createElement('a');
-                // newsElement.href = 'https://schoolholidays.com.au/blog/christmas-gift-ideas-for-music-lovers';
-                // newsElement.target = '_blank';
-                // newsElement.className = 'links';
-                // newsElement.id = 'christmas-gift-ideas-for-music-lovers';
-                // newsElement.innerHTML = 'Sound Of Savings: Best Gifts For Music Lovers Under $35! 🎁🎄';
-                // // insert the new a element after newElement
-                // newElement.parentNode.insertBefore(newsElement, newElement.nextSibling);
-
-                // create a new a element
-                const subElement = document.createElement('a');
-                subElement.href = '/subscribe';
-                subElement.className = 'links';
-                subElement.id = 'subscribe-link';
-                subElement.innerHTML = '🎶🥧 New Spotify Pie Chart Is Launching soon';
-                // insert the new a element after newElement
-                newElement.parentNode.insertBefore(subElement, newElement.nextSibling);
 
                 // create a new a element
                 const aElement = document.createElement('a');
@@ -141,6 +127,17 @@
                 aElement.innerHTML = 'How To Get Your Spotify Pie Chart?';
                 // insert the new a element after newElement
                 newElement.parentNode.insertBefore(aElement, newElement.nextSibling);
+
+                // create a new a element
+                const subElement = document.createElement('a');
+                subElement.href = '/subscribe';
+                subElement.className = 'links';
+                subElement.id = 'subscribe-link';
+                subElement.innerHTML = '🎶🥧 New Spotify Pie Chart Is Launching soon';
+                // insert the new a element after newElement
+                newElement.parentNode.insertBefore(subElement, newElement.nextSibling);
+
+
 
 
 
@@ -157,8 +154,6 @@
                         el2.parentNode.removeChild(el2);
                         const el3 = document.getElementById('subscribe-link');
                         el3.parentNode.removeChild(el3);
-                        // const el4 = document.getElementById('christmas-gift-ideas-for-music-lovers');
-                        // el4.parentNode.removeChild(el4);
                         clearInterval(timer);
                     }
                 }, 100);
