@@ -50,6 +50,21 @@
             margin-right: auto;
             color: black;
         }
+        .section h2{
+            font-size: 24px;
+            font-weight: bolder;
+            margin-bottom: 20px;
+        }
+
+        .section p{
+            margin-bottom: 20px;
+        }
+
+        .section img{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
         #privacy-link{
             font-size: 16px;
             color: black;
@@ -70,6 +85,21 @@
             margin: 0 auto 20px;
             max-width: 500px;
             border-bottom: 1px solid #e6e6e6;
+        }
+        .stats-button{
+            border: 1px solid green;
+            border-radius: 6px;
+            background-color: rgb(233, 248, 233);
+            width: 100%;
+            max-width: 420px;
+            padding: 10px 20px;
+            text-align: center;
+            display: block;
+        }
+        .stats-button-wrapper{
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
         }
     </style>
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
@@ -109,10 +139,19 @@
     </div>
     <div id="root"></div>
     <section class="section">
-        <h2>Spotify Stats 2023</h2>
+        <h2>Your Spotify Stats: Top Songs - Top Artists - Top Genres</h2>
         <p>
-            If you are looking for Spotify Stats 2023, please visit <a href="/spotify-stats">Spotify Stats</a>.
+            If you are looking for Spotify Stats in a simple way, please visit <a href="/spotify-stats">Spotify Stats</a>.
         </p>
+        <p>You can check your top Songs, top Artists and Top genres.</p>
+        <div class="stats-button-wrapper">
+            <a href="/spotify-stats" class="stats-button">
+                Look at Your Spotify Stats
+            </a>
+        </div>
+
+        <img src="top-tracks.jpg" alt="Top Songs">
+        <img src="top-genres.jpg" alt="Top Genres">
     </section>
     <div class="footer">
         <a href="/subscribe">New Spotify Pie Chart</a>
@@ -176,6 +215,9 @@
                         el2.parentNode.removeChild(el2);
                         const el3 = document.getElementById('subscribe-link');
                         el3.parentNode.removeChild(el3);
+                        // remove .section
+                        const section = document.getElementsByClassName('section')[0];
+                        section.parentNode.removeChild(section);
                         clearInterval(timer);
                     }
                 }, 100);
