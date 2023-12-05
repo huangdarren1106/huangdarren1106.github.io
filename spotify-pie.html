@@ -60,6 +60,7 @@
       text-align: center;
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body x-data="piechart">
@@ -90,17 +91,17 @@
         <a href="/" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">Login</a>
     </div>
 
-    <div>
+    <div id="pie-chart" class="p-2">
       <div class="flex justify-center">
         <div id="chart"></div>
       </div>
-      <div x-show="top_artists" class="mb-16">
+      <div x-show="top_artists" class="">
         <table class="mt-2 max-w-3xl w-full text-gray-700">
           <tbody class="gap-1 flex flex-col">
             <template x-for="(artist, i) in top_artists.items">
               <tr class="my-0 flex border-0 w-full items-center justify-center" x-key="artist.name">
                 <td class="my-0 shrink-0 p-0 flex items-center">
-                  <img class="my-0 rounded" :style="{width:`${(11 - i)*3 + 10}px`, height:`${(11 - i)*3 + 10}px` }" :src="artist.images[0].url" :alt="artist.name">
+                  <img cross-origin="anonymous" class="my-0 block max-w-full object-cover rounded" :style="{width:`${(11 - i)*3 + 10}px`, height:`${(11 - i)*3 + 10}px` }" :src="artist.images[0].url" :alt="artist.name">
                 </td>
                 <td
                   class="whitespace-nowrap font-bold shrink-0 my-0 py-0 text-left max-w-[200px] sm:max-w-none leading-none flex items-center">
@@ -111,6 +112,10 @@
           </tbody>
         </table>
       </div>
+    </div>
+    <div x-show="top_artists" class="flex justify-center mb-4">
+      <button class="px-6 py-3 bg-purple-600 text-white text-xl rounded-full font-bold"
+       @click="capture">Download</button>
     </div>
 
     <div x-show="token" class="max-w-sm mx-auto text-center w-full border bg-purple-50 rounded-lg p-2 border-purple-600 mb-4 flex flex-col items-center">
@@ -150,6 +155,24 @@
           time_range: 'short_term',
           top_artists: [],
           genresChartData: [],
+          capture(){
+            html2canvas(document.querySelector("#pie-chart",{
+              backgroundColor: "none",
+              useCORS: true,
+              logging: true,
+              letterRendering: 1,
+              allowTaint : false
+            })).then(canvas => {
+              var link = document.createElement('a');
+              link.download = 'spotify-pie.jpg';
+              link.href = canvas.toDataURL('image/jpg')
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+
+            });
+          
+          },
           setActiveTab(tab) {
             // fetch data depends on activeTab
             if (tab === 'top_tracks') {
