@@ -100,9 +100,6 @@
           <tbody class="gap-1 flex flex-col">
             <template x-for="(artist, i) in top_artists.items">
               <tr class="my-0 flex border-0 w-full items-center justify-center" x-key="artist.name">
-                <td class="my-0 shrink-0 p-0 flex items-center">
-                  <img cross-origin="anonymous" class="my-0 block max-w-full object-cover rounded" :style="{width:`${(11 - i)*3 + 10}px`, height:`${(11 - i)*3 + 10}px` }" :src="artist.images[0].url" :alt="artist.name">
-                </td>
                 <td
                   class="whitespace-nowrap font-bold shrink-0 my-0 py-0 text-left max-w-[200px] sm:max-w-none leading-none flex items-center">
                   <p :style="{fontSize:`${(11 - i)*2 + 8}px`}" x-text="artist.name" class="my-0"></p>
@@ -164,8 +161,8 @@
               allowTaint : false
             })).then(canvas => {
               var link = document.createElement('a');
-              link.download = 'spotify-pie.jpg';
-              link.href = canvas.toDataURL('image/jpg')
+              link.download = 'spotify-pie.png';
+              link.href = canvas.toDataURL('image/png')
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
