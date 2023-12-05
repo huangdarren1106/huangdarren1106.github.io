@@ -8,10 +8,11 @@
     <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
     <meta name="theme-color" content="#000000" />
-    <link rel="manifest" href="/manifest.json" />
     <title>Your Spotify Pie Chart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <meta name="description" content="Bake your unique Genre Pie with Spotify Pie Chart Generator! Discover and share your Top 20 Artists each month! ᯤ🎧✮s" >
-    <link href="/static/css/main.2007ba96.chunk.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJTEL5NFDM"></script>
     <script>
@@ -21,87 +22,6 @@
 
         gtag('config', 'G-DJTEL5NFDM');
     </script>
-    <style>
-        body{
-            background-color: white;
-        }
-        .footer{
-            background-color: white;
-            text-align: center;
-            margin-top: 40px;
-            padding-bottom: 100px;
-            font-size: 16px;
-            line-height: 1.5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-top: 1px solid #e6e6e6;
-            padding-top: 20px;
-        }
-        .section{
-            text-align: left;
-            margin-top: 40px;
-            padding-left: 20px;
-            padding-right: 20px;
-            font-size: 16px;
-            line-height: 1.5;
-            max-width: 749px;
-            margin-left: auto;
-            margin-right: auto;
-            color: black;
-        }
-        .section h2{
-            font-size: 24px;
-            font-weight: bolder;
-            margin-bottom: 20px;
-        }
-
-        .section p{
-            margin-bottom: 20px;
-        }
-
-        .section img{
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        #privacy-link{
-            font-size: 16px;
-            color: black;
-            margin-top: 20px;
-            margin-bottom: 40px;
-        }
-        .links{
-            font-size: 22px;
-            margin-top: 20px;
-            font-weight: bolder;
-            margin-bottom: 40px;
-            display: block;
-            text-align: center;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-        .mighty{
-            margin: 0 auto 20px;
-            max-width: 500px;
-            border-bottom: 1px solid #e6e6e6;
-        }
-        .stats-button{
-            border: 1px solid green;
-            border-radius: 6px;
-            background-color: rgb(233, 248, 233);
-            width: 100%;
-            max-width: 420px;
-            padding: 10px 20px;
-            text-align: center;
-            display: block;
-        }
-        .stats-button-wrapper{
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-        }
-    </style>
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
     <script>
         window.googletag = window.googletag || {};
@@ -124,7 +44,6 @@
         });
     </script>
     <script async src="https://stpd.cloud/saas/6406"></script>
-
     <style>
         .ads {
             text-align: center;
@@ -132,106 +51,119 @@
     </style>
 </head>
 
-<body><noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class="mighty">
-        <a href="https://amzn.to/40ZwdeT" target="_blank" title="Mighty Spotify Music Player" rel="sponsored">
-            <img src="/mighty.jpg" alt="Mighty Spotify Music Player" width="100%" height="100%"></a>
-    </div>
-    <div id="root"></div>
-    <section class="section">
-        <h2>Your Spotify Stats: Top Songs - Top Artists - Top Genres</h2>
-        <p>
-            If you are looking for Spotify Stats in a simple way, please visit Spotify Stats.
-        </p>
-        <p>You can check your Top Songs, Top Artists and Top Genres.</p>
-        <div class="stats-button-wrapper">
-            <a href="/spotify-stats" class="stats-button">
-                Look at Your Spotify Stats
-            </a>
+<body>
+    <header class="max-w-3xl mx-auto">
+        <div class="flex flex-col sm:flex-row justify-between items-center py-4 px-4 sm:px-0 border-b">
+          <a href="/" class="sm:text-2xl font-bold mb-4 sm:mb-0 whitespace-nowrap">Spotify Pie</a>
+          <div class="flex justify-center sm:justify-end w-full gap-4 flex-wrap prose">
+            <a class="" href="/spotify-stats">Spotify Stats</a>
+            <a class="" href="/playlist-name-generator">Playlist Name Generator</a>
+          </div>
+        </div>
+    </header>
+
+    <div class="mx-auto max-w-3xl prose pt-8 px-4 sm:px-0" x-data="piechart">
+        <h1 class="text-center mb-2">Spotify Pie</h1>
+
+        <h2 class="text-center my-4">Bake Your Monthly Genre Pie</h2>
+
+        <div class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600 mb-4" x-show="!token">
+            <p class="text-lg text-green-800 font-semibold">
+                Login with Spotify <br>to see your Spotify Pie
+            </p>
+            <button @click="openSpotifyAuthUrl" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">Login
+                with Spotify</button>
+            <div class="max-w-sm mx-auto">
+                <p class="text-sm">By logging in, you agree:</p>
+                <ul class="text-left">
+                    <li class="text-sm">to our <a class="text-blue-600" href="/privacy">Privacy Notice</a></li>
+                    <li class="text-sm">to receive emails about new service features (no spam)</li>
+                </ul>
+            </div>
+        </div>
+        <div x-show="token" class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600 mb-4 flex flex-col items-center">
+            <p class="text-lg text-green-800 font-semibold mb-2">
+                Your Spotify Pie is ready!
+            </p>
+            <img class="w-24 my-4 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
+            <a href="/spotify-pie" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">See Your Spotify Pie</a>
         </div>
 
-        <img src="top-tracks.jpg" alt="Top Songs">
-        <img src="top-genres.jpg" alt="Top Genres">
-    </section>
-    <div class="footer">
+        <section class="prose max-w-3xl">
+
+            <h2 class="relative bg-blue-50 border  border-blue-600 p-4 rounded-lg w-full text-center mb-4">
+                <a class="text-blue-600 before:absolute before:inset-0" href="/subscribe">🎶🥧 <strong>New Spotify Pie Chart</strong><br> is launching soon</a>
+            </h2>
+
+            <h2 class="relative bg-blue-50 border border-blue-600 p-4 rounded-lg w-full text-center">
+                <a class="text-blue-600 before:absolute before:inset-0" href="https://schoolholidays.com.au/blog/how-to-get-spotify-pie">How To Get Your Spotify Pie Chart?</a>
+            </h2>
+
+            <a href="https://schoolholidays.com.au/blog/is-listening-to-music-a-hobby" rel="nofollow">
+                <img class="w-full" src="listening.png" alt="Music as a Hobby">
+            </a>
+
+            <h2>Your Spotify Stats: Top Songs - Top Artists - Top Genres</h2>
+            <p>
+                If you are looking for Spotify Stats in a simple way, please visit Spotify Stats.
+            </p>
+            <p>You can check your Top Songs, Top Artists and Top Genres.</p>
+            <div class="relative bg-blue-50 border border-blue-600 p-4 rounded-lg w-full text-center">
+                <a href="/spotify-stats" class="text-blue-600 before:absolute before:inset-0">
+                    Look at Your <strong>Spotify Stats</strong>
+                </a>
+            </div>
+    
+            <img src="top-tracks.jpg" alt="Top Songs">
+            <img src="top-genres.jpg" alt="Top Genres">
+        </section>
+        
+    </div>
+
+    <div class="flex flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
         <a href="/subscribe">New Spotify Pie Chart</a>
-        <a href="/spotify-stats">Spotify Stats 2023</a>
+        <a href="/spotify-stats">Your Spotify Stats</a>
         <a href="/spotify-premium-mod-apk">Spotify Premium APK Alternative 2023</a>
         <a href="/trackify">Trackify - Your Spotify Listening Statistics</a>
         <a href="/spotify-wrapped">Spotify Wrapped 2023</a>
         <a href="/playlist-name-generator">Playlist Name Generator</a>
         <a href="/privacy">Privacy Notice</a>
     </div>
-    <script>!function (e) { function t(t) { for (var n, a, i = t[0], c = t[1], f = t[2], s = 0, p = []; s < i.length; s++)a = i[s], Object.prototype.hasOwnProperty.call(o, a) && o[a] && p.push(o[a][0]), o[a] = 0; for (n in c) Object.prototype.hasOwnProperty.call(c, n) && (e[n] = c[n]); for (l && l(t); p.length;)p.shift()(); return u.push.apply(u, f || []), r() } function r() { for (var e, t = 0; t < u.length; t++) { for (var r = u[t], n = !0, i = 1; i < r.length; i++) { var c = r[i]; 0 !== o[c] && (n = !1) } n && (u.splice(t--, 1), e = a(a.s = r[0])) } return e } var n = {}, o = { 2: 0 }, u = []; function a(t) { if (n[t]) return n[t].exports; var r = n[t] = { i: t, l: !1, exports: {} }; return e[t].call(r.exports, r, r.exports, a), r.l = !0, r.exports } a.e = function (e) { var t = [], r = o[e]; if (0 !== r) if (r) t.push(r[2]); else { var n = new Promise((function (t, n) { r = o[e] = [t, n] })); t.push(r[2] = n); var u, i = document.createElement("script"); i.charset = "utf-8", i.timeout = 120, a.nc && i.setAttribute("nonce", a.nc), i.src = function (e) { return a.p + "static/js/" + ({}[e] || e) + "." + { 0: "55f9be10" }[e] + ".chunk.js" }(e); var c = new Error; u = function (t) { i.onerror = i.onload = null, clearTimeout(f); var r = o[e]; if (0 !== r) { if (r) { var n = t && ("load" === t.type ? "missing" : t.type), u = t && t.target && t.target.src; c.message = "Loading chunk " + e + " failed.\n(" + n + ": " + u + ")", c.name = "ChunkLoadError", c.type = n, c.request = u, r[1](c) } o[e] = void 0 } }; var f = setTimeout((function () { u({ type: "timeout", target: i }) }), 12e4); i.onerror = i.onload = u, document.head.appendChild(i) } return Promise.all(t) }, a.m = e, a.c = n, a.d = function (e, t, r) { a.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: r }) }, a.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, a.t = function (e, t) { if (1 & t && (e = a(e)), 8 & t) return e; if (4 & t && "object" == typeof e && e && e.__esModule) return e; var r = Object.create(null); if (a.r(r), Object.defineProperty(r, "default", { enumerable: !0, value: e }), 2 & t && "string" != typeof e) for (var n in e) a.d(r, n, function (t) { return e[t] }.bind(null, n)); return r }, a.n = function (e) { var t = e && e.__esModule ? function () { return e.default } : function () { return e }; return a.d(t, "a", t), t }, a.o = function (e, t) { return Object.prototype.hasOwnProperty.call(e, t) }, a.p = "/", a.oe = function (e) { throw console.error(e), e }; var i = this["webpackJsonpreact-instafeed"] = this["webpackJsonpreact-instafeed"] || [], c = i.push.bind(i); i.push = t, i = i.slice(); for (var f = 0; f < i.length; f++)t(i[f]); var l = c; r() }([])</script>
-    <script src="/static/js/3.27501814.chunk.js"></script>
-    <script src="/static/js/main.8a592d63.chunk.js"></script>
-    <script>
-        const observer = new MutationObserver((mutations, obs) => {
-            const element = document.getElementById('root');
-            if (element && element.childElementCount > 0) {
-                obs.disconnect(); // Stop observing
-                const loginButton = document.getElementsByClassName('btn--loginApp-link')[0];
-                // add a new element after the login button
-                const newElement = document.createElement('div');
-                newElement.className = 'privacy-wrapper';
-                const content = `<p id="privacy-link">By logging in, you agree to our <a href="/privacy">Privacy Notice</a></p>`;
-                newElement.innerHTML = content;
-                loginButton.parentNode.insertBefore(newElement, loginButton.nextSibling);
-
-
-                // create a new a element
-                const aElement = document.createElement('a');
-                aElement.href = 'https://schoolholidays.com.au/blog/how-to-get-spotify-pie';
-                aElement.target = '_blank';
-                aElement.className = 'links';
-                aElement.id = 'how-to-link';
-                aElement.innerHTML = 'How To Get Your Spotify Pie Chart?';
-                // insert the new a element after newElement
-                newElement.parentNode.insertBefore(aElement, newElement.nextSibling);
-
-                // create a new a element
-                const subElement = document.createElement('a');
-                subElement.href = '/subscribe';
-                subElement.className = 'links';
-                subElement.id = 'subscribe-link';
-                subElement.innerHTML = '🎶🥧 New Spotify Pie Chart Is Launching soon';
-                // insert the new a element after newElement
-                newElement.parentNode.insertBefore(subElement, newElement.nextSibling);
-
-
-
-
-
-
-
-                // monitor if the new element with class "PiChart" is rendered
-                let timer = setInterval(() => {
-                    const piChart = document.getElementsByClassName('PiChart')[0];
-                    if (piChart) {
-                        // remove privacy-wrapper
-                        const el = document.getElementById('privacy-link');
-                        el.parentNode.removeChild(el);
-                        const el2 = document.getElementById('how-to-link');
-                        el2.parentNode.removeChild(el2);
-                        const el3 = document.getElementById('subscribe-link');
-                        el3.parentNode.removeChild(el3);
-                        // remove .section
-                        const section = document.getElementsByClassName('section')[0];
-                        section.parentNode.removeChild(section);
-                        clearInterval(timer);
-                    }
-                }, 100);
-
-            }
-        });
-
-        observer.observe(document, { childList: true, subtree: true });
-    </script>
     <div id="huangdarren1106_github_io_anchor_ad_responsive" class="ads">
         <script>
           googletag.cmd.push(function() { googletag.display('huangdarren1106_github_io_anchor_ad_responsive'); });
         </script>
     </div>
+    <script>
+        document.addEventListener('alpine:init', () => {
+          Alpine.data('piechart', () => ({
+            token: null,
+            loginWindow: null,
+
+  
+            spotifyAuthUrl: 'https://musicpiechart.com/auth/login?embed=true',
+            openSpotifyAuthUrl() {
+              window.open(this.spotifyAuthUrl, '_blank', 'height=600,width=800');
+            },
+            onMessage(event) {
+              if (event.data.app === 'musicpiechart') {
+                this.token = event.data.token;
+                localStorage.setItem('token', event.data.token);
+                this.getTopTracks(this.time_range);
+              }
+            },
+            reset() {
+              this.token = null;
+              localStorage.removeItem('token');
+            },
+            async init() {
+              window.addEventListener('message', this.onMessage.bind(this));
+              // read token from local storage
+              this.token = localStorage.getItem('token');
+            }
+          }));
+        });
+      </script>
 </body>
 
 </html>

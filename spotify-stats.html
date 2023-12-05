@@ -73,7 +73,7 @@
   </style>
 </head>
 
-<body x-data="musicpiechart">
+<body x-data="piechart">
   <header class="max-w-3xl mx-auto">
     <div class="flex flex-col sm:flex-row justify-between items-center py-4 px-4 sm:px-0 border-b">
       <a href="/" class="sm:text-2xl font-bold mb-4 sm:mb-0 whitespace-nowrap">Spotify Pie</a>
@@ -89,7 +89,7 @@
 
     <h1>My Spotify Stats - Top Artists - Top Songs - Top Genres</h1>
 
-    <img class="w-full rounded" src="spotify-stats.jpg" alt="Spotify Stats 2023">
+    <img class="w-full rounded" src="your-spotify-stats.jpg" alt="Spotify Stats">
 
     <div class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600" x-show="!token">
       <p class="text-lg text-green-800 font-semibold">
@@ -299,11 +299,9 @@
 
     <script>
       document.addEventListener('alpine:init', () => {
-        Alpine.data('musicpiechart', () => ({
+        Alpine.data('piechart', () => ({
           show: false,
           token: null,
-          refresh_token: null,
-          loginWindow: null,
           time_range: 'short_term',
           top_tracks: [],
           top_artists: [],
@@ -334,9 +332,7 @@
           onMessage(event) {
             if (event.data.app === 'musicpiechart') {
               this.token = event.data.token;
-              this.refresh_token = event.data.refresh_token;
               localStorage.setItem('token', event.data.token);
-              localStorage.setItem('refresh_token', event.data.refresh_token);
               this.getTopTracks(this.time_range);
             }
           },
@@ -422,9 +418,7 @@
           },
           reset() {
             this.token = null;
-            this.refresh_token = null;
             localStorage.removeItem('token');
-            localStorage.removeItem('refresh_token');
           },
 
           createChartSVG(data){
@@ -497,10 +491,9 @@
 
           async init() {
             window.addEventListener('message', this.onMessage.bind(this));
-            // read token and refresh_token from local storage
+            // read token from local storage
             this.token = localStorage.getItem('token');
-            this.refresh_token = localStorage.getItem('refresh_token');
-            if (this.token && this.refresh_token) {
+            if (this.token) {
               try {
                 await this.getTopTracks(this.time_range);
                 await this.getTopArtists(this.time_range)

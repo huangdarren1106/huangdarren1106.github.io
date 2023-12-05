@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Spotify Pie - Top Artists - Top Genres</title>
+  <meta name="description"
+    content="Check your Top Spotify Artists and Chart of your Top Genres">
+  <meta name="keywords" content="spotify, spotify stats">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="My Spotify Pie - Top Artists - Top Genres">
+  <meta property="og:description"
+    content="Check your Top Spotify Artists and Chart of your Top Genres">
+  <meta property="og:image" content="https://huangdarren1106.github.io/spotify-stats.jpg">
+  <meta property="og:url" content="https://huangdarren1106.github.io/spotify-stats">
+  <meta property="og:site_name" content="My Spotify Pie - Top Artists - Top Genres">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Spotify Pie - Top Artists - Top Genres">
+  <meta name="twitter:description"
+    content="Check your Top Spotify Artists and Chart of your Top Genres">
+  <meta name="twitter:image" content="https://huangdarren1106.github.io/spotify-stats.jpg">
+  <meta name="twitter:image:alt" content="My Spotify Pie - Top Artists - Top Genres">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
+  <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398"
+    crossorigin="anonymous"></script>
+
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script>
+    window.googletag = window.googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    googletag.cmd.push(function () {
+      if (window.innerWidth >= 1024) {
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+      } else {
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320, 100], [320, 50], [300, 100], [300, 50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+      }
+      var interstitialSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/huangdarren1106.github.io_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
+      if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
+
+      googletag.pubads().enableSingleRequest();
+      googletag.pubads().disableInitialLoad();
+      googletag.pubads().collapseEmptyDivs();
+      googletag.enableServices();
+      googletag.display(interstitialSlot);
+    });
+  </script>
+  <script async src="https://stpd.cloud/saas/6406"></script>
+
+  <style>
+    .ads {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body x-data="piechart">
+  <header class="max-w-3xl mx-auto">
+    <div class="flex flex-col sm:flex-row justify-between items-center py-4 px-4 sm:px-0 border-b">
+      <a href="/" class="sm:text-2xl font-bold mb-4 sm:mb-0 whitespace-nowrap">Spotify Pie</a>
+      <div class="flex justify-center sm:justify-end w-full gap-4 flex-wrap">
+        <a href="/" class="">Spotify Pie</a>
+        <a href="/playlist-name-generator">Playlist Name Generator</a>
+        <a href="/subscribe" class="">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-3xl mx-auto prose mt-10 mb-16 px-4 sm:px-0">
+
+    <h1 class="text-center text-xl">
+      <template x-if="profile">
+        <span  x-text="profile.display_name + '\'s'"></span>
+      </template>
+       Spotify Pie</h1>
+
+      <div x-show="!token" class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600 mb-4 flex flex-col items-center">
+        <p class="text-lg text-green-800 font-semibold mb-2">
+            Visit Login page
+        </p>
+        <img class="w-24 my-4 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
+        <a href="/" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">Login</a>
+    </div>
+
+    <div>
+      <div class="flex justify-center">
+        <div id="chart"></div>
+      </div>
+      <div x-show="top_artists" class="mb-16">
+        <table class="mt-2 max-w-3xl w-full text-gray-700">
+          <tbody class="gap-1 flex flex-col">
+            <template x-for="(artist, i) in top_artists.items">
+              <tr class="my-0 flex border-0 w-full items-center justify-center" x-key="artist.name">
+                <td class="my-0 shrink-0 p-0 flex items-center">
+                  <img class="my-0 rounded" :style="{width:`${(11 - i)*3 + 10}px`, height:`${(11 - i)*3 + 10}px` }" :src="artist.images[0].url" :alt="artist.name">
+                </td>
+                <td
+                  class="whitespace-nowrap font-bold shrink-0 my-0 py-0 text-left max-w-[200px] sm:max-w-none leading-none flex items-center">
+                  <p :style="{fontSize:`${(11 - i)*2 + 8}px`}" x-text="artist.name" class="my-0"></p>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div x-show="token" class="max-w-sm mx-auto text-center w-full border bg-purple-50 rounded-lg p-2 border-purple-600 mb-4 flex flex-col items-center">
+      <p class="text-lg text-purple-800 font-semibold mb-2">
+            Before you go, <br>check out your full Spotify Stats
+        </p>
+        <img class="w-20 my-4" src="stats.svg" alt="Spotify Pie">
+        <a href="/spotify-stats" class="mb-4 px-6 py-3 bg-purple-600 text-white text-xl rounded-full font-bold">See Your Full Spotify Stats</a>
+    </div>
+
+      
+
+    <div class="flex flex-col items-center gap-4 prose mb-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
+      <a href="/">Spotify Pie Chart</a>
+      <a href="/spotify-stats">Spotify Stats 2023</a>
+      <a href="/spotify-premium-mod-apk">Spotify Premium APK Alternative 2023</a>
+      <a href="/trackify">Trackify - Your Spotify Listening Statistics</a>
+      <a href="/playlist-name-generator">Playlist Name Generator</a>
+      <a href="/subscribe">New Spotify Pie</a>
+    </div>
+
+
+    <div id="huangdarren1106_github_io_anchor_ad_responsive" class="ads">
+      <script>
+        googletag.cmd.push(function () {
+          googletag.display('huangdarren1106_github_io_anchor_ad_responsive');
+        });
+      </script>
+    </div>
+
+    <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('piechart', () => ({
+          show: false,
+          token: null,
+          profile: null,
+          time_range: 'short_term',
+          top_artists: [],
+          genresChartData: [],
+          setActiveTab(tab) {
+            // fetch data depends on activeTab
+            if (tab === 'top_tracks') {
+              this.getTopTracks(this.time_range);
+            } else {
+              this.getTopArtists(this.time_range);
+            }
+          },
+
+          async getProfile(){
+            fetch('https://api.spotify.com/v1/me', {
+              headers: {
+                'Authorization': 'Bearer ' + this.token
+              }
+            }).then(response => {
+              if (response.status === 401) {
+                throw new Error('token expired');
+              } else {
+                return response.json();
+              }
+            }).then(data => {
+              this.profile = data;
+              console.log(data);
+            }).catch(e => {
+              console.log(e);
+              this.reset()
+            });
+          },
+          getTopArtists(time_range) {
+            fetch(`https://api.spotify.com/v1/me/top/artists?limit=10&time_range=${time_range}`, {
+              headers: {
+                'Authorization': 'Bearer ' + this.token
+              }
+            })
+              .then(response => {
+                if (response.status === 401) {
+                  throw new Error('token expired');
+                } else {
+                  return response.json();
+                }
+
+              })
+              .then(data => {
+                this.top_artists = data;
+
+                this.genresChartData = [];
+                const genres = {};
+                this.top_artists.items.forEach(artist => {
+                  artist.genres.forEach(genre => {
+                    if (genres[genre]) {
+                      genres[genre] += 1;
+                    } else {
+                      genres[genre] = 1;
+                    }
+                  })
+                });
+                Object.keys(genres).forEach(genre => {
+                  this.genresChartData.push({
+                    name: genre,
+                    value: genres[genre]
+                  })
+                });
+                // sort by value
+                this.genresChartData.sort((a, b) => b.value - a.value);
+                // filter top 10
+                this.genresChartData = this.genresChartData.slice(0, 10);
+
+                // sum of top 10 genres
+                const sum = this.genresChartData.reduce((a, b) => a + b.value, 0);
+                
+                // add percent to each genre
+                this.genresChartData.forEach(genre => {
+                  genre.percent = Math.round(genre.value / sum * 100);
+                });
+
+                let svg = this.createChartSVG(this.genresChartData)
+                document.getElementById('chart').innerHTML = svg.outerHTML;
+
+
+              }).catch(e => {
+                console.log(e);
+                this.reset()
+              });
+          },
+          reset() {
+            this.token = null;
+            localStorage.removeItem('token');
+          },
+
+          createChartSVG(data){
+              // Specify the chart’s dimensions.
+              const width = 350;
+              const height = Math.min(width, 350);
+            
+              // Create the color scale.
+              const color = d3.scaleOrdinal()
+                  .domain(data.map(d => d.name))
+                  .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), data.length).reverse())
+            
+              // Create the pie layout and arc generator.
+              const pie = d3.pie()
+                  .sort(null)
+                  .value(d => d.value);
+            
+              const arc = d3.arc()
+                  .innerRadius(0)
+                  .outerRadius(Math.min(width, height) / 2 - 1);
+            
+              const labelRadius = arc.outerRadius()() * 0.8;
+            
+              // A separate arc generator for labels.
+              const arcLabel = d3.arc()
+                  .innerRadius(labelRadius)
+                  .outerRadius(labelRadius);
+            
+              const arcs = pie(data);
+            
+              // Create the SVG container.
+              const svg = d3.create("svg")
+                  .attr("width", width)
+                  .attr("height", height)
+                  .attr("viewBox", [-width / 2, -height / 2, width, height])
+                  .attr("style", "max-width: 100%; height: auto; font: 12px sans-serif;");
+            
+              // Add a sector path for each value.
+              svg.append("g")
+                  .attr("stroke", "white")
+                .selectAll()
+                .data(arcs)
+                .join("path")
+                  .attr("fill", d => color(d.data.name))
+                  .attr("d", arc)
+                .append("title")
+                  .text(d => `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
+            
+              // Create a new arc generator to place a label close to the edge.
+              // The label shows the value if there is enough room.
+              svg.append("g")
+                  .attr("text-anchor", "middle")
+                .selectAll()
+                .data(arcs)
+                .join("text")
+                  .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
+                  .call(text => text.append("tspan")
+                      .attr("y", "-0.4em")
+                      .attr("font-weight", "semibold")
+                      .text(d => d.data.name))
+                  .call(text => text.filter(d => (d.endAngle - d.startAngle) > 0.15).append("tspan")
+                      .attr("x", 0)
+                      .attr("y", "0.7em")
+                      .attr("fill-opacity", 0.7)
+                      .text(d => d.data.percent + "%"));
+            
+              return svg.node();
+            
+          },
+
+          async init() {
+            // read token from local storage
+            this.token = localStorage.getItem('token');
+            if (this.token) {
+              try {
+                await this.getTopArtists(this.time_range)
+                await this.getProfile()
+              } catch (e) {
+                console.log(e);
+              }
+
+            }
+          }
+        }));
+      });
+    </script>
+
+</body>
+
+</html>
