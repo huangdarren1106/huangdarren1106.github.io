@@ -7,13 +7,11 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>My Spotify Pie - Top Artists - Top Genres</title>
-  <meta name="description"
-    content="Check your Top Spotify Artists and Chart of your Top Genres">
+  <meta name="description" content="Check your Top Spotify Artists and Chart of your Top Genres">
   <meta name="keywords" content="spotify, spotify stats">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="My Spotify Pie - Top Artists - Top Genres">
-  <meta property="og:description"
-    content="Check your Top Spotify Artists and Chart of your Top Genres">
+  <meta property="og:description" content="Check your Top Spotify Artists and Chart of your Top Genres">
   <meta property="og:image" content="https://huangdarren1106.github.io/spotify-stats.jpg">
   <meta property="og:url" content="https://huangdarren1106.github.io/spotify-stats">
   <meta property="og:site_name" content="My Spotify Pie - Top Artists - Top Genres">
@@ -21,8 +19,7 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="My Spotify Pie - Top Artists - Top Genres">
-  <meta name="twitter:description"
-    content="Check your Top Spotify Artists and Chart of your Top Genres">
+  <meta name="twitter:description" content="Check your Top Spotify Artists and Chart of your Top Genres">
   <meta name="twitter:image" content="https://huangdarren1106.github.io/spotify-stats.jpg">
   <meta name="twitter:image:alt" content="My Spotify Pie - Top Artists - Top Genres">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -79,16 +76,18 @@
 
     <h1 class="text-center text-xl">
       <template x-if="profile">
-        <span  x-text="profile.display_name + '\'s'"></span>
+        <span x-text="profile.display_name + '\'s'"></span>
       </template>
-       Spotify Pie</h1>
+      Spotify Pie
+    </h1>
 
-      <div x-show="!token" class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600 mb-4 flex flex-col items-center">
-        <p class="text-lg text-green-800 font-semibold mb-2">
-            Visit Login page
-        </p>
-        <img class="w-24 my-4 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
-        <a href="/" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">Login</a>
+    <div x-show="!token"
+      class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600 mb-4 flex flex-col items-center">
+      <p class="text-lg text-green-800 font-semibold mb-2">
+        Visit Login page
+      </p>
+      <img class="w-24 my-4 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
+      <a href="/" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">Login</a>
     </div>
 
     <div class="shadow-lg mb-4 border rounded-lg max-w-sm mx-auto">
@@ -114,18 +113,20 @@
     </div>
     <div x-show="top_artists" class="flex justify-center mb-4">
       <button class="px-6 py-3 bg-purple-600 text-white text-xl rounded-full font-bold"
-       @click="capture">Download</button>
+        @click="capture">Download</button>
     </div>
 
-    <div x-show="token" class="max-w-sm mx-auto text-center w-full border bg-purple-50 rounded-lg p-2 border-purple-600 mb-4 flex flex-col items-center">
+    <div x-show="token"
+      class="max-w-sm mx-auto text-center w-full border bg-purple-50 rounded-lg p-2 border-purple-600 mb-4 flex flex-col items-center">
       <p class="text-lg text-purple-800 font-semibold mb-2">
-            Before you go, <br>check out your full Spotify Stats
-        </p>
-        <img class="w-20 my-4" src="stats.svg" alt="Spotify Pie">
-        <a href="/spotify-stats" class="mb-4 px-6 py-3 bg-purple-600 text-white text-xl rounded-full font-bold">See Your Full Spotify Stats</a>
+        Before you go, <br>check out your full Spotify Stats
+      </p>
+      <img class="w-20 my-4" src="stats.svg" alt="Spotify Pie">
+      <a href="/spotify-stats" class="mb-4 px-6 py-3 bg-purple-600 text-white text-xl rounded-full font-bold">See Your
+        Full Spotify Stats</a>
     </div>
 
-      
+
 
     <div class="flex flex-col items-center gap-4 prose mb-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
       <a href="/">Spotify Pie Chart</a>
@@ -154,13 +155,13 @@
           time_range: 'short_term',
           top_artists: [],
           genresChartData: [],
-          capture(){
-            html2canvas(document.querySelector("#pie-chart",{
+          capture() {
+            html2canvas(document.querySelector("#pie-chart", {
               backgroundColor: "none",
               useCORS: true,
               logging: true,
               letterRendering: 1,
-              allowTaint : false
+              allowTaint: false
             })).then(canvas => {
               var link = document.createElement('a');
               link.download = 'spotify-pie.png';
@@ -170,7 +171,7 @@
               document.body.removeChild(link);
 
             });
-          
+
           },
           setActiveTab(tab) {
             // fetch data depends on activeTab
@@ -181,7 +182,7 @@
             }
           },
 
-          async getProfile(){
+          async getProfile() {
             fetch('https://api.spotify.com/v1/me', {
               headers: {
                 'Authorization': 'Bearer ' + this.token
@@ -241,7 +242,7 @@
 
                 // sum of top 10 genres
                 const sum = this.genresChartData.reduce((a, b) => a + b.value, 0);
-                
+
                 // add percent to each genre
                 this.genresChartData.forEach(genre => {
                   genre.percent = Math.round(genre.value / sum * 100);
@@ -261,72 +262,72 @@
             localStorage.removeItem('token');
           },
 
-          createChartSVG(data){
-              // Specify the chart’s dimensions.
-              const width = 350;
-              const height = Math.min(width, 350);
-            
-              // Create the color scale.
-              const color = d3.scaleOrdinal()
-                  .domain(data.map(d => d.name))
-                  .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), data.length).reverse())
-            
-              // Create the pie layout and arc generator.
-              const pie = d3.pie()
-                  .sort(null)
-                  .value(d => d.value);
-            
-              const arc = d3.arc()
-                  .innerRadius(0)
-                  .outerRadius(Math.min(width, height) / 2 - 1);
-            
-              const labelRadius = arc.outerRadius()() * 0.8;
-            
-              // A separate arc generator for labels.
-              const arcLabel = d3.arc()
-                  .innerRadius(labelRadius)
-                  .outerRadius(labelRadius);
-            
-              const arcs = pie(data);
-            
-              // Create the SVG container.
-              const svg = d3.create("svg")
-                  .attr("width", width)
-                  .attr("height", height)
-                  .attr("viewBox", [-width / 2, -height / 2, width, height])
-                  .attr("style", "max-width: 100%; height: auto; font: 12px sans-serif;");
-            
-              // Add a sector path for each value.
-              svg.append("g")
-                  .attr("stroke", "white")
-                .selectAll()
-                .data(arcs)
-                .join("path")
-                  .attr("fill", d => color(d.data.name))
-                  .attr("d", arc)
-                .append("title")
-                  .text(d => `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
-            
-              // Create a new arc generator to place a label close to the edge.
-              // The label shows the value if there is enough room.
-              svg.append("g")
-                  .attr("text-anchor", "middle")
-                .selectAll()
-                .data(arcs)
-                .join("text")
-                  .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
-                  .call(text => text.append("tspan")
-                      .attr("y", "-0.4em")
-                      .attr("font-weight", "semibold")
-                      .text(d => d.data.name))
-                  .call(text => text.filter(d => (d.endAngle - d.startAngle) > 0.15).append("tspan")
-                      .attr("x", 0)
-                      .attr("y", "0.7em")
-                      .attr("fill-opacity", 0.7)
-                      .text(d => d.data.percent + "%"));
-            
-              return svg.node();
-            
+          createChartSVG(data) {
+            // Specify the chart’s dimensions.
+            const width = 350;
+            const height = Math.min(width, 350);
+
+            // Create the color scale.
+            const color = d3.scaleOrdinal()
+              .domain(data.map(d => d.name))
+              .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), data.length).reverse())
+
+            // Create the pie layout and arc generator.
+            const pie = d3.pie()
+              .sort(null)
+              .value(d => d.value);
+
+            const arc = d3.arc()
+              .innerRadius(0)
+              .outerRadius(Math.min(width, height) / 2 - 1);
+
+            const labelRadius = arc.outerRadius()() * 0.8;
+
+            // A separate arc generator for labels.
+            const arcLabel = d3.arc()
+              .innerRadius(labelRadius)
+              .outerRadius(labelRadius);
+
+            const arcs = pie(data);
+
+            // Create the SVG container.
+            const svg = d3.create("svg")
+              .attr("width", width)
+              .attr("height", height)
+              .attr("viewBox", [-width / 2, -height / 2, width, height])
+              .attr("style", "max-width: 100%; height: auto; font: 12px sans-serif;");
+
+            // Add a sector path for each value.
+            svg.append("g")
+              .attr("stroke", "white")
+              .selectAll()
+              .data(arcs)
+              .join("path")
+              .attr("fill", d => color(d.data.name))
+              .attr("d", arc)
+              .append("title")
+              .text(d => `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
+
+            // Create a new arc generator to place a label close to the edge.
+            // The label shows the value if there is enough room.
+            svg.append("g")
+              .attr("text-anchor", "middle")
+              .selectAll()
+              .data(arcs)
+              .join("text")
+              .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
+              .call(text => text.append("tspan")
+                .attr("y", "-0.4em")
+                .attr("font-weight", "semibold")
+                .text(d => d.data.name))
+              .call(text => text.filter(d => (d.endAngle - d.startAngle) > 0.15).append("tspan")
+                .attr("x", 0)
+                .attr("y", "0.7em")
+                .attr("fill-opacity", 0.7)
+                .text(d => d.data.percent + "%"));
+
+            return svg.node();
+
           },
 
           async init() {

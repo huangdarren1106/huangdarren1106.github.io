@@ -11,7 +11,8 @@
     <title>Your Spotify Pie Chart</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <meta name="description" content="Bake your unique Genre Pie with Spotify Pie Chart Generator! Discover and share your Top 20 Artists each month! ᯤ🎧✮s" >
+    <meta name="description"
+        content="Bake your unique Genre Pie with Spotify Pie Chart Generator! Discover and share your Top 20 Artists each month! ᯤ🎧✮s">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJTEL5NFDM"></script>
@@ -26,12 +27,12 @@
     <script>
         window.googletag = window.googletag || {};
         googletag.cmd = googletag.cmd || [];
-        googletag.cmd.push (function () {
-            if (window.innerWidth >= 1024){
-                googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000,100],[970,90],[728,90],[990,90],[970,50],[960,90],[950,90],[980,90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.cmd.push(function () {
+            if (window.innerWidth >= 1024) {
+                googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
             }
             else {
-                googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320,100],[320,50],[300,100],[300,50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+                googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320, 100], [320, 50], [300, 100], [300, 50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
             }
             var interstitialSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/huangdarren1106.github.io_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
             if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
@@ -54,11 +55,11 @@
 <body>
     <header class="max-w-3xl mx-auto">
         <div class="flex flex-col sm:flex-row justify-between items-center py-4 px-4 sm:px-0 border-b">
-          <a href="/" class="sm:text-2xl font-bold mb-4 sm:mb-0 whitespace-nowrap">Spotify Pie</a>
-          <div class="flex justify-center sm:justify-end w-full gap-4 flex-wrap prose">
-            <a class="" href="/spotify-stats">Spotify Stats</a>
-            <a class="" href="/playlist-name-generator">Playlist Name Generator</a>
-          </div>
+            <a href="/" class="sm:text-2xl font-bold mb-4 sm:mb-0 whitespace-nowrap">Spotify Pie</a>
+            <div class="flex justify-center sm:justify-end w-full gap-4 flex-wrap prose">
+                <a class="" href="/spotify-stats">Spotify Stats</a>
+                <a class="" href="/playlist-name-generator">Playlist Name Generator</a>
+            </div>
         </div>
     </header>
 
@@ -71,7 +72,8 @@
             <p class="text-lg text-green-800 font-semibold">
                 Login with Spotify <br>to see your Spotify Pie
             </p>
-            <button @click="openSpotifyAuthUrl" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">Login
+            <button @click="openSpotifyAuthUrl"
+                class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">Login
                 with Spotify</button>
             <div class="max-w-sm mx-auto">
                 <p class="text-sm">By logging in, you agree:</p>
@@ -81,22 +83,27 @@
                 </ul>
             </div>
         </div>
-        <div x-show="token" class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600 mb-4 flex flex-col items-center">
+        <div x-show="token"
+            class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600 mb-4 flex flex-col items-center">
             <p class="text-lg text-green-800 font-semibold mb-2">
                 Your Spotify Pie is ready!
             </p>
             <img class="w-24 my-4 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
-            <a href="/spotify-pie" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">See Your Spotify Pie</a>
+            <a href="/spotify-pie" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">See Your
+                Spotify Pie</a>
         </div>
 
         <section class="prose max-w-3xl">
 
             <h2 class="relative bg-blue-50 border  border-blue-600 p-4 rounded-lg w-full text-center mb-4">
-                <a class="text-blue-600 before:absolute before:inset-0" href="/subscribe">🎶🥧 <strong>New Spotify Pie Chart</strong><br> is launching soon</a>
+                <a class="text-blue-600 before:absolute before:inset-0" href="/subscribe">🎶🥧 <strong>New Spotify Pie
+                        Chart</strong><br> is launching soon</a>
             </h2>
 
             <h2 class="relative bg-blue-50 border border-blue-600 p-4 rounded-lg w-full text-center">
-                <a class="text-blue-600 before:absolute before:inset-0" href="https://schoolholidays.com.au/blog/how-to-get-spotify-pie">How To Get Your Spotify Pie Chart?</a>
+                <a class="text-blue-600 before:absolute before:inset-0"
+                    href="https://schoolholidays.com.au/blog/how-to-get-spotify-pie">How To Get Your Spotify Pie
+                    Chart?</a>
             </h2>
 
             <a href="https://schoolholidays.com.au/blog/is-listening-to-music-a-hobby" rel="nofollow">
@@ -113,11 +120,11 @@
                     Look at Your <strong>Spotify Stats</strong>
                 </a>
             </div>
-    
+
             <img src="top-tracks.jpg" alt="Top Songs">
             <img src="top-genres.jpg" alt="Top Genres">
         </section>
-        
+
     </div>
 
     <div class="flex flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
@@ -131,39 +138,39 @@
     </div>
     <div id="huangdarren1106_github_io_anchor_ad_responsive" class="ads">
         <script>
-          googletag.cmd.push(function() { googletag.display('huangdarren1106_github_io_anchor_ad_responsive'); });
+            googletag.cmd.push(function () { googletag.display('huangdarren1106_github_io_anchor_ad_responsive'); });
         </script>
     </div>
     <script>
         document.addEventListener('alpine:init', () => {
-          Alpine.data('piechart', () => ({
-            token: null,
-            loginWindow: null,
+            Alpine.data('piechart', () => ({
+                token: null,
+                loginWindow: null,
 
-  
-            spotifyAuthUrl: 'https://musicpiechart.com/auth/login?embed=true',
-            openSpotifyAuthUrl() {
-              window.open(this.spotifyAuthUrl, '_blank', 'height=600,width=800');
-            },
-            onMessage(event) {
-              if (event.data.app === 'musicpiechart') {
-                this.token = event.data.token;
-                localStorage.setItem('token', event.data.token);
-                this.getTopTracks(this.time_range);
-              }
-            },
-            reset() {
-              this.token = null;
-              localStorage.removeItem('token');
-            },
-            async init() {
-              window.addEventListener('message', this.onMessage.bind(this));
-              // read token from local storage
-              this.token = localStorage.getItem('token');
-            }
-          }));
+
+                spotifyAuthUrl: 'https://musicpiechart.com/auth/login?embed=true',
+                openSpotifyAuthUrl() {
+                    window.open(this.spotifyAuthUrl, '_blank', 'height=600,width=800');
+                },
+                onMessage(event) {
+                    if (event.data.app === 'musicpiechart') {
+                        this.token = event.data.token;
+                        localStorage.setItem('token', event.data.token);
+                        this.getTopTracks(this.time_range);
+                    }
+                },
+                reset() {
+                    this.token = null;
+                    localStorage.removeItem('token');
+                },
+                async init() {
+                    window.addEventListener('message', this.onMessage.bind(this));
+                    // read token from local storage
+                    this.token = localStorage.getItem('token');
+                }
+            }));
         });
-      </script>
+    </script>
 </body>
 
 </html>
