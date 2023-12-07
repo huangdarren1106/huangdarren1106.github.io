@@ -92,20 +92,36 @@
 
     <div class="max-w-sm mx-auto">
       <div class="flex justify-center text-sm mb-4 w-full border rounded-full text-center shadow-lg">
-        <a href="/spotify-pie"
-          :class="{'bg-purple-600 text-white': isSpotifyPie}"
+        <a href="/spotify-pie" :class="{'bg-purple-600 text-white': isSpotifyPie}"
           class="flex-1 py-2 px-2 rounded-l-full no-underline flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#ba9aea" d="M12 12V2c5.523 0 10 4.477 10 10H12z" opacity=".25"/><path fill="#ba9aea" d="m12 12l5 8.66A10.01 10.01 0 0 0 22 12H12z" opacity=".5"/><path fill="#ba9aea" d="M17 20.66L12 12V2c-5.523.002-9.999 4.48-9.997 10.003c.002 5.523 4.48 9.999 10.004 9.997A10 10 0 0 0 17 20.662l.003-.005l-.004.003z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+            <path fill="#ba9aea" d="M12 12V2c5.523 0 10 4.477 10 10H12z" opacity=".25" />
+            <path fill="#ba9aea" d="m12 12l5 8.66A10.01 10.01 0 0 0 22 12H12z" opacity=".5" />
+            <path fill="#ba9aea"
+              d="M17 20.66L12 12V2c-5.523.002-9.999 4.48-9.997 10.003c.002 5.523 4.48 9.999 10.004 9.997A10 10 0 0 0 17 20.662l.003-.005l-.004.003z" />
+          </svg>
           Spotify Pie</a>
-        <a href="/spotify-bubble-chart"
-        :class="{'bg-purple-600 text-white': isSpotifyBubble}"
+        <a href="/spotify-bubble-chart" :class="{'bg-purple-600 text-white': isSpotifyBubble}"
           class="flex-1 py-2 no-underline flex items-center justify-center px-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48"><defs><mask id="ipTBubbleChart0"><g fill="#555" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><circle cx="34" cy="14" r="9"/><circle cx="12" cy="25" r="7"/><circle cx="29" cy="37" r="5"/></g></mask></defs><path fill="#ba9aea" d="M0 0h48v48H0z" mask="url(#ipTBubbleChart0)"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
+            <defs>
+              <mask id="ipTBubbleChart0">
+                <g fill="#555" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+                  <circle cx="34" cy="14" r="9" />
+                  <circle cx="12" cy="25" r="7" />
+                  <circle cx="29" cy="37" r="5" />
+                </g>
+              </mask>
+            </defs>
+            <path fill="#ba9aea" d="M0 0h48v48H0z" mask="url(#ipTBubbleChart0)" />
+          </svg>
           Spotify Bubble</a>
-          <a href="/spotify-stats"
-        :class="{'bg-purple-600 text-white': isSpotifyStats}"
+        <a href="/spotify-stats" :class="{'bg-purple-600 text-white': isSpotifyStats}"
           class="flex-1 rounded-r-full py-2 px-2 no-underline flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="#ba9aea" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5h2v.5H3zm5 0h2.5v.5H8zm8 .5h-2.5v-.5H16zm5.5 0H19v-.5h2.5zm0-4H19v.5h2.5zm0-3.5H19v.5h2.5zm0-3.5H19v.5h2.5zM16 13h-2.5v.5H16zm-8 .5h2.5V13H8zm0-4h2.5v.5H8z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+            <path fill="none" stroke="#ba9aea" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 16.5h2v.5H3zm5 0h2.5v.5H8zm8 .5h-2.5v-.5H16zm5.5 0H19v-.5h2.5zm0-4H19v.5h2.5zm0-3.5H19v.5h2.5zm0-3.5H19v.5h2.5zM16 13h-2.5v.5H16zm-8 .5h2.5V13H8zm0-4h2.5v.5H8z" />
+          </svg>
           Spotify Stats</a>
       </div>
     </div>
@@ -113,28 +129,12 @@
     <div x-show="token" class="shadow-lg mb-4 border rounded-lg max-w-sm mx-auto bg-neutral-50">
       <div id="bubble-chart" class="p-4">
         <div class="flex justify-center">
-          <div id="chart"></div>
-        </div>
-        <div x-show="top_artists">
-          <table class="mt-2 mb-0 max-w-3xl w-full text-gray-700">
-            <tbody class="gap-1 flex flex-col">
-              <template x-for="(artist, i) in top_artists.items">
-                <tr class="my-0 flex border-0 w-full items-center justify-center" x-key="artist.name">
-                  <td
-                    class="whitespace-nowrap font-bold shrink-0 my-0 py-0 text-left max-w-[200px] sm:max-w-none leading-none flex items-center">
-                    <p :style="{fontSize:`${(11 - i)*2 + 8}px`}" x-text="artist.name" class="my-0"></p>
-                  </td>
-                </tr>
-              </template>
-            </tbody>
-          </table>
+          <div id="chart" @click="resetPosition()"></div>
         </div>
       </div>
     </div>
-    <div x-show="token && top_artists" class="flex justify-center mb-4">
-      <button class="px-6 py-3 bg-purple-600 text-white text-xl rounded-full font-bold"
-        @click="capture">Download</button>
-    </div>
+    <p x-show="token && !isStopped" class="max-w-sm mx-auto text-center font-semibold">Click to stop bubbles</p>
+    <p x-show="token && isStopped" class="max-w-sm mx-auto text-center font-semibold">Click again to bubble up!</p>
     <p x-show="token" class="max-w-sm mx-auto text-center font-semibold">Don't forget to share it!</p>
 
     <div x-show="token"
@@ -179,6 +179,7 @@
           isSpotifyStats: false,
           isSpotifyPie: false,
           genresChartData: [],
+          resetPosition: null,
           capture() {
             html2canvas(document.querySelector("#bubble-chart", {
               backgroundColor: "none",
@@ -219,7 +220,7 @@
               }
             }).then(data => {
               this.profile = data;
-              console.log(data);
+
             }).catch(e => {
               console.log(e);
               this.reset()
@@ -256,7 +257,7 @@
                 Object.keys(genres).forEach(genre => {
                   this.genresChartData.push({
                     name: genre,
-                    value: genres[genre]
+                    value: genres[genre] * 4 + 8
                   })
                 });
                 // sort by value
@@ -267,14 +268,26 @@
                 // sum of top 10 genres
                 const sum = this.genresChartData.reduce((a, b) => a + b.value, 0);
 
-                // add percent to each genre
-                this.genresChartData.forEach(genre => {
-                  genre.percent = Math.round(genre.value / sum * 100);
-                });
+                // create a new data array
+                let d = [
+                  ...this.top_artists.items.map((artist, i) => {
+                    return {
+                      name: artist.name,
+                      value: 11 - (i + 1),
+                      img: artist.images[0].url
+                    }
+                  })];
+                // merge data
 
-                let svg = this.createChartSVG(this.genresChartData, 320, 320)
-                console.log(svg)
+                // sort by value
+                d.sort((a, b) => b.value - a.value);
+
+
+                let svg = this.createChartSVG(d, 340, 320)
+
+                
                 document.getElementById('chart').innerHTML = svg.outerHTML;
+                this.animateBubbles(d3.selectAll(".node"), 340, 320);
 
 
               }).catch(e => {
@@ -297,7 +310,7 @@
             // Define a scale for the font size
             var fontSizeScale = d3.scaleSqrt()
               .domain([d3.min(data, d => d.value), d3.max(data, d => d.value)])
-              .range([10, 20]); // Adjust the range based on your preference
+              .range([6, 14]); // Adjust the range based on your preference
 
             // Define a color scale for text for better contrast
             var textColor = d3.scaleOrdinal(["white", "black"]);
@@ -319,26 +332,103 @@
               .attr("class", "node")
               .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
 
-            // Create the circles for each node
-            node.append("circle")
-              .attr("r", function (d) { return d.r; })
-              .attr("fill", function (d, i) { return color(i); }); // Assign different colors
+            // Create the elements for each node
+            node.each(function (d) {
+              var node = d3.select(this);
 
-            // Add labels to each circle
-            node.append("text")
-              .attr("dy", ".3em")
-              .style("text-anchor", "middle")
-              .style("fill", function (d, i) { return textColor(i % 2); }) // Alternate text color for contrast
-              .style("font-size", function (d) { return `${fontSizeScale(d.data.value)}px`; })
-              .text(function (d) {
-                // Adjust text length based on bubble size
-                var maxTextLength = d.r / 3;
-                var name = d.data.name;
-                return name;
-              });
+              if (d.data.img) {
+                // Define a clipping path for the image
+                var clipId = "clip-" + d.data.name.replace(/\s+/g, '-'); // Create a unique clip ID
+                svg.append("clipPath")
+                  .attr("id", clipId)
+                  .append("circle")
+                  .attr("r", d.r)
+                  .attr("cx", 0)
+                  .attr("cy", 0);
+
+                // Append an image and apply the clipping path
+                node.append("image")
+                  .attr("xlink:href", d.data.img)
+                  .attr("width", d.r * 2)
+                  .attr("height", d.r * 2)
+                  .attr("x", -d.r)
+                  .attr("y", -d.r)
+                  .attr("clip-path", "url(#" + clipId + ")") // Apply clipping path
+                  .style("object-fit", "cover"); // Make the image cover the node
+
+                // Append a circle overlay as a border
+                node.append("circle")
+                  .attr("r", d.r)
+                  .attr("stroke", "gray") // Set border color
+                  .attr("stroke-width", 1) // Set border width
+                  .attr("fill", "none"); // Ensure the circle is only a border without fill    
+              } else {
+                // If the node is a genre, append a circle
+
+                node.append("circle")
+                  .attr("r", d.r)
+                  .attr("fill", function (d, i) { return color(d.data.name); }); // Use the name as the color identifier
+                // Append text for genres
+                node.append("text")
+                  .attr("dy", ".3em")
+                  .style("text-anchor", "middle")
+                  .style("fill", function (d, i) { return textColor(i % 2); })
+                  .style("font-size", function (d) { return `${fontSizeScale(d.data.value)}px`; })
+                  .text(function (d) { return d.data.name; });
+              }
+            });
 
             // Return the SVG node
             return svg.node();
+          },
+          interval:null,
+          isStopped: false,
+          animateBubbles(node, width, height) {
+
+            var initialPositions = []; 
+
+            node.each(function (d) {
+              var position = d3.select(this).attr("transform").match(/translate\(([^,]+),([^,]+)\)/);
+              var x = parseFloat(position[1]);
+              var y = parseFloat(position[2]);
+              initialPositions.push({ x: x, y: y });
+            });
+
+            function resetPositions() {
+              if(this.isStopped){
+                this.interval = setInterval(updatePositions, 100);
+                this.isStopped = false
+              } else {
+                clearInterval(this.interval);
+                this.isStopped = true
+                node.transition()
+                  .duration(1000) // Duration of the movement, in milliseconds
+                  .attr("transform", function (d, i) {
+                    return "translate(" + initialPositions[i].x + "," + initialPositions[i].y + ")";
+                  });
+              }
+
+            }
+
+            function updatePositions() {
+              node.transition()
+                .duration(1000) // Duration of the movement, in milliseconds
+                .attr("transform", function (d, i) {
+                  // Generate new random positions within the SVG bounds
+                  var newX = parseFloat(d3.select(this).attr("transform").match(/translate\(([^,]+),([^,]+)\)/)[1]);
+                  // make newX randomly increase or decrease
+                  newX += Math.random() * 100 > 50 ? 30 : -30;
+                  var newY = Math.random() * (height - 310);
+                  return "translate(" + newX + "," + newY + ")";
+                });
+            }
+
+            // Update the positions every 100 milliseconds
+
+            this.resetPosition = resetPositions;
+          
+
+            this.interval = setInterval(updatePositions, 100); // Interval between movements, in milliseconds
           },
 
           async init() {
