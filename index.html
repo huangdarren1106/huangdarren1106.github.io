@@ -86,13 +86,23 @@
         </div>
         <div x-show="token"
             class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600 mb-4 flex flex-col items-center">
-            <p class="text-lg text-green-800 font-semibold mb-2">
-                Your Spotify Pie is ready!
-            </p>
-            <img class="w-24 my-4 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
-            <a href="/spotify-pie" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">See Your
-                Spotify Pie</a>
+            <p class="font-semibold" x-show="loading">Please, wait while we are baking <br>your Spotify Pie (<span x-text="countdown"></span>)</p>
+            <img x-show="loading" class="w-10 my-2 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
+
+            <div x-show="!loading" class="flex flex-col justify-center items-center">
+                <p class="text-lg text-green-800 font-semibold mb-2">
+                    Your Spotify Pie is ready!
+                </p>
+                
+                <a href="/spotify-pie" class="px-6 flex justify-center items-center gap-2 py-3 bg-green-600 text-white text-xl rounded-full font-bold">See Your
+                    Spotify Pie <img class="w-6 my-0 shrink-0" src="spotify-pie.png" alt="Spotify Pie"></a>
+            </div>
         </div>
+
+        <div class="mb-4 max-w-3xl mx-auto">
+            <script type="text/javascript" src="https://video.onnetwork.tv/widget/widget_scrolllist.php?widget=1385"></script>
+        </div>
+
 
         <section class="prose max-w-3xl">
 
@@ -107,9 +117,7 @@
                     Chart?</a>
             </h2>
 
-            <div class="mb-4">
-                <script type="text/javascript" src="https://video.onnetwork.tv/widget/widget_scrolllist.php?widget=1385"></script>
-            </div>
+
 
             <a href="https://schoolholidays.com.au/blog/is-listening-to-music-a-hobby" rel="nofollow">
                 <img class="w-full" src="listening.png" alt="Music as a Hobby">
@@ -150,9 +158,8 @@
         document.addEventListener('alpine:init', () => {
             Alpine.data('piechart', () => ({
                 token: null,
-                loginWindow: null,
-
-
+                loading: false,
+                countdown: 11,
                 spotifyAuthUrl: 'https://musicpiechart.com/auth/login?embed=true',
                 openSpotifyAuthUrl() {
                     window.open(this.spotifyAuthUrl, '_blank', 'height=600,width=800');
@@ -161,17 +168,18 @@
                     if (event.data.app === 'musicpiechart') {
                         this.token = event.data.token;
                         localStorage.setItem('token', event.data.token);
-                        this.getTopTracks(this.time_range);
+                        this.loading = true;
+                        // start countdown
+                        setInterval(() => {
+                            this.countdown--;
+                        }, 1000);
+                        setTimeout(() => {
+                            this.loading = false;
+                        }, this.countdown * 1000);
                     }
-                },
-                reset() {
-                    this.token = null;
-                    localStorage.removeItem('token');
                 },
                 async init() {
                     window.addEventListener('message', this.onMessage.bind(this));
-                    // read token from local storage
-                    this.token = localStorage.getItem('token');
                 }
             }));
         });
