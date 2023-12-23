@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    .ads {
+        text-align: center;
+    }
+  </style>
+  <title>Your Spotify Pie</title>
+  <meta name="description" content="Your Spotify Pie">
+  
+  <meta name="robots" content="index, follow">
+  
+  <meta property="og:title" content="Your Spotify Pie">
+<meta property="og:description" content="Your Spotify Pie">
+<meta property="og:image" content="https://huangdarren1106.github.io/tsXYl6IMWawQYouEK2S5j7R2xX3DahIB4GGMr2d8.png">
+<meta property="og:url" content="https://huangdarren1106.github.io/spotify-pie">
+<meta property="og:site_name" content="Spotify Pie - Exploring Your Spotify Stats in a Fun Way">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://huangdarren1106.github.io/spotify-pie">
+
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Spotify Pie">
+<meta name="twitter:description" content="Your Spotify Pie">
+<meta name="twitter:image" content="https://huangdarren1106.github.io/tsXYl6IMWawQYouEK2S5j7R2xX3DahIB4GGMr2d8.png">
+<meta name="twitter:image:alt" content="Your Spotify Pie">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  
+
+  <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398"
+        crossorigin="anonymous"></script>
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script>
+    window.googletag = window.googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    googletag.cmd.push(function () {
+      if (window.innerWidth >= 1024) {
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+      } else {
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320, 100], [320, 50], [300, 100], [300, 50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+      }
+      var interstitialSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/huangdarren1106.github.io_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
+      if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
+
+      googletag.pubads().enableSingleRequest();
+      googletag.pubads().disableInitialLoad();
+      googletag.pubads().collapseEmptyDivs();
+      googletag.enableServices();
+      googletag.display(interstitialSlot);
+    });
+  </script>
+<script async src="https://stpd.cloud/saas/6406"></script>
+  
+  <link rel="modulepreload" href="https://huangdarren1106.github.io/build/assets/app-w40geAFS.js" /><link rel="modulepreload" href="https://huangdarren1106.github.io/build/assets/app-ARot55nG.js" /><script type="module" src="https://huangdarren1106.github.io/build/assets/app-w40geAFS.js"></script><script type="module" src="https://huangdarren1106.github.io/build/assets/app-ARot55nG.js"></script>      <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+  <header class="max-w-3xl mx-auto">
+  <div class="flex flex-col sm:flex-row justify-between items-center py-4 px-4 sm:px-0 border-b">
+    <a href="/" class="sm:text-2xl font-bold mb-4 sm:mb-0 whitespace-nowrap">Spotify Pie</a>
+    <div class="flex justify-center sm:justify-end w-full gap-4 flex-wrap">
+      <a href="/spotify-stats" class="">Spotify Stats</a>
+      <a href="/playlist-name-generator">Playlist Name Generator</a>
+      <a href="/subscribe" class="">Subscribe</a>
+    </div>
+  </div>
+</header>
+  
+  <div class="mx-auto max-w-3xl prose prose-lg pt-8 px-4 lg:px-0">
+    <h1 class="text-center text-green-600">Your Spotify Pie</h1>
+    
+          <div x-data="piechart">
+  <div x-show="!token"
+   class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600 mb-4 flex flex-col items-center">
+    <p class="text-lg text-green-800 font-semibold mb-2">
+      Visit Login page
+    </p>
+    <img class="w-24 my-4 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
+    <a href="/" class="px-6 py-3 bg-green-600 text-white text-xl rounded-full font-bold">Login</a>
+  </div>
+  
+  <div class="max-w-sm mx-auto">
+    <div class="flex justify-center mb-4 text-sm w-full border rounded-full text-center shadow-lg">
+      <a href="/spotify-pie"
+         :class="{'bg-purple-600 text-white': isSpotifyPie}"
+         class="flex-1 py-2 rounded-l-full no-underline flex items-center justify-center gap-1 px-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#ba9aea" d="M12 12V2c5.523 0 10 4.477 10 10H12z" opacity=".25"/><path fill="#ba9aea" d="m12 12l5 8.66A10.01 10.01 0 0 0 22 12H12z" opacity=".5"/><path fill="#ba9aea" d="M17 20.66L12 12V2c-5.523.002-9.999 4.48-9.997 10.003c.002 5.523 4.48 9.999 10.004 9.997A10 10 0 0 0 17 20.662l.003-.005l-.004.003z"/></svg>
+        Spotify Pie
+      </a>
+      <a href="/spotify-bubble-chart"
+         :class="{'bg-purple-600 text-white': isSpotifyBubble}"
+         class="flex-1 py-2 no-underline px-2 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48"><defs><mask id="ipTBubbleChart0"><g fill="#555" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><circle cx="34" cy="14" r="9"/><circle cx="12" cy="25" r="7"/><circle cx="29" cy="37" r="5"/></g></mask></defs><path fill="#ba9aea" d="M0 0h48v48H0z" mask="url(#ipTBubbleChart0)"/></svg>
+        Spotify Bubble</a>
+        <a href="/spotify-stats"
+           :class="{'bg-purple-600 text-white': isSpotifyStats}"
+           class="flex-1 border-l rounded-r-full py-2 px-2 no-underline flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="#ba9aea" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5h2v.5H3zm5 0h2.5v.5H8zm8 .5h-2.5v-.5H16zm5.5 0H19v-.5h2.5zm0-4H19v.5h2.5zm0-3.5H19v.5h2.5zm0-3.5H19v.5h2.5zM16 13h-2.5v.5H16zm-8 .5h2.5V13H8zm0-4h2.5v.5H8z"/></svg>
+        Spotify Stats</a>
+    </div>
+  </div>
+  
+  <div class="shadow-lg mb-4 border rounded-lg max-w-sm mx-auto">
+    <div id="pie-chart" class="p-4">
+      <div class="flex justify-center">
+        <div id="chart"></div>
+      </div>
+      <div x-show="top_artists" class="">
+        <table class="mt-2 mb-0 max-w-3xl w-full text-gray-700">
+          <tbody class="gap-1 flex flex-col">
+            <template x-for="(artist, i) in top_artists.items">
+              <tr class="my-0 flex border-0 w-full items-center justify-center" x-key="artist.name">
+                <td
+                  class="whitespace-nowrap font-bold shrink-0 my-0 py-0 text-left max-w-[200px] sm:max-w-none leading-none flex items-center">
+                  <p :style="{fontSize:`${(11 - i)*2 + 8}px`}" x-text="artist.name" class="my-0"></p>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div x-show="top_artists" class="flex justify-center mb-6">
+    <button class="px-6 py-3 bg-purple-600 text-white text-xl rounded-full font-bold"
+            @click="capture">Download Spotify Pie</button>
+  </div>
+  
+  <div x-show="token"
+       class="max-w-sm mx-auto text-center w-full border bg-purple-50 rounded-lg p-2 border-purple-600 mb-4 flex flex-col items-center">
+    <p class="text-lg text-purple-800 font-semibold mb-2">
+      Before you go, <br>check out your full Spotify Stats
+    </p>
+    <img class="w-20 my-4" src="stats.svg" alt="Spotify Pie">
+    <a href="/spotify-stats" class="mb-4 px-6 py-3 bg-purple-600 text-white text-xl rounded-full font-bold">See Your
+      Full Spotify Stats</a>
+  </div>
+  
+
+
+</div>
+        
+    
+  </div>
+  
+  <div class="flex flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
+  <a href="/">Spotify Pie Chart</a>
+  <a href="/spotify-stats">Spotify Stats</a>
+  <a href="/trackify">Trackify - Your Spotify Listening Statistics</a>
+  <a href="/playlist-name-generator">Playlist Name Generator</a>
+  <a href="/generation-names">Generation Names and Years in Order</a>
+  <a href="/spotify-banner-size">Spotify Banner Size 2024</a>
+  <a href="/spotify-wrapped">Spotify Wrapped 2023</a>
+  <a href="/subscribe">New Spotify Pie</a>
+</div>
+  
+  <div id="huangdarren1106_github_io_anchor_ad_responsive" class="ads">
+  <script>
+    googletag.cmd.push(function () {
+      googletag.display('huangdarren1106_github_io_anchor_ad_responsive');
+    });
+  </script>
+</div>
+    <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('piechart', () => ({
+          show: false,
+          token: null,
+          profile: null,
+          time_range: 'short_term',
+          top_artists: [],
+          genresChartData: [],
+          isSpotifyBubble: false,
+          isSpotifyStats: false,
+          isSpotifyPie: true,
+          capture() {
+            html2canvas(document.querySelector("#pie-chart", {
+              backgroundColor: "none",
+              useCORS: true,
+              logging: true,
+              letterRendering: 1,
+              allowTaint: false
+            })).then(canvas => {
+              var link = document.createElement('a');
+              link.download = 'spotify-pie.png';
+              link.href = canvas.toDataURL('image/png')
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+
+            });
+
+          },
+          setActiveTab(tab) {
+            // fetch data depends on activeTab
+            if (tab === 'top_tracks') {
+              this.getTopTracks(this.time_range);
+            } else {
+              this.getTopArtists(this.time_range);
+            }
+          },
+
+          async getProfile() {
+            fetch('https://api.spotify.com/v1/me', {
+              headers: {
+                'Authorization': 'Bearer ' + this.token
+              }
+            }).then(response => {
+              if (response.status === 401) {
+                throw new Error('token expired');
+              } else {
+                return response.json();
+              }
+            }).then(data => {
+              this.profile = data;
+              console.log(data);
+            }).catch(e => {
+              console.log(e);
+              this.reset()
+            });
+          },
+          getTopArtists(time_range) {
+            fetch(`https://api.spotify.com/v1/me/top/artists?limit=10&time_range=${time_range}`, {
+              headers: {
+                'Authorization': 'Bearer ' + this.token
+              }
+            })
+              .then(response => {
+                if (response.status === 401) {
+                  throw new Error('token expired');
+                } else {
+                  return response.json();
+                }
+
+              })
+              .then(data => {
+                this.top_artists = data;
+
+                this.genresChartData = [];
+                const genres = {};
+                this.top_artists.items.forEach(artist => {
+                  artist.genres.forEach(genre => {
+                    if (genres[genre]) {
+                      genres[genre] += 1;
+                    } else {
+                      genres[genre] = 1;
+                    }
+                  })
+                });
+                Object.keys(genres).forEach(genre => {
+                  this.genresChartData.push({
+                    name: genre,
+                    value: genres[genre]
+                  })
+                });
+                // sort by value
+                this.genresChartData.sort((a, b) => b.value - a.value);
+                // filter top 10
+                this.genresChartData = this.genresChartData.slice(0, 10);
+
+                // sum of top 10 genres
+                const sum = this.genresChartData.reduce((a, b) => a + b.value, 0);
+
+                // add percent to each genre
+                this.genresChartData.forEach(genre => {
+                  genre.percent = Math.round(genre.value / sum * 100);
+                });
+
+                let svg = this.createChartSVG(this.genresChartData)
+                document.getElementById('chart').innerHTML = svg.outerHTML;
+
+
+              }).catch(e => {
+              console.log(e);
+              this.reset()
+            });
+          },
+          reset() {
+            this.token = null;
+            localStorage.removeItem('token');
+          },
+
+          createChartSVG(data) {
+            // Specify the chart’s dimensions.
+            const width = 350;
+            const height = Math.min(width, 350);
+
+            // Create the color scale.
+            const color = d3.scaleOrdinal()
+              .domain(data.map(d => d.name))
+              .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), data.length).reverse())
+
+            // Create the pie layout and arc generator.
+            const pie = d3.pie()
+              .sort(null)
+              .value(d => d.value);
+
+            const arc = d3.arc()
+              .innerRadius(0)
+              .outerRadius(Math.min(width, height) / 2 - 1);
+
+            const labelRadius = arc.outerRadius()() * 0.8;
+
+            // A separate arc generator for labels.
+            const arcLabel = d3.arc()
+              .innerRadius(labelRadius)
+              .outerRadius(labelRadius);
+
+            const arcs = pie(data);
+
+            // Create the SVG container.
+            const svg = d3.create("svg")
+              .attr("width", width)
+              .attr("height", height)
+              .attr("viewBox", [-width / 2, -height / 2, width, height])
+              .attr("style", "max-width: 100%; height: auto; font: 12px sans-serif;");
+
+            // Add a sector path for each value.
+            svg.append("g")
+              .attr("stroke", "white")
+              .selectAll()
+              .data(arcs)
+              .join("path")
+              .attr("fill", d => color(d.data.name))
+              .attr("d", arc)
+              .append("title")
+              .text(d => `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
+
+            // Create a new arc generator to place a label close to the edge.
+            // The label shows the value if there is enough room.
+            svg.append("g")
+              .attr("text-anchor", "middle")
+              .selectAll()
+              .data(arcs)
+              .join("text")
+              .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
+              .call(text => text.append("tspan")
+                .attr("y", "-0.4em")
+                .attr("font-weight", "semibold")
+                .text(d => d.data.name))
+              .call(text => text.filter(d => (d.endAngle - d.startAngle) > 0.15).append("tspan")
+                .attr("x", 0)
+                .attr("y", "0.7em")
+                .attr("fill-opacity", 0.7)
+                .text(d => d.data.percent + "%"));
+
+            return svg.node();
+
+          },
+
+          async init() {
+            // read token from local storage
+            this.token = localStorage.getItem('token');
+            console.log(this.token)
+            if (this.token) {
+              try {
+                await this.getTopArtists(this.time_range)
+                await this.getProfile()
+              } catch (e) {
+                console.log(e);
+              }
+
+            }
+          }
+        }));
+      });
+    </script>
+</body>
+
+</html>
