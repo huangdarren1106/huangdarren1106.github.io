@@ -361,8 +361,8 @@
 
           createChartSVG(data) {
             // Specify the chart’s dimensions.
-            const width = 500;
-            const height = Math.min(width, 500);
+            const width = 300;
+            const height = Math.min(width, 300);
 
             // Create the color scale.
             const color = d3.scaleOrdinal()
@@ -378,7 +378,7 @@
               .innerRadius(0)
               .outerRadius(Math.min(width, height) / 2 - 1);
 
-            const labelRadius = arc.outerRadius()() * 0.8;
+            const labelRadius = arc.outerRadius()() * 0.6;
 
             // A separate arc generator for labels.
             const arcLabel = d3.arc()
@@ -392,7 +392,7 @@
               .attr("width", width)
               .attr("height", height)
               .attr("viewBox", [-width / 2, -height / 2, width, height])
-              .attr("style", "max-width: 100%; height: auto; font: 14px sans-serif;");
+              .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
 
             // Add a sector path for each value.
             svg.append("g")
@@ -412,16 +412,18 @@
               .selectAll()
               .data(arcs)
               .join("text")
-              .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
+              .attr("transform", d => {
+                // Calculate the angle of the arc
+                const [x, y] = arcLabel.centroid(d);
+                const rotate = (d.startAngle + d.endAngle) / 2 * (180 / Math.PI);
+                // Adjust the rotation for readability
+                const adjustedRotate = rotate > 180 && rotate < 360 ? rotate + 180 : rotate;
+                return `translate(${x}, ${y}) rotate(-90) rotate(${adjustedRotate})`;
+              })
               .call(text => text.append("tspan")
-                .attr("y", "-0.4em")
-                .attr("font-weight", "bold")
-                .text(d => d.data.name))
-              .call(text => text.filter(d => (d.endAngle - d.startAngle) > 0.15).append("tspan")
-                .attr("x", 0)
-                .attr("y", "0.7em")
-                .attr("fill-opacity", 0.7)
-                .text(d => d.data.percent + "%"));
+                .attr("y", "0.3em")
+                .attr("font-weight", "semibold")
+                .text(d => d.data.name.slice(0, 18)));
 
             return svg.node();
 
