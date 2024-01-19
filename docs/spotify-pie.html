@@ -163,9 +163,13 @@
   <p class="text-gray-400 text-right text-sm max-w-sm mx-auto">
     *Tap on the pie chart to spin it 🌀
   </p>
-  <div x-show="top_artists" class="flex justify-center mb-6">
+  <div x-show="top_artists" class="flex flex-col gap-4 items-center justify-center mb-6">
     <button class="px-6 py-3 bg-purple-600 text-white text-xl rounded-full font-bold"
             @click="capture">Download Spotify Pie</button>
+    
+    <a class="flex gap-2 items-center no-underline text-orange-800 bg-orange-50 border border-orange-600 rounded-full px-3 py-1" href="/feedback">Leave your feedback
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" d="M19 16L2 12a3.83 3.83 0 0 1-1-2.5A3.83 3.83 0 0 1 2 7l17-4z"/><rect width="4" height="8" x="4" y="9" fill="currentColor" rx="2"/></svg>
+    </a>
   </div>
   
   <div class="mb-4 max-w-3xl mx-auto">
