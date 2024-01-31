@@ -75,23 +75,26 @@
 <body>
   <header class="max-w-3xl mx-auto">
   <div class="flex flex-col sm:flex-row justify-between items-center py-4 px-4 sm:px-0 border-b">
-    <a href="/" class="sm:text-2xl font-bold mb-4 sm:mb-0 whitespace-nowrap">Spotify Pie</a>
+    <a href="/" class="flex items-center gap-2 sm:text-2xl font-bold mb-4 sm:mb-0 whitespace-nowrap">
+      <img class="w-8 inline-block" src="/spotify-pie.png" alt="Spotify Pie">
+      Spotify Pie
+    </a>
     <div class="flex justify-center sm:justify-end w-full gap-4 flex-wrap">
-      <a href="/spotify-stats" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Stats</a>
-      <a href="/feed" class="relative bg-gray-100 px-2 py-1 rounded-lg">
-        Spotify Pie Bakery
+      <a title="Spotify Stats" href="/spotify-stats" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Stats</a>
+      <a title="Spotify Feed" href="/feed" class="relative bg-gray-100 px-2 py-1 rounded-lg">
+        Spotify Feed
+      </a>
+      <a title="Top Songs" href="/spotify-top-songs-right-now" class="relative bg-gray-100 px-2 py-1 rounded-lg">
+        Top Songs
         <span class="absolute -top-1 -right-2 text-xs text-white bg-red-600  animate-pulse rounded-full px-1">New</span>
       </a>
-      <a href="/subscribe" class="relative bg-gray-100 px-2 py-1 rounded-lg">Subscribe</a>
+      <a title="Subscribe" href="/subscribe" class="relative bg-gray-100 px-2 py-1 rounded-lg">Subscribe</a>
     </div>
   </div>
 </header>
   
   <div class="mx-auto max-w-3xl prose prose-lg pt-8 px-4 lg:px-0">
-        <a href="/spotify-top-songs-right-now" >
-      <img class="border" src="/huangdarren1106-top-songs-banner.jpg" alt="Spotify Top Songs Right Now - Playlist">
-    </a>
-        <h1 class="text-center text-green-600">Spotify Bubble Chart</h1>
+        <h1 class="text-3xl sm:text-5xl text-center text-green-600">Spotify Bubble Chart</h1>
     
           <div x-data="bubblechart">
   
@@ -161,7 +164,7 @@
     
   </div>
   
-  <div class="flex flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
+  <div class="flex pb-16 flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
   <a href="/">Spotify Pie Chart</a>
   <a href="/spotify-stats">Spotify Stats</a>
   <a href="/receiptify">Receiptify</a>
@@ -169,8 +172,9 @@
   <a href="/playlist-name-generator">Playlist Name Generator</a>
   <a href="/generation-names">Generation Names and Years in Order</a>
   <a href="/spotify-banner-size">Spotify Banner Size 2024</a>
-  <a href="/spotify-wrapped">Spotify Wrapped 2023</a>
-  <a href="/subscribe">New Spotify Pie</a>
+  <a href="/spotify-wrapped">Spotify Wrapped 2024</a>
+  <a href="/spotify-top-songs-right-now">Top Songs</a>
+  <a href="/subscribe">Subscribe to New Spotify Pie</a>
 </div>
   
   <div id="huangdarren1106_github_io_anchor_ad_responsive" class="ads">

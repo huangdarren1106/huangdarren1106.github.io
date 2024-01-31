@@ -74,23 +74,26 @@
 <body>
   <header class="max-w-3xl mx-auto">
   <div class="flex flex-col sm:flex-row justify-between items-center py-4 px-4 sm:px-0 border-b">
-    <a href="/" class="sm:text-2xl font-bold mb-4 sm:mb-0 whitespace-nowrap">Spotify Pie</a>
+    <a href="/" class="flex items-center gap-2 sm:text-2xl font-bold mb-4 sm:mb-0 whitespace-nowrap">
+      <img class="w-8 inline-block" src="/spotify-pie.png" alt="Spotify Pie">
+      Spotify Pie
+    </a>
     <div class="flex justify-center sm:justify-end w-full gap-4 flex-wrap">
-      <a href="/spotify-stats" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Stats</a>
-      <a href="/feed" class="relative bg-gray-100 px-2 py-1 rounded-lg">
-        Spotify Pie Bakery
+      <a title="Spotify Stats" href="/spotify-stats" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Stats</a>
+      <a title="Spotify Feed" href="/feed" class="relative bg-gray-100 px-2 py-1 rounded-lg">
+        Spotify Feed
+      </a>
+      <a title="Top Songs" href="/spotify-top-songs-right-now" class="relative bg-gray-100 px-2 py-1 rounded-lg">
+        Top Songs
         <span class="absolute -top-1 -right-2 text-xs text-white bg-red-600  animate-pulse rounded-full px-1">New</span>
       </a>
-      <a href="/subscribe" class="relative bg-gray-100 px-2 py-1 rounded-lg">Subscribe</a>
+      <a title="Subscribe" href="/subscribe" class="relative bg-gray-100 px-2 py-1 rounded-lg">Subscribe</a>
     </div>
   </div>
 </header>
   
   <div class="mx-auto max-w-3xl prose prose-lg pt-8 px-4 lg:px-0">
-        <a href="/spotify-top-songs-right-now" >
-      <img class="border" src="/huangdarren1106-top-songs-banner.jpg" alt="Spotify Top Songs Right Now - Playlist">
-    </a>
-        <h1 class="text-center text-green-600">Spotify Pie Chart - Explore Your Spotify Stats</h1>
+        <h1 class="text-3xl sm:text-5xl text-center text-green-600">Spotify Pie Chart - Explore Your Spotify Stats</h1>
     
           <div x-data="spotifyLogin">
   <div class="text-center w-full border bg-green-50 rounded-lg p-4 border-green-600 mb-4" x-show="!token">
@@ -147,10 +150,10 @@
   </div>
 
         
-    <h2 style="text-align: start">Welcome to Spotify Pie Chart!</h2><p style="text-align: start">Discover a new dimension of music analytics with Spotify Pie, the go-to destination for personalized Spotify Stats. Dive deep into your musical journey and uncover fascinating insights about your listening habits.</p><h2 style="text-align: start">Explore Your Personalized Spotify Stats</h2><p style="text-align: start">Curious about which artists and songs dominate your playlists? Spotify Stats offers comprehensive Stats for Spotify, giving you a detailed breakdown of your Top Artists, Top Songs, and Top Genres based on your listening history. Connect with Spotify and unlock your unique musical profile.</p><p style="text-align: start">Look at <a target="_self" href="/spotify-stats" tt-mode="url">your Spotify Stats.</a></p><h2 style="text-align: start">Visualize Your Music with Spotify Pie and Bubble Charts</h2><p style="text-align: start">Visualize your music taste like never before! Our app transforms your listening data into engaging and colorful Spotify Pie Charts and Spotify Bubble Charts. These fun and interactive visuals provide a unique perspective on your favorite tunes and artists, making it easy to share and compare with friends.</p><h2 style="text-align: start">Stay Updated with Spotify Charts</h2><p style="text-align: start">Keep your finger on the pulse of your music. With Spotify Pie Tracker, you're not just limited to your personal listening stats. Check out the latest Spotify Charts to discover trending songs and artists, and perhaps find your next favorite track.</p><h2 style="text-align: start">Safe, Secure, and Easy to Use</h2><p style="text-align: start">Your privacy matters. Log in securely with your Spotify account and start exploring your musical universe with peace of mind. Our intuitive design makes it easy for everyone to navigate their Spotify Stats and enjoy their personalized music analysis. Join Spotify Pie today and turn your Spotify listening experience into a journey of musical discovery. <a target="_self" href="/spotify-stats" tt-mode="url"><strong><u>Check your Spotify Stats</u></strong></a> and get started!</p>
+    <h2 style="text-align: start">Welcome to Spotify Pie Chart!</h2><p style="text-align: start">Discover a new dimension of music analytics with Spotify Pie, the go-to destination for personalized Spotify Stats. Dive deep into your musical journey and uncover fascinating insights about your listening habits.</p><h2 style="text-align: start">Explore Your Personalized Spotify Stats</h2><p style="text-align: start">Curious about which artists and songs dominate your playlists? Spotify Stats offers comprehensive Stats for Spotify, giving you a detailed breakdown of your Top Artists, Top Songs, and Top Genres based on your listening history. Connect with Spotify and unlock your unique musical profile.</p><p style="text-align: start">Look at <a target="_self" href="/spotify-stats" tt-mode="url">your Spotify Stats.</a></p><h2 style="text-align: start">Visualize Your Music with Spotify Pie and Bubble Charts</h2><p style="text-align: start">Visualize your music taste like never before! Our app transforms your listening data into engaging and colorful Spotify Pie Charts and Spotify Bubble Charts. These fun and interactive visuals provide a unique perspective on your favorite tunes and artists, making it easy to share and compare with friends.</p><h2 style="text-align: start">Stay Updated with Spotify Charts</h2><p style="text-align: start">Keep your finger on the pulse of your music. With Spotify Pie Tracker, you're not just limited to your personal listening stats. Check out the latest Spotify Charts to discover trending songs and artists, and perhaps find your next favorite track.</p><h2>Spotify Top Songs</h2><p>Looking for the latest hits? Check out our <a target="_self" href="/spotify-top-songs-right-now" tt-mode="url">Spotify Top Songs playlist</a>! We gather the top 20 songs from Spotify every month, based on what everyone loves. It's the perfect way to stay up-to-date with the coolest tracks and the top 20 songs this month. Our playlist is always fresh, giving you the best of <a target="_self" href="/spotify-stats" tt-mode="url">Spotify stats</a> and the songs everyone is talking about. Find your new favorite tune today. Keep your playlist trendy with the top 20 songs on Spotify Pie!</p><h2 style="text-align: start">Safe, Secure, and Easy to Use</h2><p style="text-align: start">Your privacy matters. Log in securely with your Spotify account and start exploring your musical universe with peace of mind. Our intuitive design makes it easy for everyone to navigate their Spotify Stats and enjoy their personalized music analysis. Join Spotify Pie today and turn your Spotify listening experience into a journey of musical discovery. <a target="_self" href="/spotify-stats" tt-mode="url"><strong><u>Check your Spotify Stats</u></strong></a> and get started!</p>
   </div>
   
-  <div class="flex flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
+  <div class="flex pb-16 flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
   <a href="/">Spotify Pie Chart</a>
   <a href="/spotify-stats">Spotify Stats</a>
   <a href="/receiptify">Receiptify</a>
@@ -158,8 +161,9 @@
   <a href="/playlist-name-generator">Playlist Name Generator</a>
   <a href="/generation-names">Generation Names and Years in Order</a>
   <a href="/spotify-banner-size">Spotify Banner Size 2024</a>
-  <a href="/spotify-wrapped">Spotify Wrapped 2023</a>
-  <a href="/subscribe">New Spotify Pie</a>
+  <a href="/spotify-wrapped">Spotify Wrapped 2024</a>
+  <a href="/spotify-top-songs-right-now">Top Songs</a>
+  <a href="/subscribe">Subscribe to New Spotify Pie</a>
 </div>
   
   <div id="huangdarren1106_github_io_anchor_ad_responsive" class="ads">
