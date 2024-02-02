@@ -8,6 +8,16 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <style>
+    .side_ad_left{
+        top:75px;
+        left:10px;
+        position:fixed;
+    }
+    .side_ad_right {
+        top: 75px;
+        right: 10px;
+        position: fixed;
+    }
     .ads {
         text-align: center;
     }
@@ -40,15 +50,31 @@
   <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398"
         crossorigin="anonymous"></script>
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script src="https://stpd.cloud/assets/libraries/inview.min.js"></script>
+<script>inView.offset(-200);</script>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
   <script>
     window.googletag = window.googletag || {};
     googletag.cmd = googletag.cmd || [];
     googletag.cmd.push(function () {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1480) {
         googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_300x600_desktop_side_left', [[300,600],[160,600],[300,250],[300,300]], 'huangdarren1106_github_io_sidebar_left_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_300x600_desktop_side_right', [[300,600],[160,600],[300,250],[300,300]], 'huangdarren1106_github_io_sidebar_right_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
+      }
+      else if (window.innerWidth >= 1180){
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000,100],[970,90],[728,90],[990,90],[970,50],[960,90],[950,90],[980,90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_160x600_desktop_side_left', [[160,600],[120,600]], 'huangdarren1106_github_io_sidebar_left_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_160x600_desktop_side_right', [[160,600],[120,600]], 'huangdarren1106_github_io_sidebar_right_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
+      }
+      else if (window.innerWidth >= 1024){
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000,100],[970,90],[728,90],[990,90],[970,50],[960,90],[950,90],[980,90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
       } else {
-        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320, 100], [320, 50], [300, 100], [300, 50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320,100],[320,50],[300,100],[300,50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_336x336_mobile_top', [[300,250],[336,336],[336,320],[320,320],[300,300],[336,280],[320,250],[320,336]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
       }
       var interstitialSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/huangdarren1106.github.io_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
       if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
@@ -61,6 +87,20 @@
     });
   </script>
 <script async src="https://stpd.cloud/saas/6406"></script>
+<style>
+    .side_ad_left{
+        top:75px;
+        left:10px;
+        position:fixed;
+    }
+    .side_ad_right{
+        top:75px;
+        right:10px;
+        position:fixed;
+        .ads {
+            text-align: center;
+        }
+</style>
   
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -98,7 +138,12 @@
 </header>
   
   <div class="mx-auto max-w-3xl prose prose-lg pt-8 px-4 lg:px-0">
-        <h1 class="text-3xl sm:text-5xl text-center text-green-600">Spotify Bubble Chart</h1>
+    <div id="huangdarren1106_github_io_billboard_top_responsive" class="ads">
+    <script>
+      googletag.cmd.push(function() { googletag.display('huangdarren1106_github_io_billboard_top_responsive'); });
+    </script>
+</div>
+    <h1 class="text-3xl sm:text-5xl text-center text-green-600">Spotify Bubble Chart</h1>
     
           <div x-data="bubblechart">
   
@@ -166,6 +211,26 @@
   </div>
         
     
+    
+    <div id='huangdarren1106_github_io_billboard_bottom_responsive' class="ads">
+    <script type="text/javascript">
+        inView('#huangdarren1106_github_io_billboard_bottom_responsive').once('enter', (function() {
+            if(window.innerWidth >= 1024) {
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_bottom', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_bottom_responsive').addService(googletag.pubads());
+                    googletag.display('huangdarren1106_github_io_billboard_bottom_responsive');
+                    stpd.initializeAdUnit('huangdarren1106_github_io_billboard_bottom_responsive')
+                });
+            } else {
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_336x336_mobile_bottom', [[300,250],[336,336],[336,320],[320,320],[300,300],[336,280],[320,250],[320,336]], 'huangdarren1106_github_io_billboard_bottom_responsive').addService(googletag.pubads());
+                    googletag.display('huangdarren1106_github_io_billboard_bottom_responsive');
+                    stpd.initializeAdUnit('huangdarren1106_github_io_billboard_bottom_responsive')
+                });
+            }
+        }));
+    </script>
+</div>
   </div>
   
   <div class="flex pb-16 flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">

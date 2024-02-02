@@ -8,6 +8,16 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <style>
+    .side_ad_left{
+        top:75px;
+        left:10px;
+        position:fixed;
+    }
+    .side_ad_right {
+        top: 75px;
+        right: 10px;
+        position: fixed;
+    }
     .ads {
         text-align: center;
     }
@@ -40,15 +50,31 @@
   <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398"
         crossorigin="anonymous"></script>
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script src="https://stpd.cloud/assets/libraries/inview.min.js"></script>
+<script>inView.offset(-200);</script>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
   <script>
     window.googletag = window.googletag || {};
     googletag.cmd = googletag.cmd || [];
     googletag.cmd.push(function () {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1480) {
         googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_300x600_desktop_side_left', [[300,600],[160,600],[300,250],[300,300]], 'huangdarren1106_github_io_sidebar_left_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_300x600_desktop_side_right', [[300,600],[160,600],[300,250],[300,300]], 'huangdarren1106_github_io_sidebar_right_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
+      }
+      else if (window.innerWidth >= 1180){
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000,100],[970,90],[728,90],[990,90],[970,50],[960,90],[950,90],[980,90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_160x600_desktop_side_left', [[160,600],[120,600]], 'huangdarren1106_github_io_sidebar_left_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_160x600_desktop_side_right', [[160,600],[120,600]], 'huangdarren1106_github_io_sidebar_right_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
+      }
+      else if (window.innerWidth >= 1024){
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000,100],[970,90],[728,90],[990,90],[970,50],[960,90],[950,90],[980,90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
       } else {
-        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320, 100], [320, 50], [300, 100], [300, 50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320,100],[320,50],[300,100],[300,50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_336x336_mobile_top', [[300,250],[336,336],[336,320],[320,320],[300,300],[336,280],[320,250],[320,336]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
       }
       var interstitialSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/huangdarren1106.github.io_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
       if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
@@ -61,6 +87,20 @@
     });
   </script>
 <script async src="https://stpd.cloud/saas/6406"></script>
+<style>
+    .side_ad_left{
+        top:75px;
+        left:10px;
+        position:fixed;
+    }
+    .side_ad_right{
+        top:75px;
+        right:10px;
+        position:fixed;
+        .ads {
+            text-align: center;
+        }
+</style>
   
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -129,10 +169,35 @@
 </header>
   
   <div class="mx-auto max-w-3xl prose prose-lg pt-8 px-4 lg:px-0">
-        <h1 class="text-3xl sm:text-5xl text-center text-green-600">Receiptify: Spotify Receipt From Your Top Tracks</h1>
+    <div id="huangdarren1106_github_io_billboard_top_responsive" class="ads">
+    <script>
+      googletag.cmd.push(function() { googletag.display('huangdarren1106_github_io_billboard_top_responsive'); });
+    </script>
+</div>
+    <h1 class="text-3xl sm:text-5xl text-center text-green-600">Receiptify: Spotify Receipt From Your Top Tracks</h1>
     
         
     <h2>What is Receiptify (Spotify Receipt)</h2><p>Receiptify or Spotify Receipt is a website and app created by Michelle Liu that allows users to generate a "receipt" based on their most played tracks on Spotify, Apple Music, or Last.fm. The receipt displays the user's top tracks, top artists, and top genres in a stylized format, similar to a restaurant bill. Users can choose the time period for which they want to see their top tracks, whether from the last month, the last six months, or from all time.</p><p>The generated receipt can be downloaded and shared on social media. Receiptify has gained popularity as a fun way for music fans to share and compare their listening habits. To use Receiptify, users simply need to visit the Receiptify website and log in with their Spotify, Apple Music, or Last.fm account. The website then prompts them to choose the time period for which they want to see their top tracks, and the receipt is generated accordingly. The site has been well-received and has garnered attention on social media platforms.</p><img src="https://huangdarren1106.github.io/storage/receiptify.jpeg" alt="" title="" tt-mode="file" tt-link-url="" tt-link-target="" tt-link-mode="url" class=""><h2>How To Use Receiptify To Generate a Spotify Receipt</h2><p>To generate a Spotify receipt using Receiptify, follow these steps:</p><ol><li><p>Visit the Receiptify website at receiptify.herokuapp.com.</p></li><li><p>Log in with your Spotify account by clicking the "Log in with Spotify" button and granting access to your Spotify account.</p></li><li><p>Choose what you want your receipt to show, such as Top Tracks, Top Artists, Top Genres, Stats, or Search Albums.</p></li><li><p>Select the time period for which you want to see your top tracks, such as Last Month, Last 6 Months, or All Time.</p></li><li><p>Choose whether you want to display the Top 10 or Top 50.</p></li><li><p>Once the receipt is generated, you can download the image and share it on social media</p></li></ol><p>By following these steps, you can create a personalized receipt displaying your most played tracks on Spotify, allowing you to share and compare your listening habits with others.</p><h2>How To Share a Receiptify Receipt on Social Media</h2><p>To share a receipt generated by Receiptify on social media, follow these steps:</p><ol><li><p>After generating your receipt on the Receiptify website, scroll to the bottom of the receipt.</p></li><li><p>Click on the "Get Image" button. This will automatically download the receipt image to your device</p></li><li><p>Once the image is downloaded, you can share it on social media platforms such as Twitter, Instagram, and Facebook, just like you would share any other image</p></li></ol><p>By following these steps, you can easily share your personalized music receipt on your favorite social media platforms.</p><h2>Similar apps</h2><p>While Receiptify offers a unique snapshot of my musical journey, there are other apps out there that also provide interesting insights into my listening habits.</p><ul><li><p><a target="_self" href="/" tt-mode="url">Spotify Pie</a> - your Spotify Stats in a form of pie chart based on genres of your top artists.</p></li><li><p><a target="_self" href="/spotify-stats" tt-mode="url">Spotify Stats</a> - your full listening history of Spotify with ability to choose range of last 4 weeks, 6 month or all time.</p></li><li><p><a target="_self" href="/spotify-bubble-chart" tt-mode="url">Spotify Bubble Chart</a> - Unique view of your top 10 artists as a bubble chart with actuall artists bubbling up.</p></li><li><p><a target="_self" href="/trackify" tt-mode="url">Spotify Trackify</a> - the app to analyze your listening habits.</p></li></ul><p></p><h2>Frequently Asking Questions</h2><h3>Q: How to make Receiptify?</h3><p>A: To create a Spotify receipt using Receiptify, follow these steps:</p><p>1. Open your web browser and go to the Receiptify website.</p><p>2. Click the "Log in with Spotify" button.</p><p>3. Log into your Spotify account and authorize Receiptify to access your Spotify usage data.</p><p>4. Choose the type of receipt you want (Top Tracks, Top Artists, Top Genres, Stats, or Search Albums) and the time period (Last Month, Last 6 Months, or All Time).</p><p>5. Select the number of items you want to include in the receipt (Top 10 or Top 50).</p><p>6. Once the data processing is complete, you can view your personalized Spotify receipt and download the image to share it with others.</p><h3>Q: Is Receiptify safe?</h3><p>A: <span>Receiptify is generally considered safe to use. It connects with your Spotify account through the official API built by Spotify, and the information about your listening habits comes from Spotify alone. Receiptify does not have access to any other forms of data on your device, and it claims not to store your personal information anywhere. However, as with any third-party tool, it's important to be cautious and consider revoking access after using it. When using Receiptify, you are granting access to your data, so it's essential to be mindful of the permissions you share and to protect your account by using a strong and unique password. Overall, Receiptify is a legitimate and secure platform for creating personalized Spotify receipts.</span></p><p><span>If you have any concerns about using Receiptify, it's always a good idea to review the permissions you are granting and to ensure that you are comfortable with the access you are providing.</span></p><h3>Q: Is receiptify accurate?</h3><p>A: <span>Receiptify is generally considered to be accurate in generating Spotify receipts. The data extracted by Receiptify is directly from Spotify's servers, ensuring a high level of accuracy. While occasional discrepancies may occur due to sync delays or bank-side issues, users can manually edit transaction details to ensure maximum accuracy. The app is designed to provide an accurate and personalized representation of an individual's listening habits, making it a popular tool for sharing music statistics on social media platforms.</span></p>
+    
+    <div id='huangdarren1106_github_io_billboard_bottom_responsive' class="ads">
+    <script type="text/javascript">
+        inView('#huangdarren1106_github_io_billboard_bottom_responsive').once('enter', (function() {
+            if(window.innerWidth >= 1024) {
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_bottom', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_bottom_responsive').addService(googletag.pubads());
+                    googletag.display('huangdarren1106_github_io_billboard_bottom_responsive');
+                    stpd.initializeAdUnit('huangdarren1106_github_io_billboard_bottom_responsive')
+                });
+            } else {
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_336x336_mobile_bottom', [[300,250],[336,336],[336,320],[320,320],[300,300],[336,280],[320,250],[320,336]], 'huangdarren1106_github_io_billboard_bottom_responsive').addService(googletag.pubads());
+                    googletag.display('huangdarren1106_github_io_billboard_bottom_responsive');
+                    stpd.initializeAdUnit('huangdarren1106_github_io_billboard_bottom_responsive')
+                });
+            }
+        }));
+    </script>
+</div>
   </div>
   
   <div class="flex pb-16 flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">

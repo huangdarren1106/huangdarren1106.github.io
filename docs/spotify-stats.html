@@ -8,6 +8,16 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <style>
+    .side_ad_left{
+        top:75px;
+        left:10px;
+        position:fixed;
+    }
+    .side_ad_right {
+        top: 75px;
+        right: 10px;
+        position: fixed;
+    }
     .ads {
         text-align: center;
     }
@@ -40,15 +50,31 @@
   <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398"
         crossorigin="anonymous"></script>
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script src="https://stpd.cloud/assets/libraries/inview.min.js"></script>
+<script>inView.offset(-200);</script>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
   <script>
     window.googletag = window.googletag || {};
     googletag.cmd = googletag.cmd || [];
     googletag.cmd.push(function () {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1480) {
         googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_300x600_desktop_side_left', [[300,600],[160,600],[300,250],[300,300]], 'huangdarren1106_github_io_sidebar_left_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_300x600_desktop_side_right', [[300,600],[160,600],[300,250],[300,300]], 'huangdarren1106_github_io_sidebar_right_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
+      }
+      else if (window.innerWidth >= 1180){
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000,100],[970,90],[728,90],[990,90],[970,50],[960,90],[950,90],[980,90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_160x600_desktop_side_left', [[160,600],[120,600]], 'huangdarren1106_github_io_sidebar_left_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_160x600_desktop_side_right', [[160,600],[120,600]], 'huangdarren1106_github_io_sidebar_right_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
+      }
+      else if (window.innerWidth >= 1024){
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000,100],[970,90],[728,90],[990,90],[970,50],[960,90],[950,90],[980,90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
       } else {
-        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320, 100], [320, 50], [300, 100], [300, 50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320,100],[320,50],[300,100],[300,50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_336x336_mobile_top', [[300,250],[336,336],[336,320],[320,320],[300,300],[336,280],[320,250],[320,336]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
       }
       var interstitialSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/huangdarren1106.github.io_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
       if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
@@ -61,6 +87,20 @@
     });
   </script>
 <script async src="https://stpd.cloud/saas/6406"></script>
+<style>
+    .side_ad_left{
+        top:75px;
+        left:10px;
+        position:fixed;
+    }
+    .side_ad_right{
+        top:75px;
+        right:10px;
+        position:fixed;
+        .ads {
+            text-align: center;
+        }
+</style>
   
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -138,7 +178,12 @@
 </header>
   
   <div class="mx-auto max-w-3xl prose prose-lg pt-8 px-4 lg:px-0">
-        <h1 class="text-3xl sm:text-5xl text-center text-green-600">Spotify Stats - View Your Spotify Statistics</h1>
+    <div id="huangdarren1106_github_io_billboard_top_responsive" class="ads">
+    <script>
+      googletag.cmd.push(function() { googletag.display('huangdarren1106_github_io_billboard_top_responsive'); });
+    </script>
+</div>
+    <h1 class="text-3xl sm:text-5xl text-center text-green-600">Spotify Stats - View Your Spotify Statistics</h1>
     
           <div x-data="spotifystats">
   
@@ -268,6 +313,26 @@
     </div>
         
     <p>As a Spotify user, accessing and understanding your listening statistics can provide valuable insights into your music habits. Whether you want to explore your top artists, songs, or genres, Spotify offers various tools to help you personalize your music experience based on your preferences. On this page you can analyze your Stats for Spotify and utilizing the data to enhance your listening journey.</p><h2 style="text-align: start">How to see Spotify Stats</h2><p style="text-align: start">By logging into your Spotify account, you can easily view your Spotify Stats on this page, which includes your top artists, songs, and genres from the past year.</p><h3 style="text-align: start">Importance of Understanding Your Spotify Listening Statistics</h3><p style="text-align: start">Understanding your Spotify listening statistics can offer valuable insights into your music preferences, helping you discover new artists, albums, and genres that align with your taste. By regularly reviewing your Spotify stats, you can tailor your listening experience to better reflect your evolving music interests.</p><h2 style="text-align: start">Top Artists: What It Means and How to Personalize</h2><p style="text-align: start">Your top artists on Spotify reflect the musicians and bands you've listened to the most. Spotify calculates your top artists based on the total listening time attributed to each artist, allowing you to discover the musical acts that resonate with you the most. On this page, after you logged in you can select the time range from 3 options: Last 4 Weeks, Last 6 Months and All Time.</p><h3 style="text-align: start">How Spotify Calculates Your Top Artists</h3><p style="text-align: start">Spotify calculates your top artists by analyzing the number of times you've streamed each artist's tracks and the total duration of your listening sessions for their music. This approach ensures that your top artists accurately represent your listening habits.</p><h3 style="text-align: start">Personalizing Your Top Artists List</h3><p style="text-align: start">To personalize your top artists' list, consider exploring new artists and albums recommended by Spotify based on your current favorites. By diversifying your music library and discovering fresh talents, you can enrich your listening experience and potentially add new top artists to your list.</p><h3 style="text-align: start">Exploring New Artists and Albums Based on Your Top Artists</h3><p style="text-align: start">Utilize the "Related Artists" feature on Spotify to discover musicians and bands similar to your top artists. Exploring related artists can introduce you to new music that resonates with your preferences, expanding your musical horizon beyond your current top artists.</p><h2 style="text-align: start">Top Songs: Discovering Your Most Listened Tracks</h2><p style="text-align: start">Exploring your top songs on Spotify Stats allows you to uncover the tracks that have resonated with you the most during a specific period. Your top songs list showcases the individual tracks that have accumulated the highest listening time, providing valuable insights into your favorite music. You can select the time range from 3 options: Last 4 Weeks, Last 6 Months and All Time.</p><h3 style="text-align: start">Creating Playlists with Your Top Songs</h3><p style="text-align: start">Consider creating personalized playlists featuring your top songs to revisit and enjoy your favorite tracks at any time. By organizing your top songs into themed playlists, you can tailor your listening experience to specific moods, occasions, or musical genres.</p><h2 style="text-align: start">Spotify Genre Stats: Exploring Your Music Preferences</h2><p style="text-align: start">Unveiling your top genres on Spotify provides valuable insights into your music preferences and the styles of music that resonate with you the most. By exploring your top genres, you can discover new artists and albums within genres that align with your musical taste.</p><h3 style="text-align: start">How Spotify Identifies Your Top Genres</h3><p style="text-align: start">Spotify identifies your top genres based on the collective listening time attributed to each genre within your listening history. This approach allows Spotify to recognize the genres that define your music preferences and tailor music recommendations accordingly.</p><h3 style="text-align: start">Diving Deeper into Your Top Genres and build Spotify Charts</h3><p style="text-align: start">Delve deeper into your top genres by exploring curated playlists and recommendations within each genre. This exploration can lead to the discovery of new and exciting music that aligns with your favorite genres, broadening your musical horizons and enriching your listening experience.</p><h3 style="text-align: start">Utilizing Your Top Genres to Discover New Music</h3><p style="text-align: start">Utilize your top genres as a springboard to discover new music that resonates with your musical preferences. By leveraging your top genres, you can explore recommended artists, albums, and playlists that align with the genres you love, enabling you to continuously expand your music library.</p><h2 style="text-align: start">Using Spotify Stats to Enhance Your Listening Experience</h2><p style="text-align: start">Utilizing your Spotify statistics can significantly enhance your listening experience by helping you tailor your music choices and discover new artists and genres that align with your preferences.</p><h3 style="text-align: start">Customizing Playlists Based on Your Spotify Statistics</h3><p style="text-align: start">Customize playlists based on your top artists, songs, and genres, creating curated listening experiences tailored to your music taste and mood. This customization allows you to enjoy personalized playlists that reflect your unique music preferences.</p><h3 style="text-align: start">Exploring New Music Based on Your Listening Patterns</h3><p style="text-align: start">Explore new music based on your listening patterns, utilizing Spotify's personalized recommendations and related artists to expand your musical repertoire. By embracing new music aligned with your listening habits, you can continue to discover fresh and exciting tracks.</p><h3 style="text-align: start">Advantages of Accessing and Reviewing Your Spotify Stats Regularly</h3><p style="text-align: start">Regularly accessing and reviewing your Spotify stats empowers you with insights into your evolving music taste and preferences. By staying updated with your Spotify statistics, you can adapt your listening choices and explore new music, ensuring that your music journey remains dynamic and fulfilling.</p><p style="text-align: start"></p><h2>Frequently Asking Questions</h2><h3>Q: Is stats for Spotify safe?</h3><p style="text-align: start">A: <span>Stats for Spotify, a third-party tool for viewing Spotify statistics, is generally considered safe to use. However, it's important to be cautious when granting permissions and to read the agreement page before proceeding with the tool.</span></p><p style="text-align: start"></p><h3>Q: How to see artist Spotify stats?</h3><p><span>A: To see artist Spotify stats, you can use the Spotify for Artists platform or third-party tools that provide analytics. Here are the steps to view the stats using Spotify for Artists:</span></p><ol><li><p><span>Log in to artists.spotify.com.</span></p></li><li><p><span>Go to the "Audience" section.</span></p></li><li><p><span>Click on "Release engagement" to see how many followers have streamed your new music.</span></p></li></ol><h2>Q: How to see Spotify stats before wrapped?</h2><p style="text-align: start">A: Use the Spotify Pie app that allows you to see:</p><ul><li><p style="text-align: start">Stats for Spotify</p></li><li><p style="text-align: start">Spotify Pie</p></li><li><p style="text-align: start">Spotify Bubble</p></li></ul><h3>Q: Is stats for Spotify accurate?</h3><p style="text-align: start">A: <span>Stats for Spotify is generally considered to be accurate in providing insights into a user's listening habits. Users have reported that the tool's key insights and analysis are "painfully accurate," revealing surprising details about their listening behaviour.</span></p>
+    
+    <div id='huangdarren1106_github_io_billboard_bottom_responsive' class="ads">
+    <script type="text/javascript">
+        inView('#huangdarren1106_github_io_billboard_bottom_responsive').once('enter', (function() {
+            if(window.innerWidth >= 1024) {
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_bottom', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_bottom_responsive').addService(googletag.pubads());
+                    googletag.display('huangdarren1106_github_io_billboard_bottom_responsive');
+                    stpd.initializeAdUnit('huangdarren1106_github_io_billboard_bottom_responsive')
+                });
+            } else {
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_336x336_mobile_bottom', [[300,250],[336,336],[336,320],[320,320],[300,300],[336,280],[320,250],[320,336]], 'huangdarren1106_github_io_billboard_bottom_responsive').addService(googletag.pubads());
+                    googletag.display('huangdarren1106_github_io_billboard_bottom_responsive');
+                    stpd.initializeAdUnit('huangdarren1106_github_io_billboard_bottom_responsive')
+                });
+            }
+        }));
+    </script>
+</div>
   </div>
   
   <div class="flex pb-16 flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">

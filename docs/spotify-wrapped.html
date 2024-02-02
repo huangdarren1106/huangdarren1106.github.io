@@ -8,6 +8,16 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <style>
+    .side_ad_left{
+        top:75px;
+        left:10px;
+        position:fixed;
+    }
+    .side_ad_right {
+        top: 75px;
+        right: 10px;
+        position: fixed;
+    }
     .ads {
         text-align: center;
     }
@@ -40,15 +50,31 @@
   <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398"
         crossorigin="anonymous"></script>
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script src="https://stpd.cloud/assets/libraries/inview.min.js"></script>
+<script>inView.offset(-200);</script>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
   <script>
     window.googletag = window.googletag || {};
     googletag.cmd = googletag.cmd || [];
     googletag.cmd.push(function () {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1480) {
         googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_300x600_desktop_side_left', [[300,600],[160,600],[300,250],[300,300]], 'huangdarren1106_github_io_sidebar_left_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_300x600_desktop_side_right', [[300,600],[160,600],[300,250],[300,300]], 'huangdarren1106_github_io_sidebar_right_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
+      }
+      else if (window.innerWidth >= 1180){
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000,100],[970,90],[728,90],[990,90],[970,50],[960,90],[950,90],[980,90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_160x600_desktop_side_left', [[160,600],[120,600]], 'huangdarren1106_github_io_sidebar_left_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_160x600_desktop_side_right', [[160,600],[120,600]], 'huangdarren1106_github_io_sidebar_right_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
+      }
+      else if (window.innerWidth >= 1024){
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000,100],[970,90],[728,90],[990,90],[970,50],[960,90],[950,90],[980,90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_top', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
       } else {
-        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320, 100], [320, 50], [300, 100], [300, 50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320,100],[320,50],[300,100],[300,50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_336x336_mobile_top', [[300,250],[336,336],[336,320],[320,320],[300,300],[336,280],[320,250],[320,336]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
       }
       var interstitialSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/huangdarren1106.github.io_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
       if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
@@ -61,6 +87,20 @@
     });
   </script>
 <script async src="https://stpd.cloud/saas/6406"></script>
+<style>
+    .side_ad_left{
+        top:75px;
+        left:10px;
+        position:fixed;
+    }
+    .side_ad_right{
+        top:75px;
+        right:10px;
+        position:fixed;
+        .ads {
+            text-align: center;
+        }
+</style>
   
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -97,10 +137,35 @@
 </header>
   
   <div class="mx-auto max-w-3xl prose prose-lg pt-8 px-4 lg:px-0">
-        <h1 class="text-3xl sm:text-5xl text-center text-green-600">Spotify Wrapped 2023: A Reflection of Your Year in Music</h1>
+    <div id="huangdarren1106_github_io_billboard_top_responsive" class="ads">
+    <script>
+      googletag.cmd.push(function() { googletag.display('huangdarren1106_github_io_billboard_top_responsive'); });
+    </script>
+</div>
+    <h1 class="text-3xl sm:text-5xl text-center text-green-600">Spotify Wrapped 2023: A Reflection of Your Year in Music</h1>
     
         
     <p>As the year 2023 winds down, Spotify gears up to unveil its annual Wrapped feature, a much-anticipated musical retrospective that showcases each user's unique listening journey. This feature, which rolls out at the end of each year, offers personalized stats, rankings, and summaries of subscribers' most listened to songs, albums, podcasts, artists, and genres.</p><p style="text-align: start">But for those who can't wait until the end of the year, Spotify offers an intriguing alternative: the <a target="_blank" href="https://huangdarren1106.github.io/" tt-mode="url"><strong><u>Spotify Pie Chart</u></strong></a>. This feature allows users to view and share their listening habits at any time, providing a fun and interactive way to engage with their music preferences throughout the year.</p><p style="text-align: start">Spotify has already begun teasing this year's Wrapped rollout. In the past, we've seen highlights like <a target="_blank" href="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02" tt-mode="url"><strong><u>Taylor Swift</u></strong></a> being named the most streamed artist in the UK, and <a target="_blank" href="https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X" tt-mode="url"><strong><u>Bad Bunny</u></strong></a> taking the global title for the third consecutive year. While the official date for Wrapped 2023's release remains unannounced, history suggests it could be any day between the final days of November and the first week of December.</p><p style="text-align: start">For those eager to delve into their musical tastes sooner, the Spotify Pie Chart is an excellent tool. It offers a visual representation of listening habits, allowing users to see at a glance which genres and artists dominate their playlists. Unlike Wrapped, which is a year-end treat, the Pie Chart is accessible year-round, offering continuous insights into evolving musical preferences.</p><p style="text-align: start">In 2022, Harry Styles' 'As It Was' and Glass Animals' 'Heat Waves' topped Spotify's most-streamed lists both in the UK and globally. As we anticipate this year's Wrapped, it's interesting to speculate whether these artists will maintain their top spots or if new names will emerge.</p><p style="text-align: start">Artists themselves often share their Spotify Wrapped stats, with Lewis Capaldi expressing astonishment over his billion streams in 2022. Last year also marked the introduction of the Your Listening Personality feature, categorizing users into one of 16 listening types based on their music choices.</p><p style="text-align: start">But why wait until the end of the year? With the <a target="_blank" href="https://huangdarren1106.github.io/" tt-mode="url"><strong><u>Spotify Pie Chart</u></strong></a>, users can get a sneak peek into what their Wrapped might look like. It's a way to stay connected with your musical journey throughout the year and share those moments with friends.</p><p style="text-align: start"><span>As Spotify prepares to roll out Wrapped 2023, remember that your musical story is ongoing and can be celebrated anytime with the Pie Chart. Keep an eye on your Spotify app for the official Wrapped release, which promises to bring a captivating end-of-year summary, complete with slideshows and shareable images. And in the meantime, dive into the Spotify Pie Chart to discover and share your current musical snapshot.</span></p>
+    
+    <div id='huangdarren1106_github_io_billboard_bottom_responsive' class="ads">
+    <script type="text/javascript">
+        inView('#huangdarren1106_github_io_billboard_bottom_responsive').once('enter', (function() {
+            if(window.innerWidth >= 1024) {
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_800x280_desktop_billboard_bottom', [[800,280],[800,250],[800,200],[750,280],[750,250],[750,200],[750,150],[750,100],[728,90]], 'huangdarren1106_github_io_billboard_bottom_responsive').addService(googletag.pubads());
+                    googletag.display('huangdarren1106_github_io_billboard_bottom_responsive');
+                    stpd.initializeAdUnit('huangdarren1106_github_io_billboard_bottom_responsive')
+                });
+            } else {
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_336x336_mobile_bottom', [[300,250],[336,336],[336,320],[320,320],[300,300],[336,280],[320,250],[320,336]], 'huangdarren1106_github_io_billboard_bottom_responsive').addService(googletag.pubads());
+                    googletag.display('huangdarren1106_github_io_billboard_bottom_responsive');
+                    stpd.initializeAdUnit('huangdarren1106_github_io_billboard_bottom_responsive')
+                });
+            }
+        }));
+    </script>
+</div>
   </div>
   
   <div class="flex pb-16 flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
