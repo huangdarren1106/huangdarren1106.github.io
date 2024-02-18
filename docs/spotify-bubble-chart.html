@@ -44,7 +44,17 @@
   
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Victor+Mono&display=swap" rel="stylesheet">
   
+  <style>
+    .kanit {
+        font-family: "Kanit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }s
+  </style>
 
   <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398"
@@ -159,37 +169,29 @@
     </div>
 
     <div class="max-w-sm mx-auto">
-      <div class="flex justify-center text-sm mb-4 w-full border rounded-full text-center shadow-lg">
-        <a href="/spotify-pie" :class="{'bg-purple-600 text-white': isSpotifyPie}"
-           class="flex-1 py-2 px-2 rounded-l-full no-underline flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-            <path fill="#ba9aea" d="M12 12V2c5.523 0 10 4.477 10 10H12z" opacity=".25" />
-            <path fill="#ba9aea" d="m12 12l5 8.66A10.01 10.01 0 0 0 22 12H12z" opacity=".5" />
-            <path fill="#ba9aea"
-                  d="M17 20.66L12 12V2c-5.523.002-9.999 4.48-9.997 10.003c.002 5.523 4.48 9.999 10.004 9.997A10 10 0 0 0 17 20.662l.003-.005l-.004.003z" />
-          </svg>
-          Spotify Pie</a>
-        <a href="/spotify-bubble-chart" :class="{'bg-purple-600 text-white': isSpotifyBubble}"
-           class="flex-1 py-2 no-underline flex items-center justify-center px-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
-            <defs>
-              <mask id="ipTBubbleChart0">
-                <g fill="#555" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
-                  <circle cx="34" cy="14" r="9" />
-                  <circle cx="12" cy="25" r="7" />
-                  <circle cx="29" cy="37" r="5" />
-                </g>
-              </mask>
-            </defs>
-            <path fill="#ba9aea" d="M0 0h48v48H0z" mask="url(#ipTBubbleChart0)" />
-          </svg>
+      <div class="flex justify-center mb-4 text-sm w-full border rounded-lg text-center shadow-lg">
+        <a href="/spotify-pie"
+           :class="{'bg-purple-600 text-white': isSpotifyPie}"
+           class="flex-1 py-2 rounded-l-lg no-underline flex flex-col items-center justify-center gap-1 px-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#ba9aea" d="M12 12V2c5.523 0 10 4.477 10 10H12z" opacity=".25"/><path fill="#ba9aea" d="m12 12l5 8.66A10.01 10.01 0 0 0 22 12H12z" opacity=".5"/><path fill="#ba9aea" d="M17 20.66L12 12V2c-5.523.002-9.999 4.48-9.997 10.003c.002 5.523 4.48 9.999 10.004 9.997A10 10 0 0 0 17 20.662l.003-.005l-.004.003z"/></svg>
+          Spotify <br/>Pie
+        </a>
+        <a href="/spotify-bubble-chart"
+           :class="{'bg-purple-600 text-white': isSpotifyBubble}"
+           class="flex-1 py-2 no-underline px-2 flex flex-col items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48"><defs><mask id="ipTBubbleChart0"><g fill="#555" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><circle cx="34" cy="14" r="9"/><circle cx="12" cy="25" r="7"/><circle cx="29" cy="37" r="5"/></g></mask></defs><path fill="#ba9aea" d="M0 0h48v48H0z" mask="url(#ipTBubbleChart0)"/></svg>
           Spotify Bubble</a>
-        <a href="/spotify-stats" :class="{'bg-purple-600 text-white': isSpotifyStats}"
-           class="flex-1 rounded-r-full py-2 px-2 no-underline flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-            <path fill="none" stroke="#ba9aea" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M3 16.5h2v.5H3zm5 0h2.5v.5H8zm8 .5h-2.5v-.5H16zm5.5 0H19v-.5h2.5zm0-4H19v.5h2.5zm0-3.5H19v.5h2.5zm0-3.5H19v.5h2.5zM16 13h-2.5v.5H16zm-8 .5h2.5V13H8zm0-4h2.5v.5H8z" />
-          </svg>
+        <a href="/receiptify"
+           :class="{'bg-purple-600 text-white': isSpotifyReceiptipie}"
+           class="flex-1 py-2 no-underline px-2 flex flex-col items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <path fill="#ba9aea" d="M21 16h2v2h-2zM9 16h8v2H9zm12-4h2v2h-2zM9 12h8v2H9zm0-4h14v2H9z"/>
+            <path fill="#ba9aea" d="M25 2H7a2.002 2.002 0 0 0-2 2v25a1 1 0 0 0 1 1h1a.999.999 0 0 0 .8-.4l2.2-2.933l2.2 2.933a1.035 1.035 0 0 0 1.6 0l2.2-2.933l2.2 2.933a1.035 1.035 0 0 0 1.6 0l2.2-2.933l2.2 2.933a1 1 0 0 0 .8.4h1a1 1 0 0 0 1-1V4a2.002 2.002 0 0 0-2-2m0 25.333L22.8 24.4a1.035 1.035 0 0 0-1.6 0L19 27.333L16.8 24.4a1.035 1.035 0 0 0-1.6 0L13 27.333L10.8 24.4a1.035 1.035 0 0 0-1.6 0L7 27.333V4h18Z"/></svg>
+          Spotify ReceiptiPie</a>
+          <a href="/spotify-stats"
+             :class="{'bg-purple-600 text-white': isSpotifyStats}"
+             class="flex-1 border-l rounded-r-full py-2 px-2 no-underline flex flex-col items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="#ba9aea" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5h2v.5H3zm5 0h2.5v.5H8zm8 .5h-2.5v-.5H16zm5.5 0H19v-.5h2.5zm0-4H19v.5h2.5zm0-3.5H19v.5h2.5zm0-3.5H19v.5h2.5zM16 13h-2.5v.5H16zm-8 .5h2.5V13H8zm0-4h2.5v.5H8z"/></svg>
           Spotify Stats</a>
       </div>
     </div>
@@ -287,6 +289,7 @@
           isSpotifyBubble: true,
           isSpotifyStats: false,
           isSpotifyPie: false,
+          isSpotifyReceiptipie: false,
           genresChartData: [],
           resetPosition: null,
           capture() {
