@@ -53,7 +53,19 @@
         font-family: "Kanit", sans-serif;
         font-weight: 400;
         font-style: normal;
-    }s
+    }
+    .editor-js-image{
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+        font-size: 12px;
+    }
+    .editor-js-image img{
+        margin-bottom: 0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
   </style>
 
   <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
@@ -123,12 +135,12 @@
 
 <body>
   <header class="max-w-4xl mx-auto">
-  <div class="flex flex-col md:flex-row justify-between items-center py-4 px-4 sm:px-0 border-b">
+  <div class="flex flex-col justify-center items-center py-4 px-4 sm:px-0 border-b gap-2">
     <a href="/" class="flex items-center gap-2 sm:text-2xl font-bold mb-4 md:mb-0 whitespace-nowrap">
       <img class="w-8 inline-block" src="/spotify-pie.png" alt="Spotify Pie">
       Spotify Pie
     </a>
-    <div class="flex justify-center md:justify-end w-full gap-2 flex-wrap">
+    <div class="flex justify-center w-full gap-2 flex-wrap">
       <a title="Spotify Stats" href="/spotify-stats" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Stats</a>
       <a title="Spotify Feed" href="/feed" class="relative bg-gray-100 px-2 py-1 rounded-lg">
         Feed
@@ -141,10 +153,11 @@
         <span class="absolute -top-1 -right-2 text-xs text-white bg-red-600  animate-pulse rounded-full px-1">New</span>
       </a>
       <a title="Spotify Premium Free" href="/spotify-premium-free" class="relative bg-gray-100 px-2 py-1 rounded-lg">
-        Spotify Premium
-        <span class="absolute -top-2 -right-2 text-base text-white animate-pulse rounded-full px-1">⭐</span>
+        Free Spotify Premium
+        <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 text-white animate-pulse rounded-full px-1"></span>
       </a>
       <a title="Subscribe" href="/subscribe" class="relative bg-gray-100 px-2 py-1 rounded-lg">Subscribe</a>
+      <a title="Spotify Wrapped" href="/spotify-wrapped" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Wrapped</a>
     </div>
   </div>
 </header>
@@ -219,7 +232,8 @@
     
   </div>
         
-    
+          
+        
     <div id="huangdarren1106_github_io_sidebar_left_desktop" class="side_ad_left">
     <script>
       googletag.cmd.push(function() {

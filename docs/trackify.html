@@ -53,7 +53,19 @@
         font-family: "Kanit", sans-serif;
         font-weight: 400;
         font-style: normal;
-    }s
+    }
+    .editor-js-image{
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+        font-size: 12px;
+    }
+    .editor-js-image img{
+        margin-bottom: 0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
   </style>
 
   <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
@@ -122,12 +134,12 @@
 
 <body>
   <header class="max-w-4xl mx-auto">
-  <div class="flex flex-col md:flex-row justify-between items-center py-4 px-4 sm:px-0 border-b">
+  <div class="flex flex-col justify-center items-center py-4 px-4 sm:px-0 border-b gap-2">
     <a href="/" class="flex items-center gap-2 sm:text-2xl font-bold mb-4 md:mb-0 whitespace-nowrap">
       <img class="w-8 inline-block" src="/spotify-pie.png" alt="Spotify Pie">
       Spotify Pie
     </a>
-    <div class="flex justify-center md:justify-end w-full gap-2 flex-wrap">
+    <div class="flex justify-center w-full gap-2 flex-wrap">
       <a title="Spotify Stats" href="/spotify-stats" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Stats</a>
       <a title="Spotify Feed" href="/feed" class="relative bg-gray-100 px-2 py-1 rounded-lg">
         Feed
@@ -140,10 +152,11 @@
         <span class="absolute -top-1 -right-2 text-xs text-white bg-red-600  animate-pulse rounded-full px-1">New</span>
       </a>
       <a title="Spotify Premium Free" href="/spotify-premium-free" class="relative bg-gray-100 px-2 py-1 rounded-lg">
-        Spotify Premium
-        <span class="absolute -top-2 -right-2 text-base text-white animate-pulse rounded-full px-1">⭐</span>
+        Free Spotify Premium
+        <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 text-white animate-pulse rounded-full px-1"></span>
       </a>
       <a title="Subscribe" href="/subscribe" class="relative bg-gray-100 px-2 py-1 rounded-lg">Subscribe</a>
+      <a title="Spotify Wrapped" href="/spotify-wrapped" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Wrapped</a>
     </div>
   </div>
 </header>
@@ -158,7 +171,8 @@
     <h1 class="text-3xl sm:text-5xl text-center text-gray-700">Trackify - Your Spotify Listening Statistics</h1>
     
         
-    <h2 style="text-align: start">Understanding Trackify</h2><p style="text-align: start">Trackify is an app designed for Spotify users to analyze their listening habits. It provides insights into most played songs, genre preferences, and listening patterns.</p><h2 style="text-align: start">Trackify's Analytics Features</h2><p style="text-align: start">The app's core feature is its analytics, offering detailed analysis of your Spotify usage. It helps users understand their musical preferences and discover patterns in their listening habits.</p><h2 style="text-align: start">Trackify Plus Plan</h2><p style="text-align: start">Trackify Plus is a lifetime purchase plan available for $4.79 USD. It offers enhanced features such as:</p><ul><li><p>Access to all your data.</p></li><li><p>Analytics on top 10,000 tracks, artists, and albums.</p></li><li><p>Minute-by-minute listening history.</p></li><li><p>Customizable date range for analytics.</p></li><li><p>Early access to new features.</p></li><li><p>An ad-free experience.</p></li><li><p>Additional small features that enhance the overall usability of the app.</p></li></ul><p style="text-align: start">All these features are aimed at providing Spotify users with a comprehensive and detailed breakdown of their listening habits, processed securely through Stripe.</p><h2 style="text-align: start">Overall Functionality</h2><p style="text-align: start">Trackify boasts a user-friendly interface and seamless Spotify integration. It enhances the Spotify experience without interrupting the music flow.</p><h2 style="text-align: start">Trackify Pros and Cons</h2><p style="text-align: start">While Trackify is valued for its analytics, it is noted for limited social sharing features. It remains a top tool for Spotify users.</p><p style="text-align: start">Users can sign up for a free account to begin tracking immediately through login with Spotify.</p><p style="text-align: start"><span>Additional features include analytics, tracks, users, and plus users.</span></p><p style="text-align: start"><span>Users can access their statistics via the Trackify website or Discord community.</span></p><h2 style="text-align: start">Overall opinion</h2><p style="text-align: start">Trackify is a web application that allows users to view their exact Spotify listening time, stream count, and top tracks through integration with their Spotify account. It offers real-time analytics beyond the annual summary provided by Spotify Wrapped. With over 60,144 users and adherence to GDPR and CCPA, Trackify provides a more comprehensive way to track listening history.</p><p style="text-align: start">Trackify, along with "Spotify Pie," offers Spotify users an interesting view of their listening habits. Trackify's Plus plan enhances this experience with a one-time purchase, ensuring lifetime access to its full capabilities, making it a compelling choice for Spotify enthusiasts.</p><h2 style="text-align: start">Trackify alternative</h2><p style="text-align: start">For a visual representation of your musical tastes, <a target="_blank" href="https://huangdarren1106.github.io/" tt-mode="url"><strong><u>Spotify Pie</u></strong></a> complements Trackify by providing a pie chart of your top 20 artists and their genres based on your Spotify history.</p><p style="text-align: start"><strong>FAQs</strong></p><ul><li><p><em>Is Trackify user-friendly?</em> Yes, suitable for all levels of Spotify users.</p></li><li><p><em>Can Trackify help discover new music?</em> Yes, through detailed listening analysis.</p></li></ul>
+          <h2 style="text-align: start">Understanding Trackify</h2><p style="text-align: start">Trackify is an app designed for Spotify users to analyze their listening habits. It provides insights into most played songs, genre preferences, and listening patterns.</p><h2 style="text-align: start">Trackify's Analytics Features</h2><p style="text-align: start">The app's core feature is its analytics, offering detailed analysis of your Spotify usage. It helps users understand their musical preferences and discover patterns in their listening habits.</p><h2 style="text-align: start">Trackify Plus Plan</h2><p style="text-align: start">Trackify Plus is a lifetime purchase plan available for $4.79 USD. It offers enhanced features such as:</p><ul><li><p>Access to all your data.</p></li><li><p>Analytics on top 10,000 tracks, artists, and albums.</p></li><li><p>Minute-by-minute listening history.</p></li><li><p>Customizable date range for analytics.</p></li><li><p>Early access to new features.</p></li><li><p>An ad-free experience.</p></li><li><p>Additional small features that enhance the overall usability of the app.</p></li></ul><p style="text-align: start">All these features are aimed at providing Spotify users with a comprehensive and detailed breakdown of their listening habits, processed securely through Stripe.</p><h2 style="text-align: start">Overall Functionality</h2><p style="text-align: start">Trackify boasts a user-friendly interface and seamless Spotify integration. It enhances the Spotify experience without interrupting the music flow.</p><h2 style="text-align: start">Trackify Pros and Cons</h2><p style="text-align: start">While Trackify is valued for its analytics, it is noted for limited social sharing features. It remains a top tool for Spotify users.</p><p style="text-align: start">Users can sign up for a free account to begin tracking immediately through login with Spotify.</p><p style="text-align: start"><span>Additional features include analytics, tracks, users, and plus users.</span></p><p style="text-align: start"><span>Users can access their statistics via the Trackify website or Discord community.</span></p><h2 style="text-align: start">Overall opinion</h2><p style="text-align: start">Trackify is a web application that allows users to view their exact Spotify listening time, stream count, and top tracks through integration with their Spotify account. It offers real-time analytics beyond the annual summary provided by Spotify Wrapped. With over 60,144 users and adherence to GDPR and CCPA, Trackify provides a more comprehensive way to track listening history.</p><p style="text-align: start">Trackify, along with "Spotify Pie," offers Spotify users an interesting view of their listening habits. Trackify's Plus plan enhances this experience with a one-time purchase, ensuring lifetime access to its full capabilities, making it a compelling choice for Spotify enthusiasts.</p><h2 style="text-align: start">Trackify alternative</h2><p style="text-align: start">For a visual representation of your musical tastes, <a target="_blank" href="https://huangdarren1106.github.io/" tt-mode="url"><strong><u>Spotify Pie</u></strong></a> complements Trackify by providing a pie chart of your top 20 artists and their genres based on your Spotify history.</p><p style="text-align: start"><strong>FAQs</strong></p><ul><li><p><em>Is Trackify user-friendly?</em> Yes, suitable for all levels of Spotify users.</p></li><li><p><em>Can Trackify help discover new music?</em> Yes, through detailed listening analysis.</p></li></ul>
+        
     <div id="huangdarren1106_github_io_sidebar_left_desktop" class="side_ad_left">
     <script>
       googletag.cmd.push(function() {
