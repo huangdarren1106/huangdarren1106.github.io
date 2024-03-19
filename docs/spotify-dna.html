@@ -140,7 +140,7 @@
       Spotify Pie
     </a>
     <div class="flex justify-center w-full gap-2 flex-wrap">
-      <a title="Spotify Stats" href="/spotify-stats" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Stats</a>
+      <a title="Stats For Spotify" href="/spotify-stats" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Stats</a>
       <a title="Receiptify" href="/receiptify" class="relative bg-gray-100 px-2 py-1 rounded-lg">
         Receiptify
       </a>
@@ -149,13 +149,15 @@
       </a>
       <a title="Top Spotify Artists Today" href="/top-spotify-artists" class="relative bg-gray-100 px-2 py-1 rounded-lg">
         Top Artists Today
-        <span class="absolute -top-1 -right-2 text-xs text-white bg-red-600  animate-pulse rounded-full px-1">New</span>
       </a>
       <a title="Spotify Premium Free" href="/spotify-premium-free" class="relative bg-gray-100 px-2 py-1 rounded-lg">
         Spotify Premium Free
         <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 text-white animate-pulse rounded-full px-1"></span>
       </a>
-      <a title="Subscribe" href="/subscribe" class="relative bg-gray-100 px-2 py-1 rounded-lg">Subscribe</a>
+      <a title="New Spotify Pie" href="/new-spotify-pie" class="relative bg-gray-100 px-2 py-1 rounded-lg">
+        New Spotify Pie
+              <span class="absolute -top-1 -right-2 text-xs text-white bg-red-600  animate-pulse rounded-full px-1">New</span>
+      </a>
       <a title="Spotify Wrapped" href="/spotify-wrapped" class="relative bg-gray-100 px-2 py-1 rounded-lg">Spotify Wrapped</a>
     </div>
   </div>
@@ -168,7 +170,7 @@
       googletag.cmd.push(function() { googletag.display('huangdarren1106_github_io_billboard_top_responsive'); });
     </script>
 </div>
-    <h1 class="text-3xl sm:text-5xl text-center text-gray-700">Spotify DNA: Unraveling Your Musical Identity</h1>
+    <h1 class="text-3xl sm:text-5xl text-center text-gray-900">Spotify DNA: Unraveling Your Musical Identity</h1>
         
         
           <div class="editor-js-content">
@@ -286,23 +288,125 @@
 </div>
   </div>
   
-  <div class="flex pb-16 flex-col items-center gap-4 prose my-8 mx-auto max-w-3xl text-sm justify-center px-4 sm:px-0">
-  <a href="/">Spotify Pie Chart</a>
-  <a href="/spotify-stats">Spotify Stats</a>
-  <a href="/receiptify">Receiptify Spotify</a>
-  <a href="/trackify">Trackify - Your Spotify Listening Statistics</a>
-  <a href="/stats-fm">Stats.fm - Platform for Spotify Listening Insights</a>
-  <a href="/spotify-charts">Spotify Charts - Overview</a>
-  <a href="/spotify-dna">Spotify DNA - Unraveling Your Musical Identity</a>
-  <a href="/obscurify">Obscurify - Depths of Your Music Tastes</a>
-  <a href="/playlist-name-generator">Playlist Name Generator</a>
-  <a href="/generation-names">Generation Names and Years in Order</a>
-  <a href="/spotify-banner-size">Spotify Banner Size 2024</a>
-  <a href="/spotify-wrapped">Spotify Wrapped 2024</a>
-  <a href="/spotify-top-songs-right-now">Top Songs</a>
-  <a href="/spotify-premium-free">Spotify Premium Free</a>
-  <a href="/subscribe">Subscribe to New Spotify Pie</a>
-</div>
+  <footer class="bg-white/5 border-t mb-[128px]" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  <div class="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-16">
+      <div class="mt-10 xl:mt-0 mb-16">
+        <h3 class="text-lg font-black leading-6 text-neutral-900">Your Monthly Music Pulse</h3>
+        <p class="mt-2 text-base leading-6 text-neutral-600">Subscribe to get the inside scoop on the hottest tracks and artists topping the charts.</p>
+        <form class="mt-6 sm:flex sm:max-w-md"
+              action="https://musicpiechart.com/mailcoach/subscribe/1cbab88f-0230-4b11-a8d3-51bc6e72feec"
+              method="post">
+          <label for="email-address" class="sr-only">Email address</label>
+          <input type="email" name="email" id="email" autocomplete="email" required
+                 class="w-full min-w-0 appearance-none rounded-lg border-0 bg-white px-3 py-1.5 text-base text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-400 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:w-64 sm:text-base sm:leading-6 xl:w-full"
+                 placeholder="Enter your email">
+            <div style="position: absolute; left: -9999px">
+              <label for="website-honeypot">Your honeypot</label>
+              <input type="text" id="website-honeypot" name="honeypot" tabindex="-1" autocomplete="nope"/></div>
+            <div class="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
+            <button type="submit"
+                    class="text-center h-full whitespace-nowrap bg-green-500 hover:bg-green-600 gap-2 no-underline focus:ring font-semibold py-2 px-2 sm:px-4 rounded-lg w-full">Subscribe</button>
+          </div>
+        </form>
+      </div>
+      <div class="xl:col-span-2">
+        <div class="md:grid md:grid-cols-3 md:gap-8">
+          <div>
+            <h3 class="text-lg font-black leading-6 text-neutral-900">Free Apps For Spotify</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="/"
+                   class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Spotify Pie Chart</a>
+              </li>
+              <li>
+                <a href="/spotify-stats"
+                   class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Spotify Stats</a>
+              </li>
+              <li>
+                <a href="/receiptify"
+                   class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Receiptify - ReceiptiPie</a>
+              </li>
+              <li>
+                <a href="/new-spotify-pie"
+                   class="text-base leading-6 text-neutral-600 hover:text-neutral-900">New Spotify Pie - Music Pie Chart</a>
+              </li>
+              <li>
+                <a href="/old-spotify-pie"
+                   class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Classic Spotify Pie</a>
+              </li>
+              <li>
+                <a href="/playlist-name-generator"
+                   class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Playlist Name Generator</a>
+              </li>
+              <li>
+                <a href="/spotify-bubble-chart"
+                   class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Spotify Bubble Chart</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-10 md:mt-0">
+            <h3 class="text-lg font-black leading-6 text-neutral-900">More Insights</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="/spotify-wrapped" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Spotify Wrapped 2024</a>
+              </li>
+              <li>
+                <a href="/spotify-top-songs-right-now" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Top Songs Today</a>
+              </li>
+              <li>
+                <a href="/top-spotify-artists" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Top Artists Today</a>
+              </li>
+              <li>
+                <a href="/spotify-premium-free" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Spotify Premium Free</a>
+              </li>
+              <li>
+                <a href="/trackify" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Trackify - Your Spotify Listening Statistics</a>
+              </li>
+              <li>
+                <a href="/obscurify" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Obscurify - Depths of Your Music Tastes</a>
+              </li>
+              <li>
+                <a href="/spotify-charts" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Spotify Charts - Overview</a>
+              </li>
+              <li>
+                <a href="/spotify-dna" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Spotify DNA - Unraveling Your Musical Identity</a>
+              </li>
+              <li>
+                <a href="/generation-names" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Generation Names and Years in Order</a>
+              </li>
+              <li>
+                <a href="/spotify-banner-size" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Spotify Banner Size 2024</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-10 md:mt-0">
+            <h3 class="text-lg font-black leading-6 text-neutral-900">Behind Spotify Pie</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="/feedback" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Share Your Feedback</a>
+              </li>
+              <li>
+                <a href="/privacy" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Privacy Notice</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="mt-16 border-t border-neutral-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
+      
+      <p class="mt-8 text-sm leading-5 text-neutral-600 md:order-1 md:mt-0">&copy; 2024 Spotify Pie by HuangDarren1106. All rights reserved.</p>
+          <p class="mt-8 md:mt-0 text-xs leading-5 text-neutral-500">
+            <a class="" target="_blank" href="https://spotify.com">
+              <img src="/spotify-black.png" alt="Spotify Logo" class="mx-auto w-32 inline">
+            </a>
+        </p>
+    </div>
+  </div>
+</footer>
   
   <div id="huangdarren1106_github_io_anchor_ad_responsive" class="ads">
   <script>
