@@ -71,7 +71,8 @@
   <script defer data-domain="huangdarren1106.github.io" src="https://stats.senty.com.au/js/script.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398"
         crossorigin="anonymous"></script>
-  <script src="https://stpd.cloud/assets/libraries/inview.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/addon-interscroller@1.0.5/dist/interscroller.js"></script>
+<script src="https://stpd.cloud/assets/libraries/inview.min.js"></script>
 <script>inView.offset(-200);</script>
 <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
   <script>
@@ -96,6 +97,7 @@
       } else {
         googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320,100],[320,50],[300,100],[300,50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
         googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_336x336_mobile_top', [[300,250],[336,336],[336,320],[320,320],[300,300],[336,280],[320,250],[320,336]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_300x600_mobile_interscroller', [[300,600],[160,600],[300,250],[300,300]], 'huangdarren1106_github_io_interscroller_mobile').addService(googletag.pubads());
       }
       var interstitialSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/huangdarren1106.github.io_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
       if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
@@ -108,6 +110,7 @@
     });
   </script>
 <script async src="https://stpd.cloud/saas/6406"></script>
+
 <style>
     .side_ad_left{
         top:75px;
@@ -175,6 +178,30 @@
       Welcome to Spotify Pie, the go-to online tool to analyze your listening history.
       Use our dynamic Spotify Pie Chart generator for diving deep into your unique musical story.
     </p>
+    
+      <div id="huangdarren1106_github_io_interscroller_mobile" style="text-align: center;" class="w-full h-[330px]">
+    <script>
+      googletag.cmd.push(function() { googletag.display('huangdarren1106_github_io_interscroller_mobile'); });
+    </script>
+</div>
+<script>
+    window.stpdInterscroller = window.stpdInterscroller || {que:[]}
+    stpdInterscroller.que.push(function() {
+      if(window.innerWidth < 1024) {
+        stpdInterscroller.setConfig({
+          container: 'div[id="huangdarren1106_github_io_interscroller_mobile"]',
+          height: 330,
+          width: 300,
+          showTitle: false,
+          titleText: 'Advertisement',
+          titleBackground: '#FFF',
+          titleColor: '#333',
+          overrideParentWidth: true
+        });
+        stpdInterscroller.run();
+      }
+    });
+</script>
     
       <img src="/huan-hero-2.png" alt="App screenshot" width="768" height="511" class="" />
       
