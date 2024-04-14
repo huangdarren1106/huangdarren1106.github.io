@@ -561,3 +561,32 @@ video.unrulymedia.com, 4631344382657206988, RESELLER
 mgid.com, 830472, DIRECT, d4c29acad76ce94f
 rubiconproject.com, 9655, RESELLER, 0bfd66d529a55807
 pubmatic.com, 161673, RESELLER, 5d62403b186f2ace
+# vdo
+vdo.ai, 3568, DIRECT
+atlas5.co, 3568, DIRECT
+walletcircle.co, 3568, DIRECT
+freewheel.tv, 1119425, RESELLER
+freewheel.tv, 1119425, DIRECT
+freewheel.tv, 1119441, RESELLER
+onetag.com, 62e564782c44a66, DIRECT
+onetag.com, 62e564782c44a66-OB, DIRECT
+appnexus.com, 13099, RESELLER
+yahoo.com, 58905, RESELLER, e1a5b5b6e3255540
+pubmatic.com, 161593, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 11006, RESELLER, 0bfd66d529a55807
+e-planning.net,c3ca9a631e4d70f5,DIRECT,c1ba615865ed87b2
+rubiconproject.com, 23434, RESELLER, 0bfd66d529a55807
+indexexchange.com, 190243, DIRECT
+pubmatic.com,156631,RESELLER,5d62403b186f2ace
+appnexus.com, 3153, RESELLER, f5ab79cb980f11d1
+admanmedia.com, 1074, RESELLER
+sonobi.com,8efb591506,DIRECT,d1a215d9eb5aee9e
+sharethrough.com, 23830661, DIRECT, d53b998a7bd4ecd2
+triplelift.com,8446,DIRECT,6c33edb13117fd86
+rubiconproject.com,12186,RESELLER,0bfd66d529a55807
+openx.com,541031350,RESELLER,6a698e2ec38604c6
+google.com, pub-7094677798399606, RESELLER, f08c47fec0942fa0
+google.com, pub-2403018226404213, RESELLER, f08c47fec0942fa0
+152media.info, 152M166, RESELLER
+appnexus.com, 3153, RESELLER, f5ab79cb980f11d1
+appnexus.com, 11924, RESELLER, f5ab79cb980f11d1
