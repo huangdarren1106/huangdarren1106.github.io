@@ -561,32 +561,22 @@ video.unrulymedia.com, 4631344382657206988, RESELLER
 mgid.com, 830472, DIRECT, d4c29acad76ce94f
 rubiconproject.com, 9655, RESELLER, 0bfd66d529a55807
 pubmatic.com, 161673, RESELLER, 5d62403b186f2ace
-# vdo
-vdo.ai, 3568, DIRECT
-atlas5.co, 3568, DIRECT
-walletcircle.co, 3568, DIRECT
-freewheel.tv, 1119425, RESELLER
-freewheel.tv, 1119425, DIRECT
-freewheel.tv, 1119441, RESELLER
-onetag.com, 62e564782c44a66, DIRECT
-onetag.com, 62e564782c44a66-OB, DIRECT
-appnexus.com, 13099, RESELLER
-yahoo.com, 58905, RESELLER, e1a5b5b6e3255540
-pubmatic.com, 161593, RESELLER, 5d62403b186f2ace
-rubiconproject.com, 11006, RESELLER, 0bfd66d529a55807
-e-planning.net,c3ca9a631e4d70f5,DIRECT,c1ba615865ed87b2
-rubiconproject.com, 23434, RESELLER, 0bfd66d529a55807
-indexexchange.com, 190243, DIRECT
-pubmatic.com,156631,RESELLER,5d62403b186f2ace
-appnexus.com, 3153, RESELLER, f5ab79cb980f11d1
-admanmedia.com, 1074, RESELLER
-sonobi.com,8efb591506,DIRECT,d1a215d9eb5aee9e
-sharethrough.com, 23830661, DIRECT, d53b998a7bd4ecd2
-triplelift.com,8446,DIRECT,6c33edb13117fd86
-rubiconproject.com,12186,RESELLER,0bfd66d529a55807
-openx.com,541031350,RESELLER,6a698e2ec38604c6
-google.com, pub-7094677798399606, RESELLER, f08c47fec0942fa0
-google.com, pub-2403018226404213, RESELLER, f08c47fec0942fa0
-152media.info, 152M166, RESELLER
-appnexus.com, 3153, RESELLER, f5ab79cb980f11d1
-appnexus.com, 11924, RESELLER, f5ab79cb980f11d1
+## Primis added 17-04-2024
+primis.tech, 31636, DIRECT, b6b21d256ef43532
+pubmatic.com, 156595, RESELLER, 5d62403b186f2ace
+google.com, pub-1320774679920841, RESELLER, f08c47fec0942fa0
+openx.com, 540258065, RESELLER, 6a698e2ec38604c6
+rubiconproject.com, 20130, RESELLER, 0bfd66d529a55807
+freewheel.tv, 19133, RESELLER, 74e8e47458f74754
+smartadserver.com, 3436, RESELLER, 060d053dcf45cbf3
+indexexchange.com, 191923, RESELLER, 50b1c356f2c5c8fc
+adform.com, 2078, RESELLER
+Media.net, 8CU695QH7, RESELLER
+video.unrulymedia.com, 2338962694, RESELLER
+sharethrough.com, flUyJowI, RESELLER, d53b998a7bd4ecd2
+triplelift.com,8210,RESELLER
+openx.com, 560608616, RESELLER, 6a698e2ec38604c6
+rubiconproject.com, 26322, RESELLER, 0bfd66d529a55807
+indexexchange.com, 208214, RESELLER, 50b1c356f2c5c8fc
+pubmatic.com,164358, RESELLER, 5d62403b186f2ace
+triplelift.com, 14148, RESELLER, 6c33edb13117fd86
