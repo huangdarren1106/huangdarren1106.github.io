@@ -98,7 +98,7 @@
         googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor', [[320,100],[320,50],[300,100],[300,50]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
         googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_336x336_mobile_top', [[300,250],[336,336],[336,320],[320,320],[300,300],[336,280],[320,250],[320,336]], 'huangdarren1106_github_io_billboard_top_responsive').addService(googletag.pubads());
         googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_300x600_mobile_interscroller', [[300,600],[160,600],[300,250],[300,300]], 'huangdarren1106_github_io_interscroller_mobile').addService(googletag.pubads());
-        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor_top', [[320,100],[320,50],[300,100],[300,50]], 'huangdarren1106_github_io_anchor_ad_top_mobile').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_320x100_mobile_anchor_top', [[320,50],[300,50]], 'huangdarren1106_github_io_anchor_ad_top_mobile').addService(googletag.pubads());
       }
       var interstitialSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/huangdarren1106.github.io_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
       if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
@@ -106,6 +106,9 @@
       googletag.pubads().enableSingleRequest();
       googletag.pubads().disableInitialLoad();
       googletag.pubads().collapseEmptyDivs();
+      googletag.pubads().setTargeting('category', 'music')
+        .setTargeting('audience_interest', [
+          'music', 'spotify', 'spotify premium', 'apple music', 'music streaming', 'music charts', 'music analysis', 'music data', 'music statistics', 'music trends', 'music insights', 'music discovery', 'music recommendations', 'music genres', 'music artists', 'music albums', 'music songs', 'music playlists']);
       googletag.enableServices();
       googletag.display(interstitialSlot);
     });
@@ -138,11 +141,15 @@
   </head>
 
 <body>
-  <div id="huangdarren1106_github_io_anchor_ad_top_mobile" class="ads">
+  <div
+    class="h-[50px] sm:h-[100px] text-center flex justify-center items-center sticky bg-white/50 z-10 border-b top-0">
+    <div id="huangdarren1106_github_io_anchor_ad_top_mobile" class="ads">
     <script>
       googletag.cmd.push(function() { googletag.display('huangdarren1106_github_io_anchor_ad_top_mobile'); });
     </script>
 </div>
+  </div>
+
   <header class="max-w-4xl mx-auto">
   <div class="flex flex-col justify-center items-center py-4 px-4 sm:px-0 border-b gap-2">
     <a href="/" class="flex items-center gap-2 sm:text-2xl font-bold mb-4 md:mb-0 whitespace-nowrap">
