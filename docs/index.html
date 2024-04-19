@@ -183,11 +183,13 @@
     <div class="mb-4 max-w-3xl mx-auto">
     <script type="text/javascript" src="https://video.onnetwork.tv/widget/widget_scrolllist.php?widget=1385"></script>
 </div>
-    <div id="huangdarren1106_github_io_billboard_top_responsive" class="relative mb-4 h-[344px] lg:h-[288px] ads flex justify-center items-center">
-    <div class="font-light text-xs left-1 top-1 absolute text-gray-400 uppercase">advertisement</div>
+    <div class="h-[440px] bg-neutral-50 mt-4 mb-4 ads relative">
+  <div class="font-light text-xs left-1 top-1 absolute text-gray-400 uppercase">advertisement</div>
+  <div id="huangdarren1106_github_io_billboard_top_responsive" class="sticky top-0">
     <script>
       googletag.cmd.push(function() { googletag.display('huangdarren1106_github_io_billboard_top_responsive'); });
     </script>
+  </div>
 </div>
     <h1 class="text-4xl font-black sm:text-5xl text-gray-900">Spotify Pie Chart: Your Favorite Spotify Stats Generator</h1>
     <p class="mt-6 text-lg text-gray-700 mb-0">
@@ -242,7 +244,7 @@
   <div x-show="token"
        @login.window="openSpotifyAuthUrl"
        class="text-center w-full   mb-4 flex flex-col items-center">
-      <p class="font-semibold" x-show="loading">Please hang tight while your Spotify Pie is baking (<span x-text="countdown"></span> s)</p>
+      <p class="font-semibold" x-show="loading">Please hang tight while your Spotify Pie is baking...</p>
       <img x-show="loading" class="w-10 my-2 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
 
       <div x-show="!loading" class="flex flex-col justify-center items-center">
