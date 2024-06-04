@@ -78,6 +78,31 @@
   <script>
     window.googletag = window.googletag || {};
     googletag.cmd = googletag.cmd || [];
+
+    function giveReward(url) {
+      googletag.pubads().removeEventListener('rewardedSlotClosed', dismissReward);
+      window.location.href = url;
+    }
+
+    function dismissReward(evt) {
+      googletag.destroySlots([evt.rewardedSlot]);
+    }
+
+    function showAd(url) {
+      googletag.cmd.push( function() {
+        var rewardedSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/huangdarren1106.github.io_rewarded',googletag.enums.OutOfPageFormat.REWARDED);     // CHANGEABLE. Rewarded ad unit
+        if (rewardedSlot){rewardedSlot.addService(googletag.pubads());}
+        googletag.pubads().addEventListener('rewardedSlotReady', function(evt) { evt.makeRewardedVisible(); });
+        googletag.pubads().addEventListener('rewardedSlotClosed', dismissReward);
+        googletag.pubads().addEventListener('rewardedSlotGranted',function() {
+          giveReward(url);
+        });
+
+        googletag.display(rewardedSlot);
+        googletag.pubads().refresh([rewardedSlot]);
+      });
+    }
+    
     googletag.cmd.push(function () {
       if (window.innerWidth >= 1480) {
         googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'huangdarren1106_github_io_anchor_ad_responsive').addService(googletag.pubads());
@@ -117,7 +142,6 @@
     });
   </script>
 <script async src="https://stpd.cloud/saas/6406"></script>
-
 <style>
     .side_ad_left{
         top:75px;
@@ -689,6 +713,22 @@
     document.addEventListener('DOMContentLoaded', renderSavedNames);
 
   </script>
-  </body>
+    <script>
+function modifyElement() {
+  var rewardBtns = top.document.querySelectorAll(' .rewarded');
+  if (rewardBtns.length > 0) {
+    rewardBtns.forEach(function(rewardBtn) {
+      rewardBtn.setAttribute('data-google-interstitial', 'false');
+      var hrefValue = rewardBtn.getAttribute('href');
+      rewardBtn.removeAttribute('href');
+      rewardBtn.setAttribute('onclick', 'showAd("' + hrefValue + '")');
+    });
+  } else {
+    setTimeout(modifyElement, 100);
+  }
+}
+modifyElement();
+</script>
+</body>
 
 </html>
