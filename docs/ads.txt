@@ -580,3 +580,74 @@ rubiconproject.com, 26322, RESELLER, 0bfd66d529a55807
 indexexchange.com, 208214, RESELLER, 50b1c356f2c5c8fc
 pubmatic.com,164358, RESELLER, 5d62403b186f2ace
 triplelift.com, 14148, RESELLER, 6c33edb13117fd86
+#360Playvid
+360playvid.com, 22921845643, DIRECT
+smartadline.com, 22921845643, DIRECT
+zippormedia.com, 22921845643, DIRECT
+added.tv, 22921845643, DIRECT
+google.com,pub-6148337385155904,RESELLER,f08c47fec0942fa0
+#Amazon Dor
+aps.amazon.com,d4004b5f-4fb6-4be2-82ae-0e36b8f52c12,RESELLER
+pubmatic.com,157150,RESELLER,5d62403b186f2ace
+openx.com,540191398,RESELLER,6a698e2ec38604c6
+rubiconproject.com,18020,RESELLER,0bfd66d529a55807
+appnexus.com,1908,RESELLER,f5ab79cb980f11d1
+contextweb.com,562541,RESELLER,89ff185a4c4e857c
+sovrn.com,375328,RESELLER,fafdf38b16bf6b2b
+lijit.com,375328,RESELLER,fafdf38b16bf6b2b
+smaato.com,1100044650,RESELLER,07bcf65f187117b4
+sonobi.com,7f5fa520f8,RESELLER,d1a215d9eb5aee9e
+ad-generation.jp,12474,RESELLER,7f4ea9029ac04e53
+districtm.io,100962,RESELLER,3fd707be9c4527c3
+yieldmo.com,2719019867620450718,RESELLER
+appnexus.com,3663,RESELLER,f5ab79cb980f11d1
+rhythmone.com,1654642120,RESELLER,a670c89d4a324e47
+smartadserver.com,4125,RESELLER,060d053dcf45cbf3
+yahoo.com,55029,RESELLER,e1a5b5b6e3255540
+gumgum.com,14141,RESELLER,ffdef49475d318a9
+indexexchange.com,192410,RESELLER,50b1c356f2c5c8fc
+admanmedia.com,726,RESELLER
+pubmatic.com,160006,RESELLER,5d62403b186f2ace
+pubmatic.com,160096,RESELLER,5d62403b186f2ace
+sharethrough.com,7144eb80,RESELLER,d53b998a7bd4ecd2
+emxdgt.com,2009,RESELLER,1e1d41537f7cad7f
+appnexus.com,1356,RESELLER,f5ab79cb980f11d1
+themediagrid.com,JTQKMP,RESELLER,35d5010d7789b49d
+beachfront.com,14804,RESELLER,e2541279e8e2ca4dvidcrunch
+improvedigital.com,2050,RESELLER
+mintegral.com,10043,RESELLER,0aeed750c80d6423
+onetag.com,770a440e65869c2,RESELLER
+media.net,8CUZ1MK22,RESELLER
+risecodes.com,63832beef8189a00015cb6d3,RESELLER
+adyoulike.com,7463c359225e043c111036d7a29affa5,RESELLER
+minutemedia.com,01gya4708ddm,RESELLER
+visiblemeasures.com,1052,RESELLER
+#Media Net
+Media.net, 8CUY7Y7TH, RESELLER
+openx.com, 537100188, RESELLER, 6a698e2ec38604c6
+pubmatic.com, 159463, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 19396, Reseller, 0bfd66d529a55807
+onetag.com, 5d49f482552c9b6, Reseller
+rhythmone.com, 3611299104, RESELLER
+sharethrough.com, koRtppYA, RESELLER, d53b998a7bd4ecd2
+loopme.com, 11498, RESELLER, 6c8d5f95897a5a3b
+Contextweb.com,563079,RESELLER,89ff185a4c4e857c
+#Rubicon
+rubiconproject.com, 25420, RESELLER, 0bfd66d529a55807
+#Google
+google.com, pub-6804276076764268, RESELLER, f08c47fec0942fa0
+google.com, pub-5828506841531729, RESELLER, f08c47fec0942fa0
+#Sorvn
+lijit.com, 348134, RESELLER, fafdf38b16bf6b2b #SOVRN
+openx.com, 538959099, RESELLER, 6a698e2ec38604c6
+pubmatic.com, 137711, RESELLER, 5d62403b186f2ace
+pubmatic.com, 156212, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 17960, RESELLER, 0bfd66d529a55807
+appnexus.com, 1019, RESELLER, f5ab79cb980f11d1
+video.unrulymedia.com, 2444764291, RESELLER
+contextweb.com, 558511, RESELLER,
+krushmedia.com, AJxF6R572a9M6CaTvK, RESELLER
+#Unruly
+video.unrulymedia.com, 4242718327443734164, RESELLER
+rhythmone.com, 4242718327443734164, RESELLER, a670c89d4a324e47
+pubmatic.com, 159277, RESELLER, 5d62403b186f2ace
