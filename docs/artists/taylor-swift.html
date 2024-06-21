@@ -207,6 +207,18 @@
 </header>
   
   <div class="mx-auto max-w-4xl prose prose-img:text-center prose-img:mx-auto prose-lg pt-8 px-4 lg:px-0">
+     <div x-data="hit" class="relative h-[252px] mb-8">
+  <div class="flex flex-col h-full items-center absolute left-0 right-0 top-0 -mx-4 bg-gray-100 pt-4 sm:rounded-2xl border">
+    <div class="w-full flex items-center mb-4 px-4">
+      <p class="text-3xl font-black text-gray-700 mb-0 flex-grow mt-0 ">Featured song</p>
+    </div>
+    <div class="px-4 w-full">
+      <div id="embed-iframe" class="w-full"></div>
+    </div>
+    
+  </div>
+</div>
+
     <div class="w-full mx-auto max-w-[430px] my-4">
           <script src="https://360playvid.info/slidepleer/s1999s.js"></script>
   </div>
@@ -886,7 +898,49 @@
     });
   </script>
 </div>
-    <script>
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('hit', () => ({
+        isPlaying: false,
+        EmbedController: null,
+        position: 0,
+        init() {
+          window.onSpotifyIframeApiReady = (IFrameAPI) => {
+            const element = document.getElementById('embed-iframe');
+            const options = {
+              uri: 'spotify:track:2CG7j7NAvpOLzme6htmn6d',
+              height: 200,
+            };
+            const callback = (EmbedController) => {
+              this.EmbedController = EmbedController;
+
+              EmbedController.addListener('playback_update', e => {
+                this.position = `${parseInt(e.data.position / 1000, 10)}`;
+                if (e.data.isPaused) {
+                  this.isPlaying = false;
+                }
+              });
+              setTimeout(() => {
+                EmbedController.play();
+                this.isPlaying = true;
+              }, 3000);
+            };
+            IFrameAPI.createController(element, options, callback);
+          };
+        },
+        togglePlay() {
+          if (this.isPlaying) {
+            this.EmbedController.pause();
+          } else {
+            this.EmbedController.resume();
+          }
+          this.isPlaying = !this.isPlaying;
+        },
+      }));
+    });
+  </script>
+  <script>
 function modifyElement() {
   var rewardBtns = top.document.querySelectorAll(' .rewarded');
   if (rewardBtns.length > 0) {
