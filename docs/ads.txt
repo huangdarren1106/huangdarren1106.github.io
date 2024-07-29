@@ -651,3 +651,63 @@ krushmedia.com, AJxF6R572a9M6CaTvK, RESELLER
 video.unrulymedia.com, 4242718327443734164, RESELLER
 rhythmone.com, 4242718327443734164, RESELLER, a670c89d4a324e47
 pubmatic.com, 159277, RESELLER, 5d62403b186f2ace
+#APL
+adipolo.com, 22949754764, DIRECT
+adipolosolutions.com, 22949754764, DIRECT
+pmbmonetize.com, 22949754764, DIRECT
+opamarketplace.com, 22949754764, DIRECT
+selectmedia.asia, 22949754764, DIRECT
+omgstudios.com, 22949754764, DIRECT
+smartadline.com, 22949754764, DIRECT
+google.com, pub-2930805104418204, RESELLER, f08c47fec0942fa0
+google.com, pub-4903453974745530, RESELLER, f08c47fec0942fa0
+google.com, pub-4836542095728076, RESELLER, f08c47fec0942fa0
+google.com, pub-9135355251665930, RESELLER, f08c47fec0942fa0
+google.com, pub-9857612698505806, RESELLER, f08c47fec0942fa0
+google.com, pub-6804276076764268, RESELLER, f08c47fec0942fa0
+criteo.com, B-060253, RESELLER, 9fac4a4a87c2a44f
+themediagrid.com, DJQVCM, DIRECT, 35d5010d7789b49d
+video.unrulymedia.com, 270404831, RESELLER
+adform.com, 3035, DIRECT, 9f5210a2f0999e32
+adform.com, 3035, RESELLER, 9f5210a2f0999e32
+google.com, pub-5862389829718358, RESELLER, f08c47fec0942fa0
+anyclip.com, 0016M00002Wx09BQAR, RESELLER
+google.com, pub-4983172728561290, RESELLER, f08c47fec0942fa0
+aps.amazon.com,00ed17ab-4189-4639-9d5e-15acd40affde,DIRECT
+pubmatic.com,157150,RESELLER,5d62403b186f2ace
+openx.com,540191398,RESELLER,6a698e2ec38604c6
+rubiconproject.com,18020,RESELLER,0bfd66d529a55807
+appnexus.com,1908,RESELLER,f5ab79cb980f11d1
+onetag.com, 61d88450bdb25bc-OB, DIRECT
+google.com, pub-5717092533913515, RESELLER, f08c47fec0942fa0 #NPMpartners
+gannett.com, 22675194701, DIRECT
+smartadserver.com,2161,RESELLER
+pubmatic.com,156962,RESELLER,5d62403b186f2ace
+improvedigital.com,907,RESELLER
+appnexus.com,8833,RESELLER,f5ab79cb980f11d1
+aps.amazon.com,5044,RESELLER
+smartadserver.com,2058,RESELLER
+freewheel.tv,1307119,RESELLER
+freewheel.tv,1307135,RESELLER
+adform.com,1819,RESELLER,9f5210a2f0999e32
+appnexus.com,9986,RESELLER,f5ab79cb980f11d1
+richaudience.com,Ua8BIWjxkR,RESELLER
+yieldlab.net,6378054,DIRECT
+openx.com,540022851,RESELLER,6a698e2ec38604c6
+rubiconproject.com,23550,RESELLER,0bfd66d529a55807
+freewheel.tv,1003361,DIRECT
+showheroes.com, 7102, DIRECT
+viralize.com, 7102, DIRECT
+onetag.com,38980b46b0,RESELLER
+smartadserver.com, 2161-OB, RESELLER, 060d053dcf45cbf3
+yieldlab.net,6378054,RESELLER
+showheroes.com,7102,RESELLER
+viralize.com,7102,RESELLER
+advertising.com, 28246, RESELLER
+freewheel.tv, 20393, RESELLER
+freewheel.tv, 24377, RESELLER
+aol.com, 58905, RESELLER, e1a5b5b6e3255540
+rubiconproject.com, 11006, RESELLER, 0bfd66d529a55807
+conversantmedia.com, 100679, RESELLER, 03113cd04947736d
+freewheel.tv, 1237839, RESELLER
+freewheel.tv, 1237887, RESELLER
