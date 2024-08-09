@@ -205,6 +205,48 @@
 </script>
     
   <link rel="modulepreload" href="https://huangdarren1106.github.io/build/assets/app-w40geAFS.js" /><link rel="modulepreload" href="https://huangdarren1106.github.io/build/assets/app-ARot55nG.js" /><script type="module" src="https://huangdarren1106.github.io/build/assets/app-w40geAFS.js"></script><script type="module" src="https://huangdarren1106.github.io/build/assets/app-ARot55nG.js"></script>      <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Spotify Stats",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "1"
+        },
+        "review": {
+          "@type": "Review",
+          "itemReviewed": {
+            "@id": "#spotify-stats-app" 
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Ruslan Osipov"
+          },
+          "reviewBody": "Great app for viewing Spotify statistics. It's easy to use and provides interesting insights into my listening habits.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "worstRating": "1",
+            "bestRating": "5"
+          },
+          "datePublished": "2023-06-01"
+        },
+        "description": "View Your Spotify Statistics: top artists and top songs.",
+        "softwareVersion": "2.0",
+        "url": "https://huangdarren1106.github.io/spotify-stats",
+        "datePublished": "2023-05-15",
+        "@id": "#spotify-stats-app"
+      }
+      </script>
   </head>
 
 <body class="relative">
@@ -773,7 +815,7 @@
           },
 
           createChartSVG(data) {
-            // Specify the chart’s dimensions.
+            // Specify the chart's dimensions.
             const width = 300;
             const height = Math.min(width, 300);
 
