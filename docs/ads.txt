@@ -651,6 +651,9 @@ krushmedia.com, AJxF6R572a9M6CaTvK, RESELLER
 video.unrulymedia.com, 4242718327443734164, RESELLER
 rhythmone.com, 4242718327443734164, RESELLER, a670c89d4a324e47
 pubmatic.com, 159277, RESELLER, 5d62403b186f2ace
+appnexus.com, 7918, reseller
+rubiconproject.com, 25512, RESELLER, 0bfd66d529a55807
+
 #APL
 adipolo.com, 22949754764, DIRECT
 adipolosolutions.com, 22949754764, DIRECT
