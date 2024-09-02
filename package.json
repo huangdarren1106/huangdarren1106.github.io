@@ -1,0 +1,14 @@
+{
+  "name": "huangdarren1106.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "echo \"Error: no build specified\""
+  },
+  "author": "",
+  "license": "ISC"
+}
