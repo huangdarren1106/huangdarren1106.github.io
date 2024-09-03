@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "echo \"Error: no build specified\"",
+    "build": "npm run generate-top-artists && npm run move-top-artists",
     "generate-top-artists": "node top-artists.js",
     "move-top-artists": "mv output/top-spotify-artists.html docs/top-spotify-artists.html",
     "serve": "serve docs"
