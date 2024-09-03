@@ -73,7 +73,7 @@ async function generateStaticHtml() {
 
     const html = nunjucks.render('top-artists.njk', {
       title: `Number 1 Artist On Spotify & Top Artists: ${today}`,
-      description: 'Top Spotify Artists',
+      description: `Discover the top Spotify artists in ${today}! Explore ${currentYear}’s hottest hits: from the number 1 artist on Spotify to top 10 artists and beyond.`,
       image: 'https://huangdarren1106.github.io/top-spotify-artists.jpg',
       url: 'https://huangdarren1106.github.io/top-spotify-artists',
       updated_at: today,
