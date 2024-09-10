@@ -93,7 +93,7 @@
                  </td>
                </tr>
              {% endfor %}
-             <template x-for="(artist, index) in artists.slice(0, showCount - 10)" :key="index">
+             <template x-for="(artist, index) in artists.slice(10, showCount)" :key="index">
                <tr class="bg-white border-b hover:bg-gray-50/50">
                  <td class="px-2 py-3 font-semibold text-center" x-text="index + 11"></td>
                  <td class="px-4 py-3">
