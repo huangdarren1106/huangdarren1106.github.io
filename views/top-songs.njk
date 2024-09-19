@@ -1,0 +1,189 @@
+   {% extends "layout.njk" %}
+
+   {% block content %}
+    <div class="max-w-xl px-4 pt-8 mx-auto prose prose-lg prose-img:text-center prose-img:mx-auto lg:px-0"
+     x-data="{ showCount: 10, songs: JSON.parse(document.getElementById('songs-data').textContent) }">
+     <script type="application/json" id="songs-data">
+       {{ songs | dump | safe }}
+     </script>
+     <h1 class="text-3xl text-center text-gray-900 sm:text-5xl">{{ title }}</h1>
+     <p class="block mt-2 text-sm text-gray-600 sm:text-base">Updated:
+       <span class="font-bold">{{ updated_at }}</span>
+     </p>
+
+     <p>
+       Want to know what is the number one song on Spotify right now? Here’s the rundown of the most streamed songs on Spotify today that listeners can't stop playing on repeat.
+     </p>
+
+     <article class="mt-6 sm:mt-8">
+       <h2 class="">
+         Spotify Top Songs Right Now  ({{ updated_at }})</h2>
+        <p>
+         <span class="font-bold">{{ songs[0].name }}</span> by {{ songs[0].artist }} is the most streamed song on spotify today.
+         </p>
+         <p>
+         <span class="font-bold">{{ songs[1].name }}</span> by {{ songs[1].artist }} is the second most played song on Spotify today.
+         </p>
+         <p>
+         <span class="font-bold">{{ songs[2].name }}</span> by {{ songs[2].artist }} secures the third place among the most streamed songs right now.
+        </p>
+      <p>Scroll down to explore more Spotify trending songs right now.</p>
+        <div id="huangdarren1106_github_io_interscroller_mobile" style="text-align: center;" class="sm:hidden">
+          <script>
+              googletag.cmd.push(function() {
+                  googletag.display('huangdarren1106_github_io_interscroller_mobile');
+              });
+          </script>
+        </div>
+        <script>
+            window.stpdInterscroller = window.stpdInterscroller || {
+                que: []
+            }
+            stpdInterscroller.que.push(function() {
+                if (window.innerWidth < 1024) {
+                    stpdInterscroller.setConfig({
+                        container: 'div[id="huangdarren1106_github_io_interscroller_mobile"]',
+                        height: 330,
+                        width: 300,
+                        showTitle: false,
+                        titleText: 'Advertisement',
+                        titleBackground: '#FFF',
+                        titleColor: '#333',
+                        overrideParentWidth: true
+                    });
+                    stpdInterscroller.run();
+                }
+            });
+        </script>
+    
+       <div class="overflow-x-auto rounded-lg shadow-md not-prose">
+         <table class="w-full text-sm text-left">
+           <thead class="text-xs text-gray-800 uppercase bg-gray-100">
+             <tr>
+               <th scope="col" class="px-4 py-3 text-center">
+                <span class="sm:block hidden">SONGS RANKING</span>
+                <span class="block sm:hidden">#</span>
+              </th>
+              <th scope="col" class="px-4 py-3">TRENDING SONGS {{ year }}</th>
+              <th scope="col" class="px-4 py-3 text-right">ARTIST</th>
+              <th scope="col" class="px-4 py-3 text-right">ALBUM</th>
+             </tr>
+           </thead>
+           <tbody>
+             {% for song in songs.slice(0, 10) %}
+               <tr class="bg-white border-b hover:bg-gray-50/50">
+                 <td class="px-2 py-3 font-semibold text-center">{{ loop.index }}</td>
+                 <td class="px-2 py-3">
+                   <div class="flex items-center">
+                     <img src="{{ song.image }}" alt="{{ song.name }}" class="w-10 h-10 mr-2">
+                     <span class="font-semibold">{{ song.name }}</span>
+                   </div>
+                 </td>
+                 <td class="px-2 py-3 text-right">{{ song.artist }}</td>
+                 <td class="px-2 py-3 text-right">
+                  {{ song.album }}
+                 </td>
+               </tr>
+             {% endfor %}
+             <template x-for="(song, index) in songs.slice(10, showCount)" :key="index">
+               <tr class="bg-white border-b hover:bg-gray-50/50">
+                 <td class="px-2 py-3 font-semibold text-center" x-text="index + 11"></td>
+                 <td class="px-4 py-3">
+                   <div class="flex items-center">
+                     <img :src="song.image" :alt="song.name" class="w-10 h-10 mr-2">
+                     <span class="font-semibold" x-text="song.name"></span>
+                   </div>
+                 </td>
+                 <td class="px-2 py-3 text-right" x-text="song.artist"></td>
+                 <td class="px-2 py-3 text-right" x-text="song.album"></td>
+               </tr>
+             </template>
+           </tbody>
+         </table>
+       </div>
+
+       <div class="mt-6 text-center" x-show="showCount < songs.length">
+         <button @click="showCount = Math.min(showCount + (showCount === 10 ? 40 : 50), songs.length)"
+           class="px-4 py-2 font-semibold text-black bg-green-500 rounded hover:bg-green-600">
+           Show next top <span x-text="Math.min(showCount === 10 ? 40 : 50, songs.length - showCount)"></span> Spotify songs
+         </button>
+       </div>
+
+      <p>These Spotify top tracks are played the most today, dominating global playlists and receiving millions of streams.</p>
+
+
+       <div class="h-[440px] bg-neutral-50 mt-4 mb-4 ads relative">
+          <div class="font-light text-xs left-1 top-1 absolute text-gray-400 uppercase">advertisement</div>
+          <div id="huangdarren1106_github_io_billboard_top_responsive" class="sticky top-0">
+              <script>
+                  googletag.cmd.push(function() {
+                      googletag.display('huangdarren1106_github_io_billboard_top_responsive');
+                  });
+              </script>
+          </div>
+      </div>
+
+
+      <p>These Spotify top tracks are played the most today, dominating global playlists and receiving millions of streams.🎧✨</p>
+
+       <h2>Coming Up: Spotify Top Songs ({{ next_date }})</h2>
+      <p>Check back tomorrow for the number 1 song on Spotify based on the latest updates. Don't miss out on the hottest hits of {{ year }}!</p>
+
+      <h2>Top Spotify Artists Right Now</h2>
+      <p>Discover the <a href="/top-spotify-artists">number 1 artist on Spotify</a> and today’s top 10 artists to stay on top of music trends!</p>
+
+      <h2>Check Your Spotify Stats</h2>
+      <p>Check your Spotify stats by using our free online tools. All you need is to login to Spotify. Start exploring your unique musical taste now.</p>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+
+        <div class="overflow-hidden group w-full h-full relative aspect-square p-4 rounded-lg shadow-lg bg-[#006450]">
+
+          <img src="/stats-for-spotify.png" alt="In-Depth Stats for Spotify" title="In-Depth Stats for Spotify"
+               class="w-full h-full object-cover absolute inset-0 z-0 rounded-lg my-0 group-hover:scale-[105%] transition">
+          <h3 class="font-black text-white my-0 relative leading-none mb-4">Stats for Spotify</h3>
+          <p class="mt-0 mb-2 text-base relative text-gray-50">See your top songs, artists and genres for the last
+            month, 6 months or all-time stats.</p>
+          <a class="underline decoration-2 decoration-dotted text-white underline-offset-4 before:absolute before:inset-0"
+             href="/spotify-stats">Check Spotify Stats</a>
+        </div>
+
+        <div class="overflow-hidden group w-full h-full relative aspect-square p-4 rounded-lg shadow-lg bg-[#8A508F]">
+          <img src="/Receiptify.png" alt="Receiptify" title="Receiptify"
+               class="w-full h-full object-cover absolute inset-0 z-0 rounded-lg my-0 group-hover:scale-[105%] transition">
+          <h3 class="font-black text-white my-0 relative leading-none mb-4">Receiptify</h3>
+          <p class="mt-0 mb-2 text-base relative text-gray-50">Transform last month's most-played artists into a chic,
+            receipt-style keepsake.</p>
+          <a class="underline decoration-2 decoration-dotted text-white underline-offset-4 before:absolute before:inset-0"
+             href="/receiptify">Get Spotify Receipt</a>
+        </div>
+
+      </div>
+
+      <script src="https://360playvid.info/slidepleer/d1999d.js"></script>
+     </article>
+
+    <div id="huangdarren1106_github_io_sidebar_left_desktop" class="side_ad_left">
+      <script>
+          googletag.cmd.push(function() {
+              if (window.innerWidth >= 1180) {
+                  googletag.display('huangdarren1106_github_io_sidebar_left_desktop');
+              }
+          });
+      </script>
+    </div>
+    <div id="huangdarren1106_github_io_sidebar_right_desktop" class="side_ad_right">
+      <script>
+          googletag.cmd.push(function() {
+              if (window.innerWidth >= 1180) {
+                  googletag.display('huangdarren1106_github_io_sidebar_right_desktop');
+              }
+          });
+      </script>
+    </div>
+
+    <div class="w-full mx-auto max-w-[430px] my-4">
+      <script src="https://360playvid.info/slidepleer/s1999s.js"></script>
+    </div>
+   </div>
+   {% endblock %}
