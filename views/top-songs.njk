@@ -18,15 +18,17 @@
      <article class="mt-6 sm:mt-8">
        <h2 class="">
          Spotify Top Songs Right Now  ({{ updated_at }})</h2>
-        <p>
-         <span class="font-bold">{{ songs[0].name }}</span> by {{ songs[0].artist }} is the most streamed song on spotify today.
-         </p>
-         <p>
-         <span class="font-bold">{{ songs[1].name }}</span> by {{ songs[1].artist }} is the second most played song on Spotify today.
-         </p>
-         <p>
-         <span class="font-bold">{{ songs[2].name }}</span> by {{ songs[2].artist }} secures the third place among the most streamed songs right now.
-        </p>
+      <ul>
+        <li>
+        <span class="font-bold">{{ songs[0].name }}</span> by <span class="font-bold">{{ songs[0].artist }}</span> is the most streamed song on spotify today.
+        </li>
+        <li>
+        <span class="font-bold">{{ songs[1].name }}</span> by <span class="font-bold">{{ songs[1].artist }}</span> is the second most played song on Spotify today.
+        </li>
+        <li>
+        <span class="font-bold">{{ songs[2].name }}</span> by <span class="font-bold">{{ songs[2].artist }}</span> secures the third place among the most streamed songs right now.
+        </li>
+      </ul>
       <p>Scroll down to explore more Spotify trending songs right now.</p>
         <div id="huangdarren1106_github_io_interscroller_mobile" style="text-align: center;" class="sm:hidden">
           <script>
@@ -65,8 +67,8 @@
                 <span class="block sm:hidden">#</span>
               </th>
               <th scope="col" class="px-4 py-3">TRENDING SONGS {{ year }}</th>
-              <th scope="col" class="px-4 py-3 text-right">ARTIST</th>
-              <th scope="col" class="px-4 py-3 text-right">ALBUM</th>
+              <th scope="col" class="px-4 py-3 text-left">ARTIST</th>
+              <th scope="col" class="px-4 py-3 text-left">ALBUM</th>
              </tr>
            </thead>
            <tbody>
@@ -79,8 +81,8 @@
                      <span class="font-semibold">{{ song.name }}</span>
                    </div>
                  </td>
-                 <td class="px-2 py-3 text-right">{{ song.artist }}</td>
-                 <td class="px-2 py-3 text-right">
+                 <td class="px-2 py-3 text-left">{{ song.artist }}</td>
+                 <td class="px-2 py-3 text-left">
                   {{ song.album }}
                  </td>
                </tr>
@@ -94,8 +96,8 @@
                      <span class="font-semibold" x-text="song.name"></span>
                    </div>
                  </td>
-                 <td class="px-2 py-3 text-right" x-text="song.artist"></td>
-                 <td class="px-2 py-3 text-right" x-text="song.album"></td>
+                 <td class="px-2 py-3 text-left" x-text="song.artist"></td>
+                 <td class="px-2 py-3 text-left" x-text="song.album"></td>
                </tr>
              </template>
            </tbody>
