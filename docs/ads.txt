@@ -795,3 +795,12 @@ Xandr.com, 15606, RESELLER
 rubiconproject.com, 24202 RESELLER, 0bfd66d529a55807
 video.unrulymedia.com, 1200765299, RESELLER
 pubmatic.com, 163720, RESELLER, 5d62403b186f2ace
+adswizz.com, 65843, RESELLER
+smartadserver.com, 4295, RESELLER
+onetag.com, 8bd233947b607f0, RESELLER
+appnexus.com, 13258, RESELLER, f5ab79cb980f11d1
+babelmedia.global, 1343-aud, RESELLER
+soundcast.io, 3AD30113, RESELLER
+consumable.com, 2001567, RESELLER, aefcd3d2f45b5070
+adtelligent.com, 769720, RESELLER, 8ce87912eb022a51
+
