@@ -392,48 +392,48 @@
     <img src="/huan-hero-2.png" alt="App screenshot" width="768" height="511" class="" />
 
     <div x-data="spotifyLogin" class="py-6 text-gray-700">
-    <div class="w-full text-center" x-show="!token">
-        <p class="text-center mt-0 mb-4">
-            Login with Spotify to see your charts now 👇
-        </p>
-        <button @click="openSpotifyAuthUrl"
-            class="px-6 py-3 bg-green-700 text-white text-xl rounded-full text-center  font-bold w-full md:w-1/2">Login
-            with Spotify</button>
-        <div class="max-w-xs mx-auto text-sm text-left">
-            <p class="mt-6">By logging in, you agree:</p>
-            <ul class="">
-                <li class="">to our <a
-                        class="text-blue-600 hover:text-blue-800 underline decoration-2 decoration-dotted underline-offset-4"
-                        href="/privacy">Privacy Notice</a>, and</li>
-                <li class="">to receive emails on new features (no spam).</li>
-            </ul>
-        </div>
+  <div class="w-full text-center" x-show="!token">
+    <p class="mt-0 mb-4 text-center">
+      Login with Spotify to see your charts now 👇
+    </p>
+    <button @click="openSpotifyAuthUrl"
+      class="w-full px-6 py-3 text-xl font-bold text-center text-white bg-green-700 rounded-full md:w-1/2">Login
+      with Spotify</button>
+    <div class="max-w-xs mx-auto text-sm text-left">
+      <p class="mt-6">By logging in, you agree:</p>
+      <ul class="">
+        <li class="">to our <a
+            class="text-blue-600 underline hover:text-blue-800 decoration-2 decoration-dotted underline-offset-4"
+            href="/privacy">Privacy Notice</a>, and</li>
+        <li class="">to receive emails on new features (no spam).</li>
+      </ul>
     </div>
-    <div x-show="token" @login.window="openSpotifyAuthUrl" class="text-center w-full   mb-4 flex flex-col items-center">
-        <p class="font-semibold" x-show="loading">Please hang tight while your Spotify Pie is baking...</p>
-        <img x-show="loading" class="w-10 my-2 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
+  </div>
+  <div x-show="token" @login.window="openSpotifyAuthUrl" class="flex flex-col items-center w-full mb-4 text-center">
+    <p class="font-semibold" x-show="loading">Please hang tight while your Spotify Pie is baking...</p>
+    <img x-show="loading" class="w-10 my-2 motion-safe:animate-spin" src="spotify-pie.png" alt="Spotify Pie">
 
-        <div x-show="!loading" class="flex flex-col justify-center items-center">
-            <p class="text-xl sm:text-2xl text-green-800 font-semibold mb-1">
-                Your Spotify Pie is ready! 🎉
-            </p>
+    <div x-show="!loading" class="flex flex-col items-center justify-center">
+      <p class="mb-1 text-xl font-semibold text-green-800 sm:text-2xl">
+        Your Spotify Pie is ready! 🎉
+      </p>
 
-            <div class="text-center text-sm sm:text-base text-green-800 max-w-xs sm:max-w-sm mx-auto">
-                <p>Heads up: Clicking the button might show a quick ad. It's how we keep Spotify Pie free and tasty for
-                    everyone!</p>
-                <p class="">Thank you for your support. Let's dig in!</p>
-            </div>
+      <div class="max-w-xs mx-auto text-sm text-center text-green-800 sm:text-base sm:max-w-sm">
+        <p>Heads up: Clicking the button might show a quick ad. It's how we keep Spotify Pie free and tasty for
+          everyone!</p>
+        <p class="">Thank you for your support. Let's dig in!</p>
+      </div>
 
-            <a href="/spotify-pie"
-                class="rewarded cursor-pointer no-underline px-6 flex justify-center items-center gap-2 py-3 bg-green-600 text-white text-xl rounded-full font-bold">See
-                Your
-                Spotify Pie <img class="w-6 my-0 shrink-0" src="spotify-pie.png" alt="Spotify Pie"></a>
+      <a href="/spotify-pie"
+        class="flex items-center justify-center gap-2 px-6 py-3 text-xl font-bold text-white no-underline bg-green-600 rounded-full cursor-pointer rewarded">See
+        Your
+        Spotify Pie <img class="w-6 my-0 shrink-0" src="spotify-pie.png" alt="Spotify Pie"></a>
 
-
-        </div>
-    </div>
 
     </div>
+  </div>
+
+  </div>
 
     <div class="py-6">
     <h2 class="font-black text-gray-900">Unleash Your Personal Spotify Charts</h2>
@@ -902,38 +902,38 @@
         });
     </script>
 </div>
-          <script>
-            document.addEventListener('alpine:init', () => {
-                console.log('spotify-login.blade.php')
-                Alpine.data('spotifyLogin', () => ({
-                    token: null,
-                    loading: false,
-                    countdown: 5,
-                    spotifyAuthUrl: 'https://musicpiechart.com/auth/login?embed=true',
-                    openSpotifyAuthUrl() {
-                        window.open(this.spotifyAuthUrl, '_blank', 'height=600,width=800');
-                    },
-                    onMessage(event) {
-                        if (event.data.app === 'musicpiechart') {
-                            this.token = event.data.token;
-                            localStorage.setItem('token', event.data.token);
-                            this.loading = true;
-                            // start countdown
-                            setInterval(() => {
-                                this.countdown--;
-                            }, 1000);
-                            setTimeout(() => {
-                                this.loading = false;
-                            }, this.countdown * 1000);
-                        }
-                    },
-                    async init() {
-                        window.addEventListener('message', this.onMessage.bind(this));
-                    }
-                }));
-            });
-        </script>
       <script>
+      document.addEventListener('alpine:init', () => {
+        console.log('spotify-login.blade.php')
+        Alpine.data('spotifyLogin', () => ({
+          token: null,
+          loading: false,
+          countdown: 5,
+          spotifyAuthUrl: 'https://auth.musicpiechart.com/auth/login?embed=true',
+          openSpotifyAuthUrl() {
+            window.open(this.spotifyAuthUrl, '_blank', 'height=600,width=800');
+          },
+          onMessage(event) {
+            if (event.data.app === 'musicpiechart') {
+              this.token = event.data.token;
+              localStorage.setItem('token', event.data.token);
+              this.loading = true;
+              // start countdown
+              setInterval(() => {
+                this.countdown--;
+              }, 1000);
+              setTimeout(() => {
+                this.loading = false;
+              }, this.countdown * 1000);
+            }
+          },
+          async init() {
+            window.addEventListener('message', this.onMessage.bind(this));
+          }
+        }));
+      });
+    </script>
+    <script>
     function modifyElement() {
         var rewardBtns = top.document.querySelectorAll(' .rewarded');
         if (rewardBtns.length > 0) {
