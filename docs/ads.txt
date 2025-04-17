@@ -659,6 +659,51 @@ admanmedia.com,799,RESELLER
 freewheel.tv, 1608158, DIRECT
 freewheel.tv, 1608165, RESELLER
 
+# Update 10/04/2025
+consumable.com, 2001627, RESELLER, aefcd3d2f45b5070
+tritondigital.com, 106423, RESELLER, 19b4454d0b87b58b
+adswizz.com, 561, RESELLER
+appnexus.com, 7556, RESELLER, f5ab79cb980f11d1
+rubiconproject.com, 24856, RESELLER
+smartadserver.com, 4295, RESELLER
+conversantmedia.com, 100087, RESELLER, 03113cd04947736d
+vidgyor.com, 20133, RESELLER
+thisisdax.com, 5329, RESELLER
+targetspot.com, 366, RESELLER, feb28ed826dcf532
+appnexus.com, 15686, RESELLER, f5ab79cb980f11d1
+admanmedia.com, 2028, RESELLER
+pubmatic.com, 165117, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 25386, RESELLER, 0bfd66d529a55807
+appnexus.com, 15349, RESELLER, f5ab79cb980f11d1
+video.unrulymedia.com, 3948367200, RESELLER
+thebrave.io,  1234772 , RESELLER, c25b2154543746ac
+appnexus.com, 12061, RESELLER, f5ab79cb980f11d1
+rubiconproject.com, 24752, RESELLER, 0bfd66d529a55807
+video.unrulymedia.com, 3881266972, RESELLER
+smartadserver.com, 4343, RESELLER
+media.net, 8CU9B72O6, RESELLER
+richaudience.com, q3KyMB36ue, RESELLER
+sonobi.com, 2b51f34067, RESELLER, d1a215d9eb5aee9e
+inmobi.com, ef083d721beb4c0f8776ced01e262c03, RESELLER, 83e75a7ae333ca9d
+smrtconnect.com, 820296, RESELLER
+lijit.com, 519447, Reseller, fafdf38b16bf6b2b #SOVRN
+krushmedia.com, AJxF6R658a9M6CaTvK, Reseller
+rubiconproject.com, 26796, Reseller, 0bfd66d529a55807
+media.net,8cuxpr2gt,reseller
+video.unrulymedia.com, 207645716, Reseller
+loopme.com, 14005, Reseller, 6c8d5f95897a5a3b
+zetaglobal.net, 897, RESELLER
+seedtag.com,6750a603c059df0006c3604a, RESELLER
+adyoulike.com, 757975379439e8bddaaf7019098e710c, RESELLER
+Adform.com, 3041, RESELLER
+conversantmedia.com, 100254, RESELLER, 03113cd04947736d
+9dotsmedia.com, 4522, RESELLER, 45ff185b4c4e857d
+mediafuse.com, 760 , RESELLER
+supply.colossusssp.com, 863, RESELLER
+xandr.com, 10490, RESELLER
+yieldmo.com, 3078438591206989879, RESELLER
+# 360Playvid end
+
 # Aniview
 aniview.com, 6790d84deebcdb6d320f0455, DIRECT, 78b21b97965ec3f8
 video.unrulymedia.com, 3350674472, RESELLER, 6f752381ad5ec0e5
