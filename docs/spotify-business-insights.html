@@ -116,15 +116,15 @@
       googletag.pubads().refresh([rewardedSlot]);
     });
   }
-  var anchorSlot;
+  // var anchorSlot;
   googletag.cmd.push(function() {
 
-    anchorSlot = googletag.defineOutOfPageSlot(
-      "/22921845643/huangdarren1106_global_bottom_anchor",
-      googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
-    );
+    // anchorSlot = googletag.defineOutOfPageSlot(
+    //   "/22921845643/huangdarren1106_global_bottom_anchor",
+    //   googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
+    // );
 
-    anchorSlot.addService(googletag.pubads());
+    // anchorSlot.addService(googletag.pubads());
 
     if (window.innerWidth >= 1480) {
       googletag.defineSlot('/147246189,22921845643/huangdarren1106.github.io_1000x100_desktop_anchor', [
@@ -813,13 +813,7 @@
   </div>
 </footer>
 
-  <div id="huangdarren1106_github_io_anchor_ad_responsive" class="ads">
-    <script>
-        googletag.cmd.push(function() {
-            googletag.display('huangdarren1106_github_io_anchor_ad_responsive');
-        });
-    </script>
-</div>
+  
     <script>
     function modifyElement() {
         var rewardBtns = top.document.querySelectorAll(' .rewarded');
@@ -837,11 +831,7 @@
     modifyElement();
 </script>
 
-  <script>
-    googletag.cmd.push(() => {
-      googletag.display(anchorSlot);
-    });
-  </script>
+  
 </body>
 
 </html>
