@@ -729,7 +729,24 @@ mediafuse.com, 760 , RESELLER
 supply.colossusssp.com, 863, RESELLER
 xandr.com, 10490, RESELLER
 yieldmo.com, 3078438591206989879, RESELLER
+
+aps.amazon.com,d4004b5f-4fb6-4be2-82ae-0e36b8f52c12,DIRECT
+Media.net, 8CU3320BH, RESELLER
+smartadserver.com, 4839, RESELLER, 060d053dcf45cbf357c
+lijit.com, 348134, DIRECT, fafdf38b16bf6b2b
+lijit.com, 348134-eb, DIRECT, fafdf38b16bf6b2b
+contextweb.com, 558511, RESELLER, 89ff185a4c4e857c
+pubmatic.com, 162914, RESELLER, 5d62403b186f2ace
+seedtag.com,679d11fbd962b2000734922e, DIRECT
+rubiconproject.com, 17280, DIRECT, 0bfd66d529a55807
+adagio.io, 1503, DIRECT
+onetag.com, 9263339f27e6500, DIRECT
+consumable.com, 2001627, DIRECT, aefcd3d2f45b5070
+targetspot.com, 366, DIRECT, feb28ed826dcf532
+admanmedia.com, 2028, DIRECT
 # 360Playvid end
+
+
 # Nomade Lab
 nomadelab.com, 22921845643, DIRECT
 google.com, pub-2960795876206253, RESELLER, f08c47fec0942fa0
