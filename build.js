@@ -20,6 +20,8 @@ const esc = (s) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 
+const absUrl = (u) => (/^https?:\/\//.test(u) ? u : `${SITE}${u.startsWith('/') ? u : `/${u}`}`);
+
 function write(file, html) {
   const dest = path.join(OUT, file);
   fs.mkdirSync(path.dirname(dest), { recursive: true });
@@ -29,14 +31,15 @@ function write(file, html) {
 const partial = (name) => read('partials', `${name}.html`);
 
 function metaBlock(p) {
+  const url = absUrl(p.url);
   return `<meta property="og:title" content="${esc(p.title)}">
 <meta property="og:description" content="${esc(p.description)}">
 <meta property="og:image" content="${p.image}">
-<meta property="og:url" content="${p.url}">
+<meta property="og:url" content="${url}">
 <meta property="og:site_name" content="Spotify Pie - Exploring Your Spotify Stats in a Fun Way">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
-<link rel="canonical" href="${p.url}">
+<link rel="canonical" href="${url}">
 
   <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(p.title)}">
@@ -93,17 +96,48 @@ function walk(dir, base = '') {
   return found;
 }
 
+const INDEXABLE = [];
+const NON_INDEXABLE = new Set(['callback']);
+
 const pagesDir = path.join(SRC, 'pages');
 const slugs = walk(pagesDir).sort();
 for (const slug of slugs) {
   const dir = path.join(pagesDir, slug);
   const meta = JSON.parse(fs.readFileSync(path.join(dir, 'page.json'), 'utf8'));
   write(`${slug}.html`, page(meta, dir));
+  if (!NON_INDEXABLE.has(slug)) INDEXABLE.push(slug === 'index' ? SITE : `${SITE}/${slug}`);
 }
 
 const rawDir = path.join(SRC, 'raw');
-for (const f of fs.readdirSync(rawDir).sort()) write(f, read('raw', f));
+for (const f of fs.readdirSync(rawDir).sort()) {
+  write(f, read('raw', f));
+  if (f.endsWith('.html') && f !== '404.html') INDEXABLE.push(`${SITE}/${f.replace(/\.html$/, '')}`);
+}
 
 for (const slug of JSON.parse(read('redirects.json'))) write(`${slug}.html`, redirectStub());
 
-console.log(`Built ${slugs.length} pages, raw ${fs.readdirSync(rawDir).length}, redirects.`);
+for (const slug of ['top-spotify-artists', 'spotify-top-songs-right-now']) INDEXABLE.push(`${SITE}/${slug}`);
+
+const lastmod = new Date().toISOString().slice(0, 10);
+const urls = [...new Set(INDEXABLE)].sort();
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls
+  .map((u) => `  <url>\n    <loc>${u}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`)
+  .join('\n')}
+</urlset>
+`;
+write('sitemap.xml', sitemap);
+
+const robotsPath = path.join(OUT, 'robots.txt');
+const robots = fs.existsSync(robotsPath)
+  ? fs.readFileSync(robotsPath, 'utf8')
+  : 'User-agent: *\nAllow: /\n';
+const rules = robots
+  .split('\n')
+  .filter((l) => !/^sitemap:/i.test(l.trim()))
+  .join('\n')
+  .replace(/\s*$/, '');
+write('robots.txt', `${rules}\n\nSitemap: ${SITE}/sitemap.xml\n`);
+
+console.log(`Built ${slugs.length} pages, raw ${fs.readdirSync(rawDir).length}, redirects, sitemap (${urls.length}).`);

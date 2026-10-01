@@ -25,13 +25,13 @@
       text-align: center;
     }
   </style>
-  <title>Spotify Pie Chart: Your Favorite Spotify Stats Generator</title>
-  <meta name="description" content="Bake your unique Spotify Pie Chart with our generator! Transform your Spotify Stats: the most-played artists, genres and top tracks into colorful charts! ᯤ🎧✮">
+  <title>Spotify Pie: Official Chart of Your Music &amp; Stats</title>
+  <meta name="description" content="Make your own Spotify Pie chart of your music in seconds. The official generator turns your top artists and tracks into one colorful chart — free Spotify stats.">
 
   <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="Spotify Pie Chart: Your Favorite Spotify Stats Generator">
-<meta property="og:description" content="Bake your unique Spotify Pie Chart with our generator! Transform your Spotify Stats: the most-played artists, genres and top tracks into colorful charts! ᯤ🎧✮">
+  <meta property="og:title" content="Spotify Pie: Official Chart of Your Music &amp; Stats">
+<meta property="og:description" content="Make your own Spotify Pie chart of your music in seconds. The official generator turns your top artists and tracks into one colorful chart — free Spotify stats.">
 <meta property="og:image" content="https://huangdarren1106.github.io/D2RnxR996zNzoYNzdulXK4AlNDsHriqaoIgETIxl.jpg">
 <meta property="og:url" content="https://huangdarren1106.github.io">
 <meta property="og:site_name" content="Spotify Pie - Exploring Your Spotify Stats in a Fun Way">
@@ -40,10 +40,10 @@
 <link rel="canonical" href="https://huangdarren1106.github.io">
 
   <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Spotify Pie Chart: Your Favorite Spotify Stats Generator">
-<meta name="twitter:description" content="Bake your unique Spotify Pie Chart with our generator! Transform your Spotify Stats: the most-played artists, genres and top tracks into colorful charts! ᯤ🎧✮">
+<meta name="twitter:title" content="Spotify Pie: Official Chart of Your Music &amp; Stats">
+<meta name="twitter:description" content="Make your own Spotify Pie chart of your music in seconds. The official generator turns your top artists and tracks into one colorful chart — free Spotify stats.">
 <meta name="twitter:image" content="https://huangdarren1106.github.io/D2RnxR996zNzoYNzdulXK4AlNDsHriqaoIgETIxl.jpg">
-<meta name="twitter:image:alt" content="Spotify Pie Chart: Your Favorite Spotify Stats Generator">
+<meta name="twitter:image:alt" content="Spotify Pie: Official Chart of Your Music &amp; Stats">
 
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -450,12 +450,12 @@
       </div>
     </div>
 
-    <div x-show="loading" class="flex flex-col items-center my-6 text-center">
+    <div x-show="loading" class="flex flex-col items-center my-8 text-center">
       <p class="font-semibold">Please hang tight while your Spotify Pie is baking...</p>
       <img class="w-10 my-2 motion-safe:animate-spin" src="/spotify-pie.png" alt="Spotify Pie">
     </div>
 
-    <p x-show="error" class="max-w-sm mx-auto my-4 text-center text-red-700">
+    <p x-show="error" class="max-w-sm mx-auto my-4 text-center text-red-600">
       Spotify did not send your top artists. <button type="button" class="underline" @click="load()">Try again</button>
     </p>
 
@@ -478,7 +478,7 @@
           </table>
         </div>
       </div>
-      <p class="max-w-sm mx-auto text-sm text-right text-gray-500">*Tap on the pie chart to spin it 🌀</p>
+      <p class="max-w-sm mx-auto text-sm text-right text-gray-400">*Tap on the pie chart to spin it 🌀</p>
       <div class="flex flex-col items-center justify-center gap-4 mt-4">
         <button type="button" class="px-6 py-3 text-xl font-bold text-white bg-purple-600 rounded-full"
           @click="capture">Download Spotify Pie</button>
@@ -491,7 +491,7 @@
       </div>
       <div class="flex flex-col justify-center mt-8 text-center">
         <template x-for="(artist, index) in artists" :key="artist.id">
-          <div><span :style="`font-size: ${36 - index * 1.5}px;`" class="font-semibold leading-none space-nowrap"
+          <div><span :style="`font-size: ${36 - index * 1.5}px;`" class="font-semibold leading-none"
               x-text="artist.name"></span></div>
         </template>
       </div>
