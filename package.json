@@ -7,12 +7,13 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "npm run generate-top-artists && npm run move-top-artists && npm run generate-top-songs && npm run move-top-songs",
+    "build": "node build.js && npm run generate-top-artists && npm run move-top-artists && npm run generate-top-songs && npm run move-top-songs",
     "generate-top-artists": "node top-artists.js",
     "move-top-artists": "mv output/top-spotify-artists.html docs/top-spotify-artists.html",
     "generate-top-songs": "node top-songs.js",
     "move-top-songs": "mv output/spotify-top-songs-right-now.html docs/spotify-top-songs-right-now.html",
     "serve": "serve docs",
+    "check-links": "node linkcheck.js docs",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },

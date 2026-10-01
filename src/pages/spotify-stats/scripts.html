@@ -1,0 +1,244 @@
+
+
+        <script>
+        document.addEventListener('alpine:init', () => {
+          Alpine.data('spotifystats', () => ({
+            show: false,
+            token: null,
+            time_range: 'short_term',
+            top_tracks: [],
+            top_artists: [],
+            genresChartData: [],
+            isSpotifyBubble: false,
+            isSpotifyStats: true,
+            isSpotifyPie: false,
+            isSpotifyReceiptipie: false,
+            activeTab: 'top_tracks',
+            genreColors: {},
+            setActiveTab(tab) {
+              this.activeTab = tab;
+              // fetch data depends on activeTab
+              if (tab === 'top_tracks') {
+                this.getTopTracks(this.time_range);
+              } else {
+                this.getTopArtists(this.time_range);
+              }
+            },
+            setActiveTimeRange(time_range) {
+              this.time_range = time_range;
+              if (this.activeTab === 'top_tracks') {
+                this.getTopTracks(time_range);
+              } else {
+                this.getTopArtists(time_range);
+              }
+            },
+
+            spotifyAuthUrl: 'https://auth.musicpiechart.com/auth/login?redirect_to=https://huangdarren1106.github.io/callback',
+
+            getTopTracks(time_range) {
+              fetch(`https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=${time_range}`, {
+                  headers: {
+                    'Authorization': 'Bearer ' + this.token
+                  }
+                })
+                .then(response => {
+                  if (response.status === 401) {
+                    console.log('token expired');
+                    throw new Error('token expired');
+                  } else {
+                    return response.json();
+                  }
+
+                })
+                .then(data => {
+                  this.top_tracks = data;
+                }).catch(e => {
+                  console.log(e);
+                  this.reset()
+                });
+            },
+
+            getTopArtists(time_range) {
+              fetch(`https://api.spotify.com/v1/me/top/artists?limit=50&time_range=${time_range}`, {
+                  headers: {
+                    'Authorization': 'Bearer ' + this.token
+                  }
+                })
+                .then(response => {
+                  if (response.status === 401) {
+                    throw new Error('token expired');
+                  } else {
+                    return response.json();
+                  }
+
+                })
+                .then(data => {
+                  this.top_artists = data;
+
+                  // Collect all unique genres
+                  const allGenres = new Set();
+                  this.top_artists.items.forEach(artist => {
+                    artist.genres.forEach(genre => allGenres.add(genre));
+                  });
+
+                  // Generate colors for all genres
+                  allGenres.forEach(genre => {
+                    if (!this.genreColors[genre]) {
+                      this.genreColors[genre] = this.getGenreHue(genre);
+                    }
+                  });
+
+                  this.genresChartData = [];
+                  const genres = {};
+                  this.top_artists.items.forEach(artist => {
+                    artist.genres.forEach(genre => {
+                      if (genres[genre]) {
+                        genres[genre] += 1;
+                      } else {
+                        genres[genre] = 1;
+                      }
+                    })
+                  });
+                  Object.keys(genres).forEach(genre => {
+                    this.genresChartData.push({
+                      name: genre,
+                      value: genres[genre]
+                    })
+                  });
+                  // sort by value
+                  this.genresChartData.sort((a, b) => b.value - a.value);
+                  // filter top 10
+                  this.genresChartData = this.genresChartData.slice(0, 10);
+
+                  // sum of top 10 genres
+                  const sum = this.genresChartData.reduce((a, b) => a + b.value, 0);
+
+                  // add percent to each genre
+                  this.genresChartData.forEach(genre => {
+                    genre.percent = Math.round(genre.value / sum * 100);
+                  });
+
+                  let svg = this.createChartSVG(this.genresChartData)
+                  document.getElementById('chart').innerHTML = svg.outerHTML;
+
+
+                }).catch(e => {
+                  console.log(e);
+                  this.reset()
+                });
+            },
+            reset() {
+              this.token = null;
+              localStorage.removeItem('token');
+            },
+
+            createChartSVG(data) {
+              // Specify the chart's dimensions.
+              const width = 300;
+              const height = Math.min(width, 300);
+
+              // Create the color scale.
+              const color = d3.scaleOrdinal()
+                .domain(data.map(d => d.name))
+                .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), data.length)
+                  .reverse())
+
+              // Create the pie layout and arc generator.
+              const pie = d3.pie()
+                .sort(null)
+                .value(d => d.value);
+
+              const arc = d3.arc()
+                .innerRadius(0)
+                .outerRadius(Math.min(width, height) / 2 - 1);
+
+              const labelRadius = arc.outerRadius()() * 0.6;
+
+              // A separate arc generator to place a label close to the edge.
+              const arcLabel = d3.arc()
+                .innerRadius(labelRadius)
+                .outerRadius(labelRadius);
+
+              const arcs = pie(data);
+
+              // Create the SVG container.
+              const svg = d3.create("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .attr("viewBox", [-width / 2, -height / 2, width, height])
+                .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+
+              // Add a sector path for each value.
+              svg.append("g")
+                .attr("stroke", "white")
+                .selectAll()
+                .data(arcs)
+                .join("path")
+                .attr("fill", d => color(d.data.name))
+                .attr("d", arc)
+                .append("title")
+                .text(d => `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
+
+              // Create a new arc generator to place a label close to the edge.
+              // The label shows the value if there is enough room.
+              svg.append("g")
+                .attr("text-anchor", "middle")
+                .selectAll()
+                .data(arcs)
+                .join("text")
+                .attr("transform", d => {
+                  // Calculate the angle of the arc
+                  const [x, y] = arcLabel.centroid(d);
+                  const rotate = (d.startAngle + d.endAngle) / 2 * (180 / Math.PI);
+                  // Adjust the rotation for readability
+                  const adjustedRotate = rotate > 180 && rotate < 360 ? rotate + 180 :
+                    rotate;
+                  return `translate(${x}, ${y}) rotate(-90) rotate(${adjustedRotate})`;
+                })
+                .call(text => text.append("tspan")
+                  .attr("y", "0.3em")
+                  .attr("font-weight", "semibold")
+                  .text(d => d.data.name.slice(0, 18)));
+
+              return svg.node();
+
+            },
+
+            getGenreStyle(genre) {
+              const hue = this.getGenreHue(genre);
+              const bgColor = `hsl(${hue}, 70%, 85%)`;
+              const borderColor = `hsl(${hue}, 70%, 60%)`;
+              const textColor = `hsl(${hue}, 70%, 25%)`;
+
+              return {
+                backgroundColor: bgColor,
+                borderColor: borderColor,
+                color: textColor,
+                border: '1px solid ' + borderColor
+              };
+            },
+
+            getGenreHue(genre) {
+              if (!this.genreColors[genre]) {
+                this.genreColors[genre] = Math.floor(Math.random() * 360);
+              }
+              return this.genreColors[genre];
+            },
+
+            async init() {
+              // read token from local storage
+              this.token = localStorage.getItem('token');
+              if (this.token) {
+                try {
+                  await this.getTopTracks(this.time_range);
+                  await this.getTopArtists(this.time_range)
+                } catch (e) {
+                  console.log(e);
+                  this.reset();
+                }
+              }
+            }
+          }));
+        });
+      </script>
+  

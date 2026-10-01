@@ -1,0 +1,283 @@
+
+
+  <div class="px-4 pt-8 mx-auto max-w-2xl prose prose-lg prose-img:text-center prose-img:mx-auto lg:px-0">
+    <div id="huangdarren1106_github_io_interscroller_mobile" style="text-align: center;" class="sm:hidden">
+    <script>
+        googletag.cmd.push(function() {
+            googletag.display('huangdarren1106_github_io_interscroller_mobile');
+        });
+    </script>
+</div>
+<script>
+    window.stpdInterscroller = window.stpdInterscroller || {
+        que: []
+    }
+    stpdInterscroller.que.push(function() {
+        if (window.innerWidth < 1024) {
+            stpdInterscroller.setConfig({
+                container: 'div[id="huangdarren1106_github_io_interscroller_mobile"]',
+                height: 330,
+                width: 300,
+                showTitle: false,
+                titleText: 'Advertisement',
+                titleBackground: '#FFF',
+                titleColor: '#333',
+                overrideParentWidth: true
+            });
+            stpdInterscroller.run();
+        }
+    });
+</script>
+    <h1 class="text-3xl text-center text-gray-900 sm:text-5xl">ReceiptiPie - Receiptify from Spotify Pie -  Get Your Spotify Receipt</h1>
+    
+          <div x-data="piechart">
+  <div x-show="!token"
+    class="flex flex-col items-center w-full p-4 mb-4 text-center border border-green-600 rounded-lg bg-green-50">
+    <p class="mb-2 text-lg font-semibold text-green-800">
+      Visit Login page
+    </p>
+    <img class="w-24 my-4 motion-safe:animate-spin" src="/spotify-pie.png" alt="Spotify Pie">
+    <a href="/" class="px-6 py-3 text-xl font-bold text-white bg-green-600 rounded-full">Login</a>
+  </div>
+
+  <div class="max-w-sm mx-auto">
+    <div class="flex justify-center my-4 text-center">
+      <a href="/?style=classic"
+        class="flex px-4 text-yellow-600 bg-yellow-100 border border-yellow-600 rounded-full items">Classic
+        Spotify Pie is here</a>
+    </div>
+    <div class="flex justify-center w-full mb-4 text-sm text-center border rounded-lg shadow-lg">
+      <a href="/" :class="{ 'bg-purple-600 text-white': isSpotifyPie }"
+        class="flex flex-col items-center justify-center flex-1 gap-1 px-2 py-2 no-underline rounded-l-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+          <path fill="#ba9aea" d="M12 12V2c5.523 0 10 4.477 10 10H12z" opacity=".25" />
+          <path fill="#ba9aea" d="m12 12l5 8.66A10.01 10.01 0 0 0 22 12H12z" opacity=".5" />
+          <path fill="#ba9aea"
+            d="M17 20.66L12 12V2c-5.523.002-9.999 4.48-9.997 10.003c.002 5.523 4.48 9.999 10.004 9.997A10 10 0 0 0 17 20.662l.003-.005l-.004.003z" />
+        </svg>
+        Spotify <br />Pie
+      </a>
+      <a href="/spotify-bubble-chart" :class="{ 'bg-purple-600 text-white': isSpotifyBubble }"
+        class="flex flex-col items-center justify-center flex-1 px-2 py-2 no-underline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
+          <defs>
+            <mask id="ipTBubbleChart0">
+              <g fill="#555" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+                <circle cx="34" cy="14" r="9" />
+                <circle cx="12" cy="25" r="7" />
+                <circle cx="29" cy="37" r="5" />
+              </g>
+            </mask>
+          </defs>
+          <path fill="#ba9aea" d="M0 0h48v48H0z" mask="url(#ipTBubbleChart0)" />
+        </svg>
+        Spotify Bubble</a>
+      <a href="/receiptify" :class="{ 'bg-purple-600 text-white': isSpotifyReceiptipie }"
+        class="flex flex-col items-center justify-center flex-1 px-2 py-2 no-underline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <path fill="#ba9aea" d="M21 16h2v2h-2zM9 16h8v2H9zm12-4h2v2h-2zM9 12h8v2H9zm0-4h14v2H9z" />
+          <path fill="#ba9aea"
+            d="M25 2H7a2.002 2.002 0 0 0-2 2v25a1 1 0 0 0 1 1h1a.999.999 0 0 0 .8-.4l2.2-2.933l2.2 2.933a1.035 1.035 0 0 0 1.6 0l2.2-2.933l2.2 2.933a1.035 1.035 0 0 0 1.6 0l2.2-2.933l2.2 2.933a1.035 1.035 0 0 0 1.6 0l2.2-2.933l2.2 2.933a1.035 1.035 0 0 0 1.6 0l2.2-2.933l2.2 2.933a1.035 1.035 0 0 0 1.6 0l2.2-2.933l2.2 2.933a1 1 0 0 0 .8.4h1a1 1 0 0 0 1-1V4a2.002 2.002 0 0 0-2-2m0 25.333L22.8 24.4a1.035 1.035 0 0 0-1.6 0L19 27.333L16.8 24.4a1.035 1.035 0 0 0-1.6 0L13 27.333L10.8 24.4a1.035 1.035 0 0 0-1.6 0L7 27.333V4h18Z" />
+        </svg>
+        Spotify ReceiptiPie</a>
+      <a href="/spotify-stats" :class="{ 'bg-purple-600 text-white': isSpotifyStats }"
+        class="flex flex-col items-center justify-center flex-1 px-2 py-2 no-underline border-l rounded-r-full">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+          <path fill="none" stroke="#ba9aea" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 16.5h2v.5H3zm5 0h2.5v.5H8zm8 .5h-2.5v-.5H16zm5.5 0H19v-.5h2.5zm0-4H19v.5h2.5zm0-3.5H19v.5h2.5zm0-3.5H19v.5h2.5zM16 13h-2.5v.5H16zm-8 .5h2.5V13H8zm0-4h2.5v.5H8z" />
+        </svg>
+        Spotify Stats</a>
+    </div>
+
+    <!-- Add tab selector for Artists/Tracks -->
+    <div class="flex justify-center w-full mb-4 text-sm text-center border rounded-lg shadow-lg">
+      <button @click="setActiveTab('artists')" :class="{ 'bg-purple-600 text-white': activeTab === 'artists' }"
+        class="flex-1 px-4 py-2 rounded-l-lg">
+        Top Artists
+      </button>
+      <button @click="setActiveTab('tracks')" :class="{ 'bg-purple-600 text-white': activeTab === 'tracks' }"
+        class="flex-1 px-4 py-2 rounded-r-lg">
+        Top Tracks
+      </button>
+    </div>
+
+    <!-- Add time range selector as tabs -->
+    <div class="flex justify-center w-full mb-4 text-sm text-center border rounded-lg shadow-lg">
+      <button @click="setTimeRange('short_term')" :class="{ 'bg-purple-600 text-white': time_range === 'short_term' }"
+        class="flex-1 px-4 py-2 rounded-l-lg">
+        Last 4 Weeks
+      </button>
+      <button @click="setTimeRange('medium_term')" :class="{ 'bg-purple-600 text-white': time_range === 'medium_term' }"
+        class="flex-1 px-4 py-2">
+        Last 6 Months
+      </button>
+      <button @click="setTimeRange('long_term')" :class="{ 'bg-purple-600 text-white': time_range === 'long_term' }"
+        class="flex-1 px-4 py-2 rounded-r-lg">
+        All Time
+      </button>
+    </div>
+
+    <!-- Add length selector -->
+    <div class="flex justify-center w-full mb-4 text-sm text-center border rounded-lg shadow-lg">
+      <button @click="setLength(10)" :class="{ 'bg-purple-600 text-white': length === 10 }"
+        class="flex-1 px-4 py-2 rounded-l-lg">
+        10 Items
+      </button>
+      <button @click="setLength(25)" :class="{ 'bg-purple-600 text-white': length === 25 }" class="flex-1 px-4 py-2">
+        25 Items
+      </button>
+      <button @click="setLength(50)" :class="{ 'bg-purple-600 text-white': length === 50 }"
+        class="flex-1 px-4 py-2 rounded-r-lg">
+        50 Items
+      </button>
+    </div>
+  </div>
+
+
+  <div x-show="top_artists || top_tracks" class="max-w-sm mx-auto mb-4 border border-dashed shadow-lg"
+    style="background: url('paper-2.jpeg');">
+    <div class="mt-4 text-2xl font-bold text-center uppercase">Spotify ReceiptiPie</div>
+
+    <p class="py-0 my-2 text-center" x-text="getTimeRangeText()"></p>
+
+    <div id="pie-chart" class="p-4">
+      <div class="flex justify-center">
+        <div id="chart"></div>
+      </div>
+      <div class="kanit">
+        <div class="my-0">
+          Docket No. 001. Served By Spotify Pie.
+        </div>
+        <div class="flex justify-between">
+          <p class="my-0">Date: <span x-text="new Date().toLocaleDateString()"></span></p>
+          <p class="my-0">Time: <span x-text="new Date().toLocaleTimeString()"></span></p>
+        </div>
+        <table class="w-full max-w-3xl mt-2 mb-0 text-gray-700">
+          <thead class="py-2 border-t border-black border-dashed">
+            <tr class="w-full">
+              <td class="w-6">
+                #
+              </td>
+              <td>
+                <span x-text="activeTab === 'artists' ? 'Artist' : 'Track'"></span>
+              </td>
+              <td class="w-6 text-right">
+                <span x-text="activeTab === 'artists' ? 'Popularity' : 'Duration'"></span>
+              </td>
+            </tr>
+          </thead>
+          <tbody class="border-t border-black border-dashed">
+            <template x-for="(item, i) in activeTab === 'artists' ? top_artists.items : top_tracks.items">
+              <tr class="w-full my-0 border-0" x-key="item.id">
+                <td class="py-0 my-0">
+                  <p x-text="i+1" class="py-0 my-0"></p>
+                </td>
+                <td class="uppercase shrink-0 my-0 px-0 py-0 text-left max-w-[200px] sm:max-w-none leading-none">
+                  <p x-text="activeTab === 'artists' ? item.name : `${item.name} - ${item.artists[0].name}`"
+                    class="my-0"></p>
+                </td>
+                <td class="py-0 my-0">
+                  <p x-text="activeTab === 'artists' ? item.popularity : formatDuration(item.duration_ms)"
+                    class="py-0 my-0 text-right"></p>
+                </td>
+              </tr>
+            </template>
+            <tr class="py-2 my-0 border-black border-dashed border-y">
+              <td colspan="2" class="py-0 my-0 uppercase">
+                Item count:
+              </td>
+              <td class="py-0 my-0 text-right"
+                x-text="activeTab === 'artists' ? top_artists.items.length : top_tracks.items.length"></td>
+            </tr>
+            <tr class="py-0 my-0 ">
+              <td colspan="2" class="py-0 my-0 uppercase">
+                <span x-text="activeTab === 'artists' ? 'Total Popularity:' : 'Total Duration:'"></span>
+              </td>
+              <td class="py-0 my-0 text-right"
+                x-text="activeTab === 'artists' ? getPopularity() : formatDuration(getTotalDuration())"></td>
+            </tr>
+            <tr class="py-0 my-0">
+              <td colspan="2" class="py-0 my-0 uppercase">
+                <span x-text="activeTab === 'artists' ? 'Average Popularity:' : 'Average Duration:'"></span>
+              </td>
+              <td class="py-0 my-0 text-right"
+                x-text="activeTab === 'artists' ? getAveragePopularity() : formatDuration(getAverageDuration())"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+  </div>
+        <div class="h-[440px] bg-neutral-50 mt-4 mb-4 ads relative">
+    <div class="font-light text-xs left-1 top-1 absolute text-gray-400 uppercase">advertisement</div>
+    <div id="huangdarren1106_github_io_billboard_top_responsive" class="sticky top-0">
+        <script>
+            googletag.cmd.push(function() {
+                googletag.display('huangdarren1106_github_io_billboard_top_responsive');
+            });
+        </script>
+    </div>
+</div>
+
+    <article>
+              <h2>What is Receiptify (Spotify Receipt)</h2><p>Receiptify or Spotify Receipt is a website and app created by Michelle Liu that allows users to generate a "receipt" based on their most played tracks on Spotify, Apple Music, or Last.fm. The receipt displays the user's top tracks, top artists, and top genres in a stylized format, similar to a restaurant bill. Users can choose the time period for which they want to see their top tracks, whether from the last month, the last six months, or from all time.</p><p>The generated receipt can be downloaded and shared on social media. Receiptify has gained popularity as a fun way for music fans to share and compare their listening habits. To use Receiptify, users simply need to visit the Receiptify website and log in with their Spotify, Apple Music, or Last.fm account. The website then prompts them to choose the time period for which they want to see their top tracks, and the receipt is generated accordingly. The site has been well-received and has garnered attention on social media platforms.</p><img src="https://huangdarren1106.github.io/storage/receiptify.jpeg" alt="" title="" tt-mode="file" tt-link-url="" tt-link-target="" tt-link-mode="url" class=""><h2>How To Use Receiptify To Generate a Spotify Receipt</h2><p>To generate a Spotify receipt using Receiptify, follow these steps:</p><ol><li><p>Log in with your Spotify account by clicking the "Log in with Spotify" button and granting access to your Spotify account.</p></li><li><p>Choose what you want your receipt to show, such as Top Tracks, Top Artists, Top Genres, Stats, or Search Albums.</p></li><li><p>Select the time period for which you want to see your top tracks, such as Last Month, Last 6 Months, or All Time.</p></li><li><p>Choose whether you want to display the Top 10 or Top 50.</p></li><li><p>Once the receipt is generated, you can download the image and share it on social media</p></li></ol><p>By following these steps, you can create a personalized receipt displaying your most played tracks on Spotify, allowing you to share and compare your listening habits with others.</p><p><span>Don’t forget to compare your Spotify receipt with the most </span><a target="_self" href="/spotify-top-songs-right-now" tt-mode="url"><span><u>popular songs right now</u></span></a><span> to keep your playlists fresh!</span></p><h2>How To Share a Receiptify Receipt on Social Media</h2><p>To share a receipt generated by Receiptify on social media, follow these steps:</p><ol><li><p>After generating your receipt on the Receiptify website, scroll to the bottom of the receipt.</p></li><li><p>Click on the "Get Image" button. This will automatically download the receipt image to your device</p></li><li><p>Once the image is downloaded, you can share it on social media platforms such as Twitter, Instagram, and Facebook, just like you would share any other image</p></li></ol><p>By following these steps, you can easily share your personalized music receipt on your favorite social media platforms.</p><h2>Similar apps</h2><p>While Receiptify offers a unique snapshot of my musical journey, there are other apps out there that also provide interesting insights into my listening habits.</p><ul><li><p><a target="_self" href="/" tt-mode="url">Spotify Pie</a> - your Spotify Stats in a form of pie chart based on genres of your top artists.</p></li><li><p><a target="_self" href="/spotify-stats" tt-mode="url">Spotify Stats</a> - your full listening history of Spotify with ability to choose range of last 4 weeks, 6 month or all time.</p></li><li><p><a target="_self" href="/spotify-bubble-chart" tt-mode="url">Spotify Bubble Chart</a> - Unique view of your top 10 artists as a bubble chart with actuall artists bubbling up.</p></li><li><p><a target="_self" href="/trackify" tt-mode="url">Spotify Trackify</a> - the app to analyze your listening habits.</p></li></ul><p></p><h2>Frequently Asking Questions</h2><p></p><h3>Q: What is ReceiptiPie?</h3><p>A: ReceiptiPie is a new version of Receiptify from Spotify Pie.</p><h3>Q: How to make Receiptify?</h3><p>A: To create a Spotify receipt using Receiptify, follow these steps:</p><p>1. Open your web browser and go to the Receiptify website.</p><p>2. Click the "Log in with Spotify" button.</p><p>3. Log into your Spotify account and authorize Receiptify to access your Spotify usage data.</p><p>4. Choose the type of receipt you want (Top Tracks, Top Artists, Top Genres, Stats, or Search Albums) and the time period (Last Month, Last 6 Months, or All Time).</p><p>5. Select the number of items you want to include in the receipt (Top 10 or Top 50).</p><p>6. Once the data processing is complete, you can view your personalized Spotify receipt and download the image to share it with others.</p><h3>Q: Is Receiptify safe?</h3><p>A: Receiptify is generally considered safe to use. It connects with your Spotify account through the official API built by Spotify, and the information about your listening habits comes from Spotify alone. Receiptify does not have access to any other forms of data on your device, and it claims not to store your personal information anywhere. However, as with any third-party tool, it's important to be cautious and consider revoking access after using it. When using Receiptify, you are granting access to your data, so it's essential to be mindful of the permissions you share and to protect your account by using a strong and unique password. Overall, Receiptify is a legitimate and secure platform for creating personalized Spotify receipts.</p><p>If you have any concerns about using Receiptify, it's always a good idea to review the permissions you are granting and to ensure that you are comfortable with the access you are providing.</p><h3>Q: Is receiptify accurate?</h3><p>A: Receiptify is generally considered to be accurate in generating Spotify receipts. The data extracted by Receiptify is directly from Spotify's servers, ensuring a high level of accuracy. While occasional discrepancies may occur due to sync delays or bank-side issues, users can manually edit transaction details to ensure maximum accuracy. The app is designed to provide an accurate and personalized representation of an individual's listening habits, making it a popular tool for sharing music statistics on social media platforms.</p>
+          </article>
+
+    <div id="huangdarren1106_github_io_interscroller_mobile" style="text-align: center;" class="sm:hidden">
+    <script>
+        googletag.cmd.push(function() {
+            googletag.display('huangdarren1106_github_io_interscroller_mobile');
+        });
+    </script>
+</div>
+<script>
+    window.stpdInterscroller = window.stpdInterscroller || {
+        que: []
+    }
+    stpdInterscroller.que.push(function() {
+        if (window.innerWidth < 1024) {
+            stpdInterscroller.setConfig({
+                container: 'div[id="huangdarren1106_github_io_interscroller_mobile"]',
+                height: 330,
+                width: 300,
+                showTitle: false,
+                titleText: 'Advertisement',
+                titleBackground: '#FFF',
+                titleColor: '#333',
+                overrideParentWidth: true
+            });
+            stpdInterscroller.run();
+        }
+    });
+</script>
+
+    <div id="huangdarren1106_github_io_sidebar_left_desktop" class="side_ad_left">
+    <script>
+        googletag.cmd.push(function() {
+            if (window.innerWidth >= 1180) {
+                googletag.display('huangdarren1106_github_io_sidebar_left_desktop');
+            }
+        });
+    </script>
+</div>
+    <div id="huangdarren1106_github_io_sidebar_right_desktop" class="side_ad_right">
+    <script>
+        googletag.cmd.push(function() {
+            if (window.innerWidth >= 1180) {
+                googletag.display('huangdarren1106_github_io_sidebar_right_desktop');
+            }
+        });
+    </script>
+</div>
+
+    <div class="w-full mx-auto max-w-[430px] my-4">
+        <script src="https://360playvid.info/slidepleer/s1999s.js"></script>
+    </div>
+  </div>
+
+  

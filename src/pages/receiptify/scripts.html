@@ -1,0 +1,299 @@
+
+
+      <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('piechart', () => ({
+          show: false,
+          token: null,
+          profile: null,
+          time_range: 'short_term',
+          top_artists: [],
+          genresChartData: [],
+          isSpotifyBubble: false,
+          isSpotifyStats: false,
+          isSpotifyPie: false,
+          isSpotifyReceiptipie: true,
+          length: 10,
+          activeTab: 'artists',
+          top_tracks: [],
+          capture() {
+            html2canvas(document.querySelector("#pie-chart", {
+              backgroundColor: "none",
+              useCORS: true,
+              logging: true,
+              letterRendering: 1,
+              allowTaint: false
+            })).then(canvas => {
+              var link = document.createElement('a');
+              link.download = 'spotify-pie.png';
+              link.href = canvas.toDataURL('image/png')
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+
+            });
+
+          },
+          setActiveTab(tab) {
+            this.activeTab = tab;
+            if (tab === 'tracks') {
+              this.getTopTracks(this.time_range);
+            } else {
+              this.getTopArtists(this.time_range);
+            }
+          },
+          getPopularity() {
+            if (!this.top_artists || !this.top_artists.items) {
+              return 0;
+            }
+            return this.top_artists.items.reduce((acc, artist) => acc + artist.popularity, 0);
+          },
+
+          getAveragePopularity() {
+            if (!this.top_artists || !this.top_artists.items || this.top_artists.items.length === 0) {
+              return 0;
+            }
+            const total = this.getPopularity();
+            return (total / this.top_artists.items.length).toFixed(2);
+          },
+
+          async getProfile() {
+            fetch('https://api.spotify.com/v1/me', {
+              headers: {
+                'Authorization': 'Bearer ' + this.token
+              }
+            }).then(response => {
+              if (response.status === 401) {
+                throw new Error('token expired');
+              } else {
+                return response.json();
+              }
+            }).then(data => {
+              this.profile = data;
+              console.log(data);
+            }).catch(e => {
+              console.log(e);
+              this.reset()
+            });
+          },
+          getTopArtists(time_range) {
+            fetch(`https://api.spotify.com/v1/me/top/artists?limit=${this.length}&time_range=${time_range}`, {
+                headers: {
+                  'Authorization': 'Bearer ' + this.token
+                }
+              })
+              .then(response => {
+                if (response.status === 401) {
+                  throw new Error('token expired');
+                } else {
+                  return response.json();
+                }
+
+              })
+              .then(data => {
+                this.top_artists = data;
+
+                this.genresChartData = [];
+                const genres = {};
+                this.top_artists.items.forEach(artist => {
+                  artist.genres.forEach(genre => {
+                    if (genres[genre]) {
+                      genres[genre] += 1;
+                    } else {
+                      genres[genre] = 1;
+                    }
+                  })
+                });
+                Object.keys(genres).forEach(genre => {
+                  this.genresChartData.push({
+                    name: genre,
+                    value: genres[genre]
+                  })
+                });
+                // sort by value
+                this.genresChartData.sort((a, b) => b.value - a.value);
+                // filter top 10
+                this.genresChartData = this.genresChartData.slice(0, 10);
+
+                // sum of top 10 genres
+                const sum = this.genresChartData.reduce((a, b) => a + b.value, 0);
+
+                // add percent to each genre
+                this.genresChartData.forEach(genre => {
+                  genre.percent = Math.round(genre.value / sum * 100);
+                });
+
+                let svg = this.createChartSVG(this.genresChartData)
+                document.getElementById('chart').innerHTML = svg.outerHTML;
+
+
+              }).catch(e => {
+                console.log(e);
+                this.reset()
+              });
+          },
+          reset() {
+            this.token = null;
+            localStorage.removeItem('token');
+          },
+
+          createChartSVG(data) {
+            // Specify the chart's dimensions.
+            const width = 300;
+            const height = Math.min(width, 300);
+
+            // Create the color scale.
+            const color = d3.scaleOrdinal()
+              .domain(data.map(d => d.name))
+              .range(d3.quantize(t => d3.interpolateGreys(t * 0.6 + 0.05), data.length)
+                .reverse())
+
+            // Create the pie layout and arc generator.
+            const pie = d3.pie()
+              .sort(null)
+              .value(d => d.value);
+
+            const arc = d3.arc()
+              .innerRadius(0)
+              .outerRadius(Math.min(width, height) / 2 - 1);
+
+            const labelRadius = arc.outerRadius()() * 0.6;
+
+            // A separate arc generator for labels.
+            const arcLabel = d3.arc()
+              .innerRadius(labelRadius)
+              .outerRadius(labelRadius);
+
+            const arcs = pie(data);
+
+            // Create the SVG container.
+            const svg = d3.create("svg")
+              .attr("width", width)
+              .attr("height", height)
+              .attr("viewBox", [-width / 2, -height / 2, width, height])
+              .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+
+            // Add a sector path for each value.
+            svg.append("g")
+              .attr("stroke", "white")
+              .selectAll()
+              .data(arcs)
+              .join("path")
+              .attr("fill", d => color(d.data.name))
+              .attr("d", arc)
+              .append("title")
+              .text(d => `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
+
+            // Create a new arc generator to place a label close to the edge.
+            // The label shows the value if there is enough room.
+            svg.append("g")
+              .attr("text-anchor", "middle")
+              .selectAll()
+              .data(arcs)
+              .join("text")
+              .attr("transform", d => {
+                // Calculate the angle of the arc
+                const [x, y] = arcLabel.centroid(d);
+                const rotate = (d.startAngle + d.endAngle) / 2 * (180 / Math.PI);
+                // Adjust the rotation for readability
+                const adjustedRotate = rotate > 180 && rotate < 360 ? rotate + 180 :
+                  rotate;
+                return `translate(${x}, ${y}) rotate(-90) rotate(${adjustedRotate})`;
+              })
+              .call(text => text.append("tspan")
+                .attr("y", "0.3em")
+                .attr("font-weight", "semibold")
+                .text(d => d.data.name.slice(0, 18)));
+
+            // Add Spotify logo to the center of the chart
+            svg.append('image')
+              .attr('href', 'spotify-black.svg') // URL of the Spotify logo SVG
+              .attr('x', -15) // Adjust these values to center the logo
+              .attr('y', -15) // Adjust these values to center the logo
+              .attr('height', 30) // Size of the logo
+              .attr('width', 30) // Size of the logo
+              .attr('class', 'spotify-logo'); // Class to style the logo
+
+            return svg.node();
+          },
+          getTimeRangeText() {
+            switch (this.time_range) {
+              case 'short_term':
+                return 'Last 4 Weeks';
+              case 'medium_term':
+                return 'Last 6 Months';
+              case 'long_term':
+                return 'All Time';
+              default:
+                return '';
+            }
+          },
+          setTimeRange(range) {
+            this.time_range = range;
+            if (this.activeTab === 'artists') {
+              this.getTopArtists(this.time_range);
+            } else {
+              this.getTopTracks(this.time_range);
+            }
+          },
+          setLength(newLength) {
+            this.length = newLength;
+            if (this.activeTab === 'artists') {
+              this.getTopArtists(this.time_range);
+            } else {
+              this.getTopTracks(this.time_range);
+            }
+          },
+          getTopTracks(time_range) {
+            fetch(`https://api.spotify.com/v1/me/top/tracks?limit=${this.length}&time_range=${time_range}`, {
+                headers: {
+                  'Authorization': 'Bearer ' + this.token
+                }
+              })
+              .then(response => {
+                if (response.status === 401) {
+                  throw new Error('token expired');
+                } else {
+                  return response.json();
+                }
+              })
+              .then(data => {
+                this.top_tracks = data;
+                this.createTracksPieChart();
+              }).catch(e => {
+                console.log(e);
+                this.reset()
+              });
+          },
+          createTracksPieChart() {
+            // Similar to createChartSVG, but use track data instead
+            // You can use track duration or popularity for the pie chart
+          },
+          formatDuration(ms) {
+            const minutes = Math.floor(ms / 60000);
+            const seconds = ((ms % 60000) / 1000).toFixed(0);
+            return `${minutes}:${seconds.padStart(2, '0')}`;
+          },
+          getTotalDuration() {
+            return this.top_tracks.items.reduce((acc, track) => acc + track.duration_ms, 0);
+          },
+          getAverageDuration() {
+            const total = this.getTotalDuration();
+            return total / this.top_tracks.items.length;
+          },
+          async init() {
+            // read token from local storage
+            this.token = localStorage.getItem('token');
+            console.log(this.token)
+            if (this.token) {
+              try {
+                await this.getTopArtists(this.time_range)
+                await this.getProfile()
+              } catch (e) {
+                console.log(e);
+              }
+            }
+          }
+        }));
+      });
+    </script>

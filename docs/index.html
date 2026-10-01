@@ -349,11 +349,6 @@
         Spotify Premium Free
         <span class="absolute w-3 h-3 px-1 text-white bg-green-500 rounded-full -top-1 -right-1 animate-pulse"></span>
       </a>
-      <a title="New Spotify Pie" href="/new-spotify-pie" class="relative px-2 py-1 bg-gray-100 rounded-lg">
-        New Spotify Pie
-        <span
-          class="absolute -top-1.5 -right-2 rotate-6 text-xs text-white bg-red-600  animate-pulse rounded-full px-1">New</span>
-      </a>
       <a title="Spotify Wrapped 2026" href="/spotify-wrapped" class="relative px-2 py-1 bg-gray-100 rounded-lg">Spotify
         Wrapped 2026</a>
     </div>
@@ -362,6 +357,14 @@
 </header>
 
   <div class="max-w-3xl px-4 pt-8 mx-auto prose prose-lg lg:px-0">
+<style>
+  [x-cloak] { display: none !important; }
+  .has-token .login-only { display: none; }
+  #chart.play { animation: spin 15s linear infinite; filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5)); }
+  .spotify-logo { display: none; }
+  #chart.play .spotify-logo { animation: spin 15s linear infinite; animation-direction: reverse; display: block; }
+</style>
+<script>try { if (localStorage.getItem('token')) document.documentElement.classList.add('has-token') } catch (e) {}</script>
     <h1 class="text-4xl font-black text-gray-900 sm:text-5xl">Spotify Pie Chart: Your Favorite Spotify Stats Generator</h1>
     <p class="mt-6 mb-0 text-lg text-gray-700">
       Welcome to Spotify Pie, the go-to online tool to analyze your listening history.
@@ -395,10 +398,10 @@
     });
 </script>
 
-    <img src="/huan-hero-2.png" alt="App screenshot" width="768" height="511" class="" />
+    <img src="/huan-hero-2.png" alt="App screenshot" width="768" height="511" class="login-only" />
 
-    <div x-data="spotifyLogin" class="py-6 text-gray-700">
-  <div class="w-full text-center">
+    <div x-data="pieTool" class="py-6 text-gray-700">
+  <div class="w-full text-center login-only" x-show="!token">
     <p class="mt-0 mb-4 text-center">
       Login with Spotify to see your charts now 👇
     </p>
@@ -431,6 +434,76 @@
         </a>
       </div>
     </div>
+  </div>
+
+  <div x-show="token" x-cloak class="mt-2">
+    <p class="mb-3 text-xl font-semibold text-center text-green-800 sm:text-2xl">Your Spotify Pie 🎉</p>
+
+    <div class="max-w-sm mx-auto">
+      <div role="group" aria-label="Pie style" class="flex mb-4 text-sm text-center border rounded-lg shadow-lg">
+        <button type="button" @click="setStyle('modern')" :aria-pressed="style === 'modern'"
+          :class="{ 'bg-purple-600 text-white': style === 'modern' }"
+          class="flex-1 px-2 py-2 font-semibold rounded-l-lg">Modern</button>
+        <button type="button" @click="setStyle('classic')" :aria-pressed="style === 'classic'"
+          :class="{ 'bg-purple-600 text-white': style === 'classic' }"
+          class="flex-1 px-2 py-2 font-semibold border-l rounded-r-lg">Classic</button>
+      </div>
+    </div>
+
+    <div x-show="loading" class="flex flex-col items-center my-6 text-center">
+      <p class="font-semibold">Please hang tight while your Spotify Pie is baking...</p>
+      <img class="w-10 my-2 motion-safe:animate-spin" src="/spotify-pie.png" alt="Spotify Pie">
+    </div>
+
+    <p x-show="error" class="max-w-sm mx-auto my-4 text-center text-red-700">
+      Spotify did not send your top artists. <button type="button" class="underline" @click="load()">Try again</button>
+    </p>
+
+    <div x-show="style === 'modern' && !loading && !error">
+      <div class="max-w-sm mx-auto mb-4 border rounded-lg shadow-lg">
+        <div id="pie-chart" class="p-4">
+          <div class="flex justify-center">
+            <div id="chart" @click="$el.classList.toggle('play')"></div>
+          </div>
+          <table class="w-full max-w-3xl mt-2 mb-0 text-gray-700">
+            <tbody class="flex flex-col gap-1">
+              <template x-for="(artist, i) in artists" :key="artist.id">
+                <tr class="flex items-center justify-center w-full my-0 border-0">
+                  <td class="my-0 py-0 font-bold leading-none text-left whitespace-nowrap shrink-0 max-w-[200px] sm:max-w-none">
+                    <p :style="{ fontSize: `${(11 - i) * 2 + 8}px` }" x-text="artist.name" class="my-0"></p>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="max-w-sm mx-auto text-sm text-right text-gray-500">*Tap on the pie chart to spin it 🌀</p>
+      <div class="flex flex-col items-center justify-center gap-4 mt-4">
+        <button type="button" class="px-6 py-3 text-xl font-bold text-white bg-purple-600 rounded-full"
+          @click="capture">Download Spotify Pie</button>
+      </div>
+    </div>
+
+    <div x-show="style === 'classic' && !loading && !error">
+      <div class="w-[300px] sm:w-[506px] mx-auto">
+        <canvas width="506px" id="piChart"></canvas>
+      </div>
+      <div class="flex flex-col justify-center mt-8 text-center">
+        <template x-for="(artist, index) in artists" :key="artist.id">
+          <div><span :style="`font-size: ${36 - index * 1.5}px;`" class="font-semibold leading-none space-nowrap"
+              x-text="artist.name"></span></div>
+        </template>
+      </div>
+    </div>
+
+    <p class="mt-6 text-sm text-center text-gray-700">
+      More from your listening:
+      <a class="underline decoration-2 decoration-dotted underline-offset-4" href="/spotify-bubble-chart">Bubble chart</a>,
+      <a class="underline decoration-2 decoration-dotted underline-offset-4" href="/receiptify">Receipt</a>,
+      <a class="underline decoration-2 decoration-dotted underline-offset-4" href="/spotify-stats">Stats</a>,
+      <a class="underline decoration-2 decoration-dotted underline-offset-4" href="/feedback">Leave your feedback</a>
+    </p>
   </div>
 
   </div>
@@ -524,7 +597,7 @@
             <p class="mt-0 mb-2 text-base relative text-gray-50">Try the NEW Spotify Pie - the hottest way to look at
                 your musical mix!</p>
             <a class="underline decoration-2 decoration-dotted text-white underline-offset-4 before:absolute before:inset-0"
-                href="/new-spotify-pie">Try NEW Spotify Pie</a>
+                href="/">Try NEW Spotify Pie</a>
 
         </div>
 
@@ -546,7 +619,7 @@
             <p class="mt-0 mb-2 text-base relative text-gray-50">Rediscover the timeless classic, the original Spotify
                 Pie that started it all.</p>
             <a class="underline decoration-2 decoration-dotted text-white underline-offset-4 before:absolute before:inset-0"
-                href="/old-spotify-pie">See Old Spotify Pie</a>
+                href="/?style=classic">See Old Spotify Pie</a>
 
         </div>
     </div>
@@ -847,12 +920,7 @@
                   ReceiptiPie</a>
               </li>
               <li>
-                <a href="/new-spotify-pie" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">New
-                  Spotify Pie
-                  - Music Pie Chart</a>
-              </li>
-              <li>
-                <a href="/old-spotify-pie" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Classic
+                <a href="/?style=classic" class="text-base leading-6 text-neutral-600 hover:text-neutral-900">Classic
                   Spotify
                   Pie</a>
               </li>
@@ -958,14 +1026,183 @@
     </div>
   </div>
 </footer>
-
       <script>
       document.addEventListener('alpine:init', () => {
-        Alpine.data('spotifyLogin', () => ({
+        const libs = {};
+        const lib = (src) => (libs[src] ||= new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          s.src = src;
+          s.onload = resolve;
+          s.onerror = reject;
+          document.head.appendChild(s);
+        }));
+        const D3 = 'https://cdn.jsdelivr.net/npm/d3@6';
+        const CHARTJS = 'https://cdn.jsdelivr.net/npm/chart.js';
+        const HTML2CANVAS = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+        const COLORS = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#FFCD56', '#4DB6AC',
+          '#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688',
+          '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548', '#9E9E9E',
+          '#607D8B'];
+
+        // artist -> genre counts, most common first
+        const topGenres = (artists, max) => {
+          const counts = {};
+          artists.forEach((a) => a.genres.forEach((g) => { counts[g] = (counts[g] || 0) + 1; }));
+          return Object.keys(counts)
+            .map((name) => ({ name, value: counts[name] }))
+            .sort((a, b) => b.value - a.value)
+            .slice(0, max);
+        };
+
+        let chart = null; // Chart.js instance, kept out of Alpine's reactive proxy
+
+        Alpine.data('pieTool', () => ({
+          // Spotify login goes through our relay; it returns to /callback, which stores the token
           spotifyAuthUrl: 'https://auth.musicpiechart.com/auth/login?redirect_to=https://huangdarren1106.github.io/callback',
+          token: null,
+          style: 'modern',
+          loading: false,
+          error: false,
+          artists: [],
+
+          async init() {
+            try { this.token = localStorage.getItem('token'); } catch (e) {}
+            const wanted = new URLSearchParams(location.search).get('style');
+            let saved = null;
+            try { saved = localStorage.getItem('pieStyle'); } catch (e) {}
+            this.style = [wanted, saved].find((s) => s === 'classic' || s === 'modern') || 'modern';
+            if (this.token) await this.load();
+          },
+
+          setStyle(style) {
+            this.style = style;
+            try { localStorage.setItem('pieStyle', style); } catch (e) {}
+            return this.load();
+          },
+
+          reset() {
+            this.token = null;
+            try { localStorage.removeItem('token'); } catch (e) {}
+            document.documentElement.classList.remove('has-token');
+          },
+
+          async load() {
+            if (!this.token) return;
+            const style = this.style;
+            this.loading = true;
+            this.error = false;
+            try {
+              // modern pie: top 10 of the last 4 weeks; classic pie: Spotify's default (top 20, 6 months)
+              const url = style === 'modern'
+                ? 'https://api.spotify.com/v1/me/top/artists?limit=10&time_range=short_term'
+                : 'https://api.spotify.com/v1/me/top/artists';
+              const [res] = await Promise.all([
+                fetch(url, { headers: { Authorization: 'Bearer ' + this.token } }),
+                lib(style === 'modern' ? D3 : CHARTJS),
+              ]);
+              if (res.status === 401) { this.reset(); return; }
+              if (!res.ok) throw new Error('spotify ' + res.status);
+              const data = await res.json();
+              if (style !== this.style) return; // user switched while loading
+              this.artists = data.items;
+              this.loading = false;
+              await this.$nextTick();
+              if (style === 'modern') this.drawModern();
+              else this.drawClassic();
+            } catch (e) {
+              console.log(e);
+              this.error = true;
+            } finally {
+              this.loading = false;
+            }
+          },
+
+          drawModern() {
+            const genres = topGenres(this.artists, 10);
+            document.getElementById('chart').innerHTML = this.pieSvg(genres).outerHTML;
+          },
+
+          pieSvg(data) {
+            const width = 300;
+            const height = 300;
+            const color = d3.scaleOrdinal()
+              .domain(data.map((d) => d.name))
+              .range(d3.quantize((t) => d3.interpolateSpectral(t * 0.8 + 0.1), data.length).reverse());
+            const pie = d3.pie().sort(null).value((d) => d.value);
+            const arc = d3.arc().innerRadius(0).outerRadius(Math.min(width, height) / 2 - 1);
+            const labelRadius = arc.outerRadius()() * 0.6;
+            const arcLabel = d3.arc().innerRadius(labelRadius).outerRadius(labelRadius);
+            const arcs = pie(data);
+            const svg = d3.create('svg')
+              .attr('width', width)
+              .attr('height', height)
+              .attr('viewBox', [-width / 2, -height / 2, width, height])
+              .attr('style', 'max-width: 100%; height: auto; font: 10px sans-serif;');
+            svg.append('g').attr('stroke', 'white').selectAll().data(arcs).join('path')
+              .attr('fill', (d) => color(d.data.name))
+              .attr('d', arc)
+              .append('title').text((d) => `${d.data.name}: ${d.data.value.toLocaleString('en-US')}`);
+            svg.append('g').attr('text-anchor', 'middle').selectAll().data(arcs).join('text')
+              .attr('transform', (d) => {
+                const [x, y] = arcLabel.centroid(d);
+                const rotate = (d.startAngle + d.endAngle) / 2 * (180 / Math.PI);
+                const adjusted = rotate > 180 && rotate < 360 ? rotate + 180 : rotate;
+                return `translate(${x}, ${y}) rotate(-90) rotate(${adjusted})`;
+              })
+              .call((text) => text.append('tspan').attr('y', '0.3em').attr('font-weight', 'semibold')
+                .text((d) => d.data.name.slice(0, 18)));
+            svg.append('image').attr('href', '/spotify-black.svg').attr('x', -15).attr('y', -15)
+              .attr('height', 30).attr('width', 30).attr('class', 'spotify-logo');
+            return svg.node();
+          },
+
+          drawClassic() {
+            const genres = topGenres(this.artists, 20);
+            const sum = genres.reduce((total, g) => total + g.value, 0);
+            const canvas = document.getElementById('piChart');
+            if (chart) chart.destroy();
+            chart = new Chart(canvas.getContext('2d'), {
+              type: 'pie',
+              data: {
+                labels: genres.map((g) => g.name),
+                datasets: [{
+                  label: 'Your Top Genres',
+                  data: genres.map((g) => Math.round((g.value / sum) * 100) / 100),
+                  backgroundColor: COLORS,
+                  borderColor: 'white',
+                  radius: '100%',
+                }],
+              },
+              options: {
+                plugins: {
+                  legend: { display: true, position: 'bottom', labels: { color: '#000000', boxWidth: 20, padding: 5, font: { size: 12 } } },
+                  tooltip: {
+                    callbacks: {
+                      label: (context) => context.label + ': ' + this.artists
+                        .filter((a) => a.genres.includes(context.label))
+                        .map((a) => a.name)
+                        .join(', '),
+                    },
+                  },
+                },
+              },
+            });
+          },
+
+          async capture() {
+            await lib(HTML2CANVAS);
+            const canvas = await html2canvas(document.querySelector('#pie-chart'));
+            const link = document.createElement('a');
+            link.download = 'spotify-pie.png';
+            link.href = canvas.toDataURL('image/png');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          },
         }));
       });
     </script>
+    
     <script>
     function modifyElement() {
         var rewardBtns = top.document.querySelectorAll(' .rewarded');

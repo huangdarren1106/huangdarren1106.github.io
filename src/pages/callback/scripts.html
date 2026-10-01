@@ -1,0 +1,27 @@
+
+
+      <script>
+      document.addEventListener('alpine:init', () => {
+        console.log('callback.blade.php')
+        Alpine.data('spotifyLogin', () => ({
+          token: null,
+          loading: false,
+          countdown: 5,
+          async init() {
+            const urlParams = new URLSearchParams(window.location.hash.substring(1));
+            this.token = urlParams.get('access_token');
+            if (this.token) {
+              localStorage.setItem('token', this.token);
+              this.loading = true;
+              // start countdown
+              setInterval(() => {
+                this.countdown--;
+              }, 1000);
+              setTimeout(() => {
+                this.loading = false;
+              }, this.countdown * 1000);
+            }
+          }
+        }));
+      });
+    </script>

@@ -1,0 +1,178 @@
+
+      <script>
+      document.addEventListener('alpine:init', () => {
+        const libs = {};
+        const lib = (src) => (libs[src] ||= new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          s.src = src;
+          s.onload = resolve;
+          s.onerror = reject;
+          document.head.appendChild(s);
+        }));
+        const D3 = 'https://cdn.jsdelivr.net/npm/d3@6';
+        const CHARTJS = 'https://cdn.jsdelivr.net/npm/chart.js';
+        const HTML2CANVAS = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+        const COLORS = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#FFCD56', '#4DB6AC',
+          '#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688',
+          '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548', '#9E9E9E',
+          '#607D8B'];
+
+        // artist -> genre counts, most common first
+        const topGenres = (artists, max) => {
+          const counts = {};
+          artists.forEach((a) => a.genres.forEach((g) => { counts[g] = (counts[g] || 0) + 1; }));
+          return Object.keys(counts)
+            .map((name) => ({ name, value: counts[name] }))
+            .sort((a, b) => b.value - a.value)
+            .slice(0, max);
+        };
+
+        let chart = null; // Chart.js instance, kept out of Alpine's reactive proxy
+
+        Alpine.data('pieTool', () => ({
+          // Spotify login goes through our relay; it returns to /callback, which stores the token
+          spotifyAuthUrl: 'https://auth.musicpiechart.com/auth/login?redirect_to=https://huangdarren1106.github.io/callback',
+          token: null,
+          style: 'modern',
+          loading: false,
+          error: false,
+          artists: [],
+
+          async init() {
+            try { this.token = localStorage.getItem('token'); } catch (e) {}
+            const wanted = new URLSearchParams(location.search).get('style');
+            let saved = null;
+            try { saved = localStorage.getItem('pieStyle'); } catch (e) {}
+            this.style = [wanted, saved].find((s) => s === 'classic' || s === 'modern') || 'modern';
+            if (this.token) await this.load();
+          },
+
+          setStyle(style) {
+            this.style = style;
+            try { localStorage.setItem('pieStyle', style); } catch (e) {}
+            return this.load();
+          },
+
+          reset() {
+            this.token = null;
+            try { localStorage.removeItem('token'); } catch (e) {}
+            document.documentElement.classList.remove('has-token');
+          },
+
+          async load() {
+            if (!this.token) return;
+            const style = this.style;
+            this.loading = true;
+            this.error = false;
+            try {
+              // modern pie: top 10 of the last 4 weeks; classic pie: Spotify's default (top 20, 6 months)
+              const url = style === 'modern'
+                ? 'https://api.spotify.com/v1/me/top/artists?limit=10&time_range=short_term'
+                : 'https://api.spotify.com/v1/me/top/artists';
+              const [res] = await Promise.all([
+                fetch(url, { headers: { Authorization: 'Bearer ' + this.token } }),
+                lib(style === 'modern' ? D3 : CHARTJS),
+              ]);
+              if (res.status === 401) { this.reset(); return; }
+              if (!res.ok) throw new Error('spotify ' + res.status);
+              const data = await res.json();
+              if (style !== this.style) return; // user switched while loading
+              this.artists = data.items;
+              this.loading = false;
+              await this.$nextTick();
+              if (style === 'modern') this.drawModern();
+              else this.drawClassic();
+            } catch (e) {
+              console.log(e);
+              this.error = true;
+            } finally {
+              this.loading = false;
+            }
+          },
+
+          drawModern() {
+            const genres = topGenres(this.artists, 10);
+            document.getElementById('chart').innerHTML = this.pieSvg(genres).outerHTML;
+          },
+
+          pieSvg(data) {
+            const width = 300;
+            const height = 300;
+            const color = d3.scaleOrdinal()
+              .domain(data.map((d) => d.name))
+              .range(d3.quantize((t) => d3.interpolateSpectral(t * 0.8 + 0.1), data.length).reverse());
+            const pie = d3.pie().sort(null).value((d) => d.value);
+            const arc = d3.arc().innerRadius(0).outerRadius(Math.min(width, height) / 2 - 1);
+            const labelRadius = arc.outerRadius()() * 0.6;
+            const arcLabel = d3.arc().innerRadius(labelRadius).outerRadius(labelRadius);
+            const arcs = pie(data);
+            const svg = d3.create('svg')
+              .attr('width', width)
+              .attr('height', height)
+              .attr('viewBox', [-width / 2, -height / 2, width, height])
+              .attr('style', 'max-width: 100%; height: auto; font: 10px sans-serif;');
+            svg.append('g').attr('stroke', 'white').selectAll().data(arcs).join('path')
+              .attr('fill', (d) => color(d.data.name))
+              .attr('d', arc)
+              .append('title').text((d) => `${d.data.name}: ${d.data.value.toLocaleString('en-US')}`);
+            svg.append('g').attr('text-anchor', 'middle').selectAll().data(arcs).join('text')
+              .attr('transform', (d) => {
+                const [x, y] = arcLabel.centroid(d);
+                const rotate = (d.startAngle + d.endAngle) / 2 * (180 / Math.PI);
+                const adjusted = rotate > 180 && rotate < 360 ? rotate + 180 : rotate;
+                return `translate(${x}, ${y}) rotate(-90) rotate(${adjusted})`;
+              })
+              .call((text) => text.append('tspan').attr('y', '0.3em').attr('font-weight', 'semibold')
+                .text((d) => d.data.name.slice(0, 18)));
+            svg.append('image').attr('href', '/spotify-black.svg').attr('x', -15).attr('y', -15)
+              .attr('height', 30).attr('width', 30).attr('class', 'spotify-logo');
+            return svg.node();
+          },
+
+          drawClassic() {
+            const genres = topGenres(this.artists, 20);
+            const sum = genres.reduce((total, g) => total + g.value, 0);
+            const canvas = document.getElementById('piChart');
+            if (chart) chart.destroy();
+            chart = new Chart(canvas.getContext('2d'), {
+              type: 'pie',
+              data: {
+                labels: genres.map((g) => g.name),
+                datasets: [{
+                  label: 'Your Top Genres',
+                  data: genres.map((g) => Math.round((g.value / sum) * 100) / 100),
+                  backgroundColor: COLORS,
+                  borderColor: 'white',
+                  radius: '100%',
+                }],
+              },
+              options: {
+                plugins: {
+                  legend: { display: true, position: 'bottom', labels: { color: '#000000', boxWidth: 20, padding: 5, font: { size: 12 } } },
+                  tooltip: {
+                    callbacks: {
+                      label: (context) => context.label + ': ' + this.artists
+                        .filter((a) => a.genres.includes(context.label))
+                        .map((a) => a.name)
+                        .join(', '),
+                    },
+                  },
+                },
+              },
+            });
+          },
+
+          async capture() {
+            await lib(HTML2CANVAS);
+            const canvas = await html2canvas(document.querySelector('#pie-chart'));
+            const link = document.createElement('a');
+            link.download = 'spotify-pie.png';
+            link.href = canvas.toDataURL('image/png');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          },
+        }));
+      });
+    </script>
+    

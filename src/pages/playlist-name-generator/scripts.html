@@ -1,0 +1,264 @@
+
+
+          <script>
+            const adjectives = [
+                "Goofy",
+                "Zany",
+                "Wacky",
+                "Absurd",
+                "Hilarious",
+                "Silly",
+                "Ridiculous",
+                "Comical",
+                "Whimsical",
+                "Amusing",
+                "Droll",
+                "Lighthearted",
+                "Jocular",
+                "ChuckleSome",
+                "Quirky",
+                "Playful",
+                "Nutty",
+                "Eccentric",
+                "FarOut",
+                "Freaky",
+                "Kooky",
+                "Bizarre",
+                "Offbeat",
+                "Outlandish",
+                "Wackadoodle",
+                "Peculiar",
+                "Oddball",
+                "Strange",
+                "Weird",
+                "Unique",
+                "Odd",
+                "Different",
+                "Unusual",
+                "Curious",
+                "Singular",
+                "Novel",
+                "Whacky",
+                "Bonkers",
+                "Crackers",
+                "Loony",
+                "Witty",
+                "Snappy",
+                "Clever",
+                "Hysterical",
+                "Ludicrous",
+                "Daft",
+                "Absurd",
+                "Crazy",
+                "Madcap",
+                "Farcical",
+                "Humorous",
+                "Entertaining",
+                "Fun",
+                "Enjoyable",
+                "Pleasurable",
+                "Delightful",
+                "Gleeful",
+                "Merry",
+                "Jolly",
+                "Playful",
+                "Blithe",
+                "Frolicsome",
+                "Frivolous",
+                "Lively",
+                "Mirthful",
+                "Rollicking",
+                "Boisterous",
+                "Joyful",
+                "Cheerful",
+                "Chipper",
+                "Peppy",
+                "Jaunty",
+                "Buoyant",
+                "Sprightly",
+                "Zesty",
+                "Spunky",
+                "Perky",
+                "Vivacious",
+                "Animated",
+                "Bouncy",
+                "Energetic",
+                "Lively",
+                "Sparkling",
+                "Radiant",
+                "Beaming",
+                "Smiling",
+                "Grinning",
+                "Jovial",
+                "Convivial",
+                "Festive",
+                "Good-humored",
+                "Light-hearted",
+                "Effervescent",
+                "Spirited",
+                "Hilarious",
+                "Splitting",
+                "Busting",
+                "Laughing",
+                "Slapping",
+                "Roaring",
+            ];
+
+            const nouns = [
+                "Banana",
+                "Cabbage",
+                "Mustache",
+                "Balloon",
+                "Pickle",
+                "Sausage",
+                "FannyPack",
+                "Pajamas",
+                "Spatula",
+                "Jellybean",
+                "Biscuit",
+                "Llama",
+                "Yacht",
+                "Doughnut",
+                "Tuba",
+                "PickleBall",
+                "Cucumber",
+                "Pineapple",
+                "Zucchini",
+                "Cheeseburger",
+                "Popcorn",
+                "HotDog",
+                "Flamingo",
+                "Kangaroo",
+                "TaterTots",
+                "Gravy",
+                "Hulahoop",
+                "FlipFlops",
+                "Muffin",
+                "Marshmallow",
+                "GummyBear",
+                "Peppermint",
+                "Toaster",
+                "Waffle",
+                "Shrimp",
+                "BubbleWrap",
+                "Giraffe",
+                "Ostrich",
+                "Squirrel",
+                "Frog",
+                "Bathtub",
+                "Treadmill",
+                "Blender",
+                "VacuumCleaner",
+                "FishnetStockings",
+                "Discoball",
+                "GardenGnome",
+                "Hamburger",
+                "Trampoline",
+                "Tangerine",
+                "Snorkel",
+                "LawnMower",
+                "SippyCup",
+                "Chandelier",
+                "Tutu",
+                "Nosering",
+                "Tuxedo",
+                "Sombrero",
+                "Tiara",
+                "Sunglasses",
+                "CowboyHat",
+                "BeerMug",
+                "GardenHose",
+                "Hamster",
+                "Scrunchie",
+                "Chiapet",
+                "Slinky",
+                "Frisbee",
+                "PogoStick",
+                "DiscoStick",
+                "Cactus",
+                "Coconut",
+                "HulaSkirt",
+                "Umbrella",
+                "Mittens",
+                "Bathrobe",
+                "ToothBrush",
+                "Popsicle",
+                "Snowcone",
+                "EspressoMachine",
+                "PogoBall",
+                "FleeceJacket",
+                "Maracas",
+                "NoseFlute",
+                "PirateHat",
+                "VikingHelmet",
+                "Plunger",
+                "Saxophone",
+                "Potatoes",
+                "Slingshot",
+                "Jello",
+                "HamburgerBun",
+                "Paperclip",
+                "LegWarmers",
+                "CassetteTape",
+                "Snowshoes",
+                "LipBalm",
+                "SlinkyDog",
+            ];
+
+            function getRandomElement(arr) {
+                return arr[Math.floor(Math.random() * arr.length)];
+            }
+
+            function generateAlbumName() {
+                const adjective = getRandomElement(adjectives);
+                const noun = getRandomElement(nouns);
+                return `${adjective} ${noun}`;
+            }
+
+            function saveName(name) {
+                let savedNames = JSON.parse(localStorage.getItem('savedNames')) || [];
+                savedNames.push(name);
+                localStorage.setItem('savedNames', JSON.stringify(savedNames));
+                renderSavedNames();
+            }
+
+            function deleteName(index) {
+                let savedNames = JSON.parse(localStorage.getItem('savedNames')) || [];
+                const reversedIndex = savedNames.length - 1 - index;
+                savedNames.splice(reversedIndex, 1);
+                localStorage.setItem('savedNames', JSON.stringify(savedNames));
+                renderSavedNames();
+            }
+
+            function clearAllNames() {
+                localStorage.removeItem('savedNames');
+                renderSavedNames();
+            }
+
+            function renderSavedNames() {
+                const savedNames = JSON.parse(localStorage.getItem('savedNames')) || [];
+                const savedNamesContainer = document.getElementById('savedNames');
+                savedNamesContainer.innerHTML = savedNames.reverse().map((name, index) => `
+      <div class="flex justify-between items-center bg-gray-200 px-4 py-2 my-2 rounded">
+        <span>${name}</span>
+        <span class="text-red-500 w-8 h-8 rounded-full flex justify-center items-center bg-red-50" onclick="deleteName(${index})">&times;</span>
+      </div>
+    `).join('');
+            }
+
+            document.getElementById('generateBtn').addEventListener('click', () => {
+                const albumName = generateAlbumName();
+                document.getElementById('albumName').value = albumName;
+                saveName(albumName);
+            });
+
+            document.getElementById('copyBtn').addEventListener('click', () => {
+                const albumNameInput = document.getElementById('albumName');
+                albumNameInput.select();
+                document.execCommand('copy');
+            });
+
+            // Initial render of saved names
+            document.addEventListener('DOMContentLoaded', renderSavedNames);
+        </script>
+  
