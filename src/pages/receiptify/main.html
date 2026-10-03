@@ -89,15 +89,15 @@
         Spotify Stats</a>
     </div>
 
-    <!-- Add tab selector for Artists/Tracks -->
+    <!-- Track receipt first: the page answers "make me a Spotify receipt". -->
     <div class="flex justify-center w-full mb-4 text-sm text-center border rounded-lg shadow-lg">
-      <button @click="setActiveTab('artists')" :class="{ 'bg-purple-600 text-white': activeTab === 'artists' }"
-        class="flex-1 px-4 py-2 rounded-l-lg">
-        Top Artists
-      </button>
       <button @click="setActiveTab('tracks')" :class="{ 'bg-purple-600 text-white': activeTab === 'tracks' }"
-        class="flex-1 px-4 py-2 rounded-r-lg">
+        class="flex-1 px-4 py-2 rounded-l-lg">
         Top Tracks
+      </button>
+      <button @click="setActiveTab('artists')" :class="{ 'bg-purple-600 text-white': activeTab === 'artists' }"
+        class="flex-1 px-4 py-2 rounded-r-lg">
+        Top Artists
       </button>
     </div>
 
@@ -134,17 +134,17 @@
   </div>
 
 
-  <div x-show="top_artists || top_tracks" class="max-w-sm mx-auto mb-4 border border-dashed shadow-lg"
+  <div x-show="hasItems" id="receipt" class="receipt-paper max-w-sm mx-auto mb-4 border border-dashed shadow-lg"
     style="background: url('paper-2.jpeg');">
     <div class="mt-4 text-2xl font-bold text-center uppercase">Spotify ReceiptiPie</div>
 
     <p class="py-0 my-2 text-center" x-text="getTimeRangeText()"></p>
 
-    <div id="pie-chart" class="p-4">
+    <div class="p-4">
       <div class="flex justify-center">
         <div id="chart"></div>
       </div>
-      <div class="kanit">
+      <div>
         <div class="my-0">
           Docket No. 001. Served By Spotify Pie.
         </div>
@@ -167,8 +167,8 @@
             </tr>
           </thead>
           <tbody class="border-t border-black border-dashed">
-            <template x-for="(item, i) in activeTab === 'artists' ? top_artists.items : top_tracks.items">
-              <tr class="w-full my-0 border-0" x-key="item.id">
+            <template x-for="(item, i) in items" :key="item.id">
+              <tr class="w-full my-0 border-0">
                 <td class="py-0 my-0">
                   <p x-text="i+1" class="py-0 my-0"></p>
                 </td>
@@ -186,27 +186,33 @@
               <td colspan="2" class="py-0 my-0 uppercase">
                 Item count:
               </td>
-              <td class="py-0 my-0 text-right"
-                x-text="activeTab === 'artists' ? top_artists.items.length : top_tracks.items.length"></td>
+              <td class="py-0 my-0 text-right" x-text="items.length"></td>
             </tr>
             <tr class="py-0 my-0 ">
               <td colspan="2" class="py-0 my-0 uppercase">
                 <span x-text="activeTab === 'artists' ? 'Total Popularity:' : 'Total Duration:'"></span>
               </td>
               <td class="py-0 my-0 text-right"
-                x-text="activeTab === 'artists' ? getPopularity() : formatDuration(getTotalDuration())"></td>
+                x-text="activeTab === 'artists' ? getPopularity() : formatTotal(getTotalDuration())"></td>
             </tr>
             <tr class="py-0 my-0">
               <td colspan="2" class="py-0 my-0 uppercase">
                 <span x-text="activeTab === 'artists' ? 'Average Popularity:' : 'Average Duration:'"></span>
               </td>
               <td class="py-0 my-0 text-right"
-                x-text="activeTab === 'artists' ? getAveragePopularity() : formatDuration(getAverageDuration())"></td>
+                x-text="activeTab === 'artists' ? getAveragePopularity() : formatTotal(getAverageDuration())"></td>
             </tr>
           </tbody>
         </table>
+        <p class="mt-3 mb-0 text-center font-bold">THANK YOU FOR LISTENING</p>
       </div>
     </div>
+  </div>
+
+  <div x-show="hasItems" class="max-w-sm mx-auto mb-4 text-center">
+    <button type="button" @click="downloadReceipt()" :disabled="saving"
+      class="px-6 py-3 text-lg font-bold text-white bg-green-600 rounded-full disabled:opacity-60"
+      x-text="saving ? 'Baking your PNG...' : 'Get image (PNG)'">Get image (PNG)</button>
   </div>
 
   
