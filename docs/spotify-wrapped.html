@@ -386,8 +386,13 @@
 </script>
     <h1 class="text-3xl text-center text-gray-900 sm:text-5xl">Spotify Wrapped 2026: When Does It Come Out? (Date Prediction)</h1>
           <h2 class="text-xl text-center text-gray-700 sm:text-2xl"></h2>
-      <p class="text-sm text-gray-700"><span>By the Music Pie Chart Team</span> - <span>Updated:
-          Feb, 10 2026</span></p>
+      <p class="text-sm text-gray-700"><span>By the Spotify Pie team</span> - <span>Updated:
+          Oct, 12 2026</span></p>
+      <div id="wrapped-countdown" class="not-prose my-4 rounded-lg border border-green-600 bg-green-50 p-4 text-center" data-target="2026-12-02T00:00:00">
+        <p class="text-sm uppercase tracking-wide text-green-800">Our predicted date: Wednesday, 2 December 2026</p>
+        <p class="text-3xl font-bold text-gray-900" id="wrapped-countdown-value">Countdown to Wrapped 2026</p>
+        <p class="text-sm text-gray-700">Can't wait? See <a class="underline" href="/">your Wrapped so far as a pie</a> or print <a class="underline" href="/receiptify">your top tracks as a receipt</a>.</p>
+      </div>
     
         <div class="h-[440px] bg-neutral-50 mt-4 mb-4 ads relative">
     <div class="font-light text-xs left-1 top-1 absolute text-gray-400 uppercase">advertisement</div>
@@ -636,6 +641,32 @@
     <p>
         Based on historical data, Spotify prefers <b>Wednesdays late November or early December</b>. The schedule has become more consistent since 2021.
     </p>
+</div>
+<div class="editor-js-block">
+    <div class="editor-js-delimiter"></div>
+</div>
+<div class="editor-js-block">
+    <h2>
+        Can I see my Spotify Wrapped early?
+    </h2>
+</div>
+<div class="editor-js-block">
+    <p>
+        No. Spotify does not open Wrapped before launch day, and sites that promise an early Wrapped cannot show it. What you can see now is the same kind of data: your top artists, songs and genres for the last 4 weeks, 6 months or 12 months, straight from Spotify.
+    </p>
+</div>
+<div class="editor-js-block">
+    <ul>
+            <li>
+            <a href="/">Spotify Pie</a>: your top genres and artists as a pie chart
+        </li>
+            <li>
+            <a href="/receiptify">Receipt</a>: your top tracks printed as a shop receipt
+        </li>
+            <li>
+            <a href="/top-spotify-artists">Top Spotify artists</a> and <a href="/spotify-top-songs-right-now">top songs right now</a>: what everyone else is playing
+        </li>
+        </ul>
 </div>
 <div class="editor-js-block">
     <div class="editor-js-delimiter"></div>
@@ -1026,8 +1057,19 @@
       </p>
     </div>
   </div>
-</footer>
-
+</footer><script>
+  (function () {
+    var box = document.getElementById('wrapped-countdown');
+    var out = document.getElementById('wrapped-countdown-value');
+    if (!box || !out) return;
+    var target = new Date(box.getAttribute('data-target'));
+    var days = Math.ceil((target - new Date()) / 86400000);
+    if (days > 1) out.textContent = days + ' days to go';
+    else if (days === 1) out.textContent = 'Tomorrow, if Spotify keeps to its usual Wednesday';
+    else if (days === 0) out.textContent = 'Today, if Spotify keeps to its usual Wednesday';
+    else out.textContent = 'Wrapped 2026 should be out: check the Spotify app';
+  })();
+</script>
     <script>
     function modifyElement() {
         var rewardBtns = top.document.querySelectorAll(' .rewarded');
