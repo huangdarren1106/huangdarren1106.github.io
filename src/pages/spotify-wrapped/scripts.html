@@ -1,2 +1,13 @@
-
-
+<script>
+  (function () {
+    var box = document.getElementById('wrapped-countdown');
+    var out = document.getElementById('wrapped-countdown-value');
+    if (!box || !out) return;
+    var target = new Date(box.getAttribute('data-target'));
+    var days = Math.ceil((target - new Date()) / 86400000);
+    if (days > 1) out.textContent = days + ' days to go';
+    else if (days === 1) out.textContent = 'Tomorrow, if Spotify keeps to its usual Wednesday';
+    else if (days === 0) out.textContent = 'Today, if Spotify keeps to its usual Wednesday';
+    else out.textContent = 'Wrapped 2026 should be out: check the Spotify app';
+  })();
+</script>
