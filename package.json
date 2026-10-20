@@ -12,6 +12,7 @@
     "move-top-artists": "mv output/top-spotify-artists.html docs/top-spotify-artists.html",
     "generate-top-songs": "node top-songs.js",
     "move-top-songs": "mv output/spotify-top-songs-right-now.html docs/spotify-top-songs-right-now.html",
+    "test": "node --test tests/*.test.js",
     "serve": "serve docs",
     "check-links": "node linkcheck.js docs",
     "start": "node server.js",
