@@ -284,7 +284,6 @@
           async init() {
             // read token from local storage
             this.token = localStorage.getItem('token');
-            console.log(this.token)
             if (this.token) {
               try {
                 await this.getTopArtists(this.time_range)

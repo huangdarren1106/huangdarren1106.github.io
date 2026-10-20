@@ -240,7 +240,7 @@
                 const savedNamesContainer = document.getElementById('savedNames');
                 savedNamesContainer.innerHTML = savedNames.reverse().map((name, index) => `
       <div class="flex justify-between items-center bg-gray-200 px-4 py-2 my-2 rounded">
-        <span>${name}</span>
+        <span>${String(name).replace(/[&<>"']/g, c => '&#' + c.charCodeAt(0) + ';')}</span>
         <span class="text-red-500 w-8 h-8 rounded-full flex justify-center items-center bg-red-50" onclick="deleteName(${index})">&times;</span>
       </div>
     `).join('');
