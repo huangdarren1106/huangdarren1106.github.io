@@ -54,6 +54,29 @@
         animation-direction: reverse;
         display: block;
       }
+
+      .receipt-paper {
+        font-family: "Victor Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+
+        #receipt,
+        #receipt * {
+          visibility: visible;
+        }
+
+        #receipt {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          box-shadow: none;
+        }
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
