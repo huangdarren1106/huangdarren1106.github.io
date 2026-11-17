@@ -676,6 +676,8 @@ admanmedia.com, 2028, DIRECT
 
 # Nomade Lab
 nomadelab.com, 22921845643, DIRECT
+datammatic.com, 22921845643, DIRECT
+google.com, pub-6106740322220497, RESELLER, f08c47fec0942fa0
 google.com, pub-2960795876206253, RESELLER, f08c47fec0942fa0
 # Nomade Lab end
 
