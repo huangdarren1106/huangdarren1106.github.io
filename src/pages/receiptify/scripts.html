@@ -4,35 +4,52 @@
       document.addEventListener('alpine:init', () => {
         Alpine.data('piechart', () => ({
           show: false,
+          saving: false,
           token: null,
           profile: null,
           time_range: 'short_term',
-          top_artists: [],
+          top_artists: { items: [] },
           genresChartData: [],
           isSpotifyBubble: false,
           isSpotifyStats: false,
           isSpotifyPie: false,
           isSpotifyReceiptipie: true,
           length: 10,
-          activeTab: 'artists',
-          top_tracks: [],
-          capture() {
-            html2canvas(document.querySelector("#pie-chart", {
-              backgroundColor: "none",
-              useCORS: true,
-              logging: true,
-              letterRendering: 1,
-              allowTaint: false
-            })).then(canvas => {
-              var link = document.createElement('a');
-              link.download = 'spotify-pie.png';
-              link.href = canvas.toDataURL('image/png')
+          activeTab: 'tracks',
+          top_tracks: { items: [] },
+          get items() {
+            return this.activeTab === 'tracks' ? this.top_tracks.items : this.top_artists.items;
+          },
+          get hasItems() {
+            return this.items && this.items.length > 0;
+          },
+          async downloadReceipt() {
+            const node = document.getElementById('receipt');
+            if (!node || typeof html2canvas !== 'function') {
+              return;
+            }
+            this.saving = true;
+            try {
+              if (document.fonts && document.fonts.ready) {
+                await document.fonts.ready;
+              }
+              const canvas = await html2canvas(node, {
+                backgroundColor: '#ffffff',
+                useCORS: true,
+                logging: false,
+                scale: 2
+              });
+              const link = document.createElement('a');
+              link.download = 'spotify-receipt.png';
+              link.href = canvas.toDataURL('image/png');
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
-
-            });
-
+            } catch (e) {
+              console.error(e);
+            } finally {
+              this.saving = false;
+            }
           },
           setActiveTab(tab) {
             this.activeTab = tab;
@@ -171,7 +188,7 @@
               .attr("width", width)
               .attr("height", height)
               .attr("viewBox", [-width / 2, -height / 2, width, height])
-              .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+              .attr("style", "max-width: 100%; height: auto; font: 10px \"Victor Mono\", monospace;");
 
             // Add a sector path for each value.
             svg.append("g")
@@ -266,28 +283,44 @@
               });
           },
           createTracksPieChart() {
-            // Similar to createChartSVG, but use track data instead
-            // You can use track duration or popularity for the pie chart
+            if (!this.top_tracks.items || this.top_tracks.items.length === 0) {
+              return;
+            }
+            const data = this.top_tracks.items.map(track => ({
+              name: track.name,
+              value: track.duration_ms
+            }));
+            const svg = this.createChartSVG(data);
+            document.getElementById('chart').innerHTML = svg.outerHTML;
           },
           formatDuration(ms) {
             const minutes = Math.floor(ms / 60000);
             const seconds = ((ms % 60000) / 1000).toFixed(0);
             return `${minutes}:${seconds.padStart(2, '0')}`;
           },
+          formatTotal(ms) {
+            const totalSeconds = Math.round((ms || 0) / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            return hours > 0 ? `${hours}h ${minutes}m ${seconds}s` : `${minutes}m ${seconds}s`;
+          },
           getTotalDuration() {
             return this.top_tracks.items.reduce((acc, track) => acc + track.duration_ms, 0);
           },
           getAverageDuration() {
-            const total = this.getTotalDuration();
-            return total / this.top_tracks.items.length;
+            if (this.top_tracks.items.length === 0) {
+              return 0;
+            }
+            return this.getTotalDuration() / this.top_tracks.items.length;
           },
           async init() {
             // read token from local storage
             this.token = localStorage.getItem('token');
             if (this.token) {
               try {
-                await this.getTopArtists(this.time_range)
-                await this.getProfile()
+                this.getTopTracks(this.time_range)
+                this.getProfile()
               } catch (e) {
                 console.log(e);
               }
