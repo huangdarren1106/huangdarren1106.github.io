@@ -4,9 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 // Rule: outside scripts load async/defer and never block page render.
-// Tailwind's Play CDN must run synchronously (it styles the page) so it is the one allowed exception.
+// The Tailwind Play CDN is gone (built CSS now), so there is no sync exception for it.
 // onnetwork.tv's /feed widget is a document.write loader: async would break it, and it is not an ad unit we may touch.
-const SYNC_OK = [/^https:\/\/cdn\.tailwindcss\.com/, /^https:\/\/video\.onnetwork\.tv\//];
+const SYNC_OK = [/^https:\/\/video\.onnetwork\.tv\//];
 const roots = ['src', 'views', 'docs'];
 const exts = new Set(['.html', '.njk']);
 

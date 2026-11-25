@@ -58,6 +58,7 @@ function page(p, dir) {
     metaBlock(p),
     partial('head-mid'),
     part('head.html'),
+    partial('alpine'),
     partial('head-end'),
     partial('body-top'),
     part('main.html'),

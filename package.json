@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "node build.js && npm run generate-top-artists && npm run move-top-artists && npm run generate-top-songs && npm run move-top-songs",
+    "build": "npm run build-css && node build.js && npm run generate-top-artists && npm run move-top-artists && npm run generate-top-songs && npm run move-top-songs",
+    "build-css": "tailwindcss -i src/css/tailwind.css -o docs/tailwind.css --minify",
     "generate-top-artists": "node top-artists.js",
     "move-top-artists": "mv output/top-spotify-artists.html docs/top-spotify-artists.html",
     "generate-top-songs": "node top-songs.js",
@@ -27,6 +28,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.1.5"
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.20",
+    "nodemon": "^3.1.5",
+    "tailwindcss": "^3.4.19"
   }
 }
